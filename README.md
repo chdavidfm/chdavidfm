@@ -1,69 +1,45 @@
 <h1 align="center">David Mejía</h1>
 
-<p align="center">
-  <strong>Creador · Emprendedor en construcción · Apalancándome en IA avanzada</strong>
-</p>
-<p align="center">
-  <em>Aprendo rápido, construyo en público y no me detengo.</em>
-</p>
+<p align="center">Creador · Construyendo producto con IA avanzada</p>
 
 <p align="center">
-  <a href="mailto:chdavidfm@gmail.com"><img src="https://img.shields.io/badge/Hablemos-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"></a>
-  <img src="https://komarev.com/ghpvc/?username=chdavidfm&style=for-the-badge&color=6f42c1&label=Perfil+visto" alt="Profile views">
+  <a href="mailto:chdavidfm@gmail.com">
+    <img src="https://img.shields.io/badge/Email-chdavidfm%40gmail.com-262730?style=flat-square&logo=gmail&logoColor=white" alt="Email">
+  </a>
 </p>
 
 ---
 
-### 🚀 Quién soy
+Junior en IA con mentalidad de fundador. No inflo mi nivel: estoy en aprendizaje exponencial y construyo en público. Mi objetivo no es solo aprender a programar — es convertir la IA avanzada en producto real.
 
-Junior en IA con **mentalidad de fundador**. No finjo un nivel que no tengo: estoy en aprendizaje **exponencial** y con un compromiso brutal. Mi objetivo no es solo aprender a programar — es **crear productos reales apalancados en IA** y construir un ecosistema propio.
+### Cómo trabajo
 
-- 🛠️ **Construyo en público** — cada repo es una prueba de progreso, no un tutorial copiado.
-- 📈 **Método Pareto 90/10** — aprendo lo que de verdad mueve la aguja, y lo aplico ya.
-- 🎯 **Misión** — idea → producto → empresa, con la IA como palanca.
-- 🤝 **Abierto a** colaboradores, mentores y gente que quiera construir → **chdavidfm@gmail.com**
+- **Construyo en público.** Cada repositorio es una prueba de progreso, no un tutorial copiado.
+- **Enfoque Pareto 90/10.** Aprendo lo que mueve la aguja y lo aplico de inmediato.
+- **Calidad por defecto.** Tests, integración continua y documentación cuidada en todo lo que publico.
 
----
+### En qué me enfoco
 
-### 🧭 En qué me enfoco
+| Área | Objetivo |
+|------|----------|
+| IA aplicada / LLMs | Agentes y productos útiles, no demos |
+| Software y sistemas | Código sólido, probado y que escale |
+| Ciberseguridad | Construir con seguridad desde el primer día |
+| Datos a escala | Convertir datos en decisiones |
 
-| Área | Qué persigo |
-|------|-------------|
-| 🤖 **IA aplicada / LLMs** | Construir agentes y productos útiles, no demos |
-| ⚙️ **Software / Sistemas** | Que lo que construyo sea sólido, probado y escale |
-| 🔐 **Ciberseguridad** | Construir con seguridad desde el día 1 |
-| 📊 **Big Data** | Convertir datos en decisiones |
+### Aprendiendo ahora
 
----
-
-### 🌱 Aprendiendo activamente — roadmap vivo
-
-> Mido mi progreso **construyendo**, no coleccionando cursos. Estado real y honesto:
-
-- [x] Git & GitHub — construyendo en público
+- [x] Git y GitHub — construyendo en público
 - [ ] Python para IA
-- [ ] RAG y agentes LLM
+- [ ] RAG y agentes con LLMs
 - [ ] APIs y despliegue (FastAPI · Docker)
 - [ ] Fundamentos de ciberseguridad
-- [ ] Data engineering (SQL · pipelines)
+- [ ] Ingeniería de datos (SQL · pipelines)
+
+### Proyecto activo
+
+**[rag-agent-lab](https://github.com/chdavidfm/rag-agent-lab)** — agente RAG que recupera y responde sobre tus documentos, 100 % local y sin claves. Empaquetado instalable, con tests e integración continua en verde.
 
 ---
 
-### 🔨 Proyectos
-
-| Proyecto | Qué es | Estado |
-|----------|--------|--------|
-| [**rag-agent-lab**](https://github.com/chdavidfm/rag-agent-lab) | Mi primer agente RAG, construido para entender la recuperación aumentada **de raíz** | 🟢 Activo |
-
----
-
-### 📊 Actividad
-
-<p align="center">
-  <img height="160" src="https://github-readme-stats.vercel.app/api?username=chdavidfm&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="stats">
-  <img height="160" src="https://github-readme-stats.vercel.app/api/top-langs/?username=chdavidfm&layout=compact&theme=tokyonight&hide_border=true" alt="top langs">
-</p>
-
----
-
-<p align="center"><em>«No busco un nivel prestado. Construyo el mío, en público, un commit cada día.»</em></p>
+<p align="center"><sub>Disponible para colaborar y construir · chdavidfm@gmail.com</sub></p>
