@@ -1,45 +1,22 @@
-<h1 align="center">David Mejía</h1>
+# David
 
-<p align="center">Creador · Construyendo producto con IA avanzada</p>
+Fundador de **[Renovo](https://userenovo.com)** — IA para hostelería independiente.
 
-<p align="center">
-  <a href="mailto:chdavidfm@gmail.com">
-    <img src="https://img.shields.io/badge/Email-chdavidfm%40gmail.com-262730?style=flat-square&logo=gmail&logoColor=white" alt="Email">
-  </a>
-</p>
+Este GitHub es **código**. El cerebro (Obsidian) y el CRM (Notion) no viven aquí.
 
----
+## Dónde está cada cosa
 
-Junior en IA con mentalidad de fundador. No inflo mi nivel: estoy en aprendizaje exponencial y construyo en público. Mi objetivo no es solo aprender a programar — es convertir la IA avanzada en producto real.
+| Superficie | Manda |
+|---|---|
+| [userenovo.com](https://userenovo.com) | producto en producción |
+| `chdavidfm/renovo-core` (privado) | el repo que corre |
+| [`rag-agent-lab`](https://github.com/chdavidfm/rag-agent-lab) | experimento RAG local — **no** es el producto |
+| Obsidian / Notion | memoria y pipeline (privados) |
 
-### Cómo trabajo
+## Cómo trabajan las IAs
 
-- **Construyo en público.** Cada repositorio es una prueba de progreso, no un tutorial copiado.
-- **Enfoque Pareto 90/10.** Aprendo lo que mueve la aguja y lo aplico de inmediato.
-- **Calidad por defecto.** Tests, integración continua y documentación cuidada en todo lo que publico.
+Claude escribe el brief (`FIX-*.md` o un issue con esa plantilla). Cursor ejecuta en el repo. Nada "hecho" sin evidencia en dispositivo o producción. Secretos nunca en git.
 
-### En qué me enfoco
+## No está aquí
 
-| Área | Objetivo |
-|------|----------|
-| IA aplicada / LLMs | Agentes y productos útiles, no demos |
-| Software y sistemas | Código sólido, probado y que escale |
-| Ciberseguridad | Construir con seguridad desde el primer día |
-| Datos a escala | Convertir datos en decisiones |
-
-### Aprendiendo ahora
-
-- [x] Git y GitHub — construyendo en público
-- [ ] Python para IA
-- [ ] RAG y agentes con LLMs
-- [ ] APIs y despliegue (FastAPI · Docker)
-- [ ] Fundamentos de ciberseguridad
-- [ ] Ingeniería de datos (SQL · pipelines)
-
-### Proyecto activo
-
-**[rag-agent-lab](https://github.com/chdavidfm/rag-agent-lab)** — agente RAG que recupera y responde sobre tus documentos, 100 % local y sin claves. Empaquetado instalable, con tests e integración continua en verde.
-
----
-
-<p align="center"><sub>Disponible para colaborar y construir · chdavidfm@gmail.com</sub></p>
+OS de vida, fichas de locales, datos personales, tokens.
