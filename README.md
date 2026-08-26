@@ -1,45 +1,51 @@
-<div align="center">
-
 # David Flórez
 
-**Founder · [Renovo](https://userenovo.com) · Agent Skills · París / Alicante**
+Founder of **[Renovo](https://userenovo.com)** — AI that handles reviews and content for
+independent restaurants. In production, in Spanish and French. Paris / Alicante.
 
-[![prod](https://img.shields.io/badge/prod-userenovo.com-7c3aed?style=for-the-badge)](https://userenovo.com)
-[![skills](https://img.shields.io/badge/skills-Agent%20Skills-111?style=for-the-badge)](https://github.com/chdavidfm/skills)
-[![ci](https://img.shields.io/github/actions/workflow/status/chdavidfm/skills/ci.yml?label=skills%20CI&style=for-the-badge)](https://github.com/chdavidfm/skills/actions)
+Five years behind a bar before I wrote a line of this. That is the whole edge: I am
+building for the person I used to be at 2am, closing the till, with a one-star review
+sitting unanswered since Tuesday.
 
-SaaS en producción. Skills portables. Lab aparte. Memoria fuera de GitHub.
+## What lives here
 
-</div>
-
----
-
-## Ecosistema
-
-| Superficie | Qué es |
+| Surface | What it is |
 |---|---|
-| Producto | [userenovo.com](https://userenovo.com) — IA para hostelería independiente |
-| Skills (toda la vida) | [chdavidfm/skills](https://github.com/chdavidfm/skills) — `github` · `ship` · `absorb` · `verify` · `skill-author` |
-| Código producto | `chdavidfm/renovo-core` (privado) |
-| Lab | [rag-agent-lab](https://github.com/chdavidfm/rag-agent-lab) — no es el producto |
-| Empresa | TYRONE · París / Alicante |
+| [userenovo.com](https://userenovo.com) | The product. Paying restaurants, real reviews. |
+| [`skills`](https://github.com/chdavidfm/skills) | Agent Skills I actually run — `github` · `ship` · `absorb` · `verify` · `skill-author` |
+| [`rag-agent-lab`](https://github.com/chdavidfm/rag-agent-lab) | Retrieval lab: TF-IDF, dense, RRF fusion, cross-encoder rerank. **Not** the product. |
+| `renovo-core` | The repository that runs production. Private. |
+
+## How the work runs
 
 ```
-brief → PR → CI → merge → prod
-pega un repo → absorb → skill original → CI verde
+brief  →  PR  →  CI  →  merge  →  prod
 ```
 
-Claude escribe el brief. Cursor ejecuta. `ship` vigila CI. `verify` no deja pasar un “listo” sin comando. Secretos nunca en git. Vault y CRM no viven aquí.
+Claude writes the brief. Cursor executes it in the repo. `ship` watches CI until it is
+green. `verify` refuses to let "done" through without a command and its output. Nothing
+ships on a claim; it ships on evidence measured on a real device or in production.
 
-## Founder
+Three rules I do not bend:
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=chdavidfm&show_icons=true&theme=github_dark&hide_title=true&count_private=true" alt="stats" />
-  <img src="https://github-profile-trophy.vercel.app/?username=chdavidfm&theme=gruvbox&no-frame=true&column=3&margin-w=8" alt="trophies" />
-</p>
+- **Secrets never enter git.** Not once, not in a branch, not "temporarily".
+- **The product never shows a number it did not measure.** A fabricated metric on a
+  dashboard is worse than an empty state, because the owner will make a decision on it.
+- **A green pipeline is not a verified feature.** `curl` proves the server answered. It
+  does not prove the restaurant owner can use the screen.
 
-## No está aquí
+## Recent
 
-OS de vida, fichas de locales, datos personales, tokens. Memoria = Obsidian. CRM = Notion. GitHub = músculo de **toda** la vida (código + skills), no un segundo cerebro.
+<!-- pulse:start -->
 
-<sub>Contrato: GitHub = código y skills · Obsidian = memoria · Notion = CRM</sub>
+_Populated on a schedule from the public events API._
+
+<!-- pulse:end -->
+
+<sub>Written by `scripts/pulse.mjs` on a daily schedule — real commits, no third-party
+widget, no external image, nothing that tracks whoever reads this page.</sub>
+
+## Not here
+
+Life notes, venue records, personal data, tokens. Memory is Obsidian. Pipeline is Notion.
+GitHub is code and skills — not a second brain.
