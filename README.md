@@ -4,9 +4,10 @@
 **Founder · [Renovo](https://userenovo.com) · IA para hostelería independiente**
 
 [![userenovo.com](https://img.shields.io/badge/prod-userenovo.com-7c3aed?style=for-the-badge)](https://userenovo.com)
+[![skills](https://img.shields.io/badge/skills-Agent%20Skills-111?style=for-the-badge)](https://github.com/chdavidfm/skills)
 [![Renovo](https://img.shields.io/badge/repo-renovo--core-111?style=for-the-badge)](https://github.com/chdavidfm/renovo-core)
 
-SaaS en producción: una reseña entra → la IA redacta con la voz del local → el dueño aprueba.  
+SaaS en producción: una reseña entra → la IA redacta con la voz del local → el dueño aprueba.
 Nunca se publica sola una reseña negativa.
 
 </div>
@@ -17,17 +18,18 @@ Nunca se publica sola una reseña negativa.
 
 | | |
 |---|---|
-| Producto | [userenovo.com](https://userenovo.com) — Reputación viva en locales reales |
-| Código | `chdavidfm/renovo-core` (privado) — CI + CD |
-| Lab | [rag-agent-lab](https://github.com/chdavidfm/rag-agent-lab) — experimento, **no** el producto |
+| Producto | [userenovo.com](https://userenovo.com) |
+| Skills (toda la vida) | [chdavidfm/skills](https://github.com/chdavidfm/skills) — `github` · `ship` |
+| Código producto | `chdavidfm/renovo-core` (privado) |
+| Lab | [rag-agent-lab](https://github.com/chdavidfm/rag-agent-lab) — no es el producto |
 | Empresa | TYRONE · París / Alicante |
 
 ## Cómo se construye
 
-Claude escribe el brief (`FIX-*.md` o issue). Cursor ejecuta. Nada hecho sin evidencia en dispositivo o producción. Secretos nunca en git.
+Claude escribe el brief. Cursor ejecuta. `ship` vigila CI. Nada hecho sin evidencia. Secretos nunca en git.
 
 ```
-brief → PR → CI (studio + core tests) → merge → prod
+brief → PR → CI → merge → prod
 ```
 
 ## Founder
@@ -39,6 +41,6 @@ brief → PR → CI (studio + core tests) → merge → prod
 
 ## No está aquí
 
-OS de vida, fichas de locales, datos personales, tokens. Eso es Obsidian + Notion, no este GitHub.
+OS de vida, fichas de locales, datos personales, tokens. Memoria = Obsidian. CRM = Notion. GitHub = músculo de **toda** la vida (código + skills), no solo un producto.
 
-<sub>Contrato entre IAs: GitHub = código · Obsidian = memoria · Notion = CRM</sub>
+<sub>Contrato: GitHub = código y skills · Obsidian = memoria · Notion = CRM</sub>
