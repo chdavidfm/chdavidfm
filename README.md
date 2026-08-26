@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/masthead.png" alt="David Flórez — París, Alicante, código, skills, un producto en producción" width="100%">
+  <img src="assets/masthead.png" alt="David Mejia — París, Alicante, código, skills, un producto en producción" width="100%">
   <p>
     <a href="https://userenovo.com"><img src="https://img.shields.io/badge/prod-userenovo.com-3fb950?style=flat-square&labelColor=0d1117" alt="userenovo.com en producción"></a>
     &nbsp;
