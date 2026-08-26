@@ -41,17 +41,46 @@ async function fetchPushes() {
   }
 }
 
-/** One row per repository: its newest commit message and when it landed. */
-function summarise(pushes) {
+/** One row per repository: newest public push. The events API often omits
+ *  `payload.commits`; fall back to the commit at `payload.head`. */
+async function summarise(pushes) {
   const seen = new Map();
-  for (const push of pushes) {
-    const repo = push.repo?.name;
-    const commits = push.payload?.commits ?? [];
-    if (!repo || commits.length === 0 || seen.has(repo)) continue;
+  const headers = { Accept: "application/vnd.github+json", "User-Agent": USER };
+  if (process.env.GITHUB_TOKEN) {
+    headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+  }
 
-    const subject = commits[commits.length - 1].message.split("\n")[0].trim();
-    seen.set(repo, {
-      repo: repo.replace(`${USER}/`, ""),
+  for (const push of pushes) {
+    const full = push.repo?.name;
+    if (!full || !full.startsWith(`${USER}/`) || seen.has(full)) continue;
+
+    const commits = push.payload?.commits ?? [];
+    let subject = "";
+    if (commits.length > 0) {
+      subject = String(commits[commits.length - 1].message || "")
+        .split("\n")[0]
+        .trim();
+    } else if (push.payload?.head) {
+      try {
+        const response = await fetch(
+          `https://api.github.com/repos/${full}/commits/${push.payload.head}`,
+          { headers },
+        );
+        if (response.ok) {
+          const data = await response.json();
+          subject = String(data.commit?.message || "")
+            .split("\n")[0]
+            .trim();
+        }
+      } catch {
+        /* leave subject empty; skip the row */
+      }
+    }
+    if (!subject || subject.startsWith("pulse:")) continue;
+
+    const short = full.replace(`${USER}/`, "");
+    seen.set(full, {
+      repo: short,
       subject: subject.length > 72 ? `${subject.slice(0, 71)}…` : subject,
       when: push.created_at.slice(0, 10),
     });
@@ -62,10 +91,10 @@ function summarise(pushes) {
 
 function render(rows) {
   if (rows.length === 0) {
-    return "Nothing pushed publicly in the last stretch. The product repository is private.";
+    return "Nada pusheado en público en este tramo. El repo de producto es privado.";
   }
   return [
-    "| Repository | Last change | Date |",
+    "| Repo | Último cambio | Fecha |",
     "|---|---|---|",
     ...rows.map(
       ({ repo, subject, when }) =>
@@ -88,7 +117,7 @@ if (from === -1 || to === -1) {
 const updated =
   readme.slice(0, from + START.length) +
   "\n\n" +
-  render(summarise(pushes)) +
+  render(await summarise(pushes)) +
   "\n\n" +
   readme.slice(to);
 

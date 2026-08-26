@@ -1,51 +1,46 @@
 # David Flórez
 
-Founder of **[Renovo](https://userenovo.com)** — AI that handles reviews and content for
-independent restaurants. In production, in Spanish and French. Paris / Alicante.
+París / Alicante. GitHub es el músculo de **toda** la vida: skills, lab, código. Un producto en producción es **un** nodo, no la cuenta.
 
-Five years behind a bar before I wrote a line of this. That is the whole edge: I am
-building for the person I used to be at 2am, closing the till, with a one-star review
-sitting unanswered since Tuesday.
+Cinco años detrás de una barra antes de escribir esto. El producto que sí existe: [userenovo.com](https://userenovo.com) — IA de **reseñas** para hostelería independiente (ES/FR). En producción, en dos locales propios. Contenido / RRSS: no está.
 
-## What lives here
+## Qué hay aquí
 
-| Surface | What it is |
+| Superficie | Qué es |
 |---|---|
-| [userenovo.com](https://userenovo.com) | The product. Paying restaurants, real reviews. |
-| [`skills`](https://github.com/chdavidfm/skills) | Agent Skills I actually run — `github` · `ship` · `absorb` · `verify` · `skill-author` |
-| [`rag-agent-lab`](https://github.com/chdavidfm/rag-agent-lab) | Retrieval lab: TF-IDF, dense, RRF fusion, cross-encoder rerank. **Not** the product. |
-| `renovo-core` | The repository that runs production. Private. |
+| [userenovo.com](https://userenovo.com) | El SaaS. Reseñas reales. Todavía 0 clientes de pago. |
+| [`skills`](https://github.com/chdavidfm/skills) | Agent Skills que corro — `github` · `ship` · `absorb` · `verify` · `skill-author` |
+| [`rag-agent-lab`](https://github.com/chdavidfm/rag-agent-lab) | Lab de retrieval. **No** es el producto. |
+| `renovo-core` | El repo que corre producción. Privado. |
 
-## How the work runs
+## Cómo se trabaja
 
 ```
 brief  →  PR  →  CI  →  merge  →  prod
 ```
 
-Claude writes the brief. Cursor executes it in the repo. `ship` watches CI until it is
-green. `verify` refuses to let "done" through without a command and its output. Nothing
-ships on a claim; it ships on evidence measured on a real device or in production.
+Claude escribe el brief. Cursor ejecuta. `ship` vigila CI. `verify` no deja pasar un “listo” sin comando. Nada se marca hecho por una afirmación.
 
-Three rules I do not bend:
+Tres reglas que no doblo:
 
-- **Secrets never enter git.** Not once, not in a branch, not "temporarily".
-- **The product never shows a number it did not measure.** A fabricated metric on a
-  dashboard is worse than an empty state, because the owner will make a decision on it.
-- **A green pipeline is not a verified feature.** `curl` proves the server answered. It
-  does not prove the restaurant owner can use the screen.
+- **Los secretos no entran en git.** Ni una vez, ni “un momento”.
+- **El producto no enseña un número que no midió.** Un 462 € inventado en un panel es peor que un estado vacío: el dueño decide encima.
+- **CI verde no es feature verificado.** `curl` prueba que el servidor contestó. No prueba que el dueño pueda usar la pantalla.
 
-## Recent
+## Reciente
 
 <!-- pulse:start -->
 
-_Populated on a schedule from the public events API._
+| Repo | Último cambio | Fecha |
+|---|---|---|
+| [`chdavidfm`](https://github.com/chdavidfm/chdavidfm) | Replace third-party widgets with a self-updating activity block | 2026-08-26 |
+| [`skills`](https://github.com/chdavidfm/skills) | docs: human README, real CONTRIBUTING, domain issue templates | 2026-08-26 |
+| [`rag-agent-lab`](https://github.com/chdavidfm/rag-agent-lab) | Add cross-encoder reranking and index persistence; switch to English | 2026-08-18 |
 
 <!-- pulse:end -->
 
-<sub>Written by `scripts/pulse.mjs` on a daily schedule — real commits, no third-party
-widget, no external image, nothing that tracks whoever reads this page.</sub>
+<sub>`scripts/pulse.mjs` · eventos **públicos** (no filtra `renovo-core`) · sin widgets de terceros · sin tracking del lector.</sub>
 
-## Not here
+## No está aquí
 
-Life notes, venue records, personal data, tokens. Memory is Obsidian. Pipeline is Notion.
-GitHub is code and skills — not a second brain.
+Notas de vida, fichas de locales, datos personales, tokens. Memoria = Obsidian. CRM = Notion. GitHub = código y skills, no un segundo cerebro.
