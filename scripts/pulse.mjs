@@ -41,52 +41,66 @@ async function fetchPushes() {
   }
 }
 
-/** One row per repository: newest public push. The events API often omits
- *  `payload.commits`; fall back to the commit at `payload.head`. */
+/** Public events lag. The commits API is the source of truth: skip `pulse:`
+ *  commits so the profile never advertises its own housekeeping. */
+async function latestPublicCommit(full, headers) {
+  try {
+    const response = await fetch(
+      `https://api.github.com/repos/${full}/commits?per_page=15`,
+      { headers },
+    );
+    if (!response.ok) return null;
+    for (const commit of await response.json()) {
+      const subject = String(commit.commit?.message || "")
+        .split("\n")[0]
+        .trim();
+      if (!subject || subject.startsWith("pulse:")) continue;
+      const when = String(
+        commit.commit?.author?.date || commit.commit?.committer?.date || "",
+      ).slice(0, 10);
+      return { subject, when };
+    }
+  } catch {
+    return null;
+  }
+  return null;
+}
+
 async function summarise(pushes) {
-  const seen = new Map();
   const headers = { Accept: "application/vnd.github+json", "User-Agent": USER };
   if (process.env.GITHUB_TOKEN) {
     headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
   }
 
-  for (const push of pushes) {
-    const full = push.repo?.name;
-    if (!full || !full.startsWith(`${USER}/`) || seen.has(full)) continue;
-
-    const commits = push.payload?.commits ?? [];
-    let subject = "";
-    if (commits.length > 0) {
-      subject = String(commits[commits.length - 1].message || "")
-        .split("\n")[0]
-        .trim();
-    } else if (push.payload?.head) {
-      try {
-        const response = await fetch(
-          `https://api.github.com/repos/${full}/commits/${push.payload.head}`,
-          { headers },
-        );
-        if (response.ok) {
-          const data = await response.json();
-          subject = String(data.commit?.message || "")
-            .split("\n")[0]
-            .trim();
-        }
-      } catch {
-        /* leave subject empty; skip the row */
-      }
-    }
-    if (!subject || subject.startsWith("pulse:")) continue;
-
-    const short = full.replace(`${USER}/`, "");
-    seen.set(full, {
-      repo: short,
-      subject: subject.length > 72 ? `${subject.slice(0, 71)}…` : subject,
-      when: push.created_at.slice(0, 10),
-    });
-    if (seen.size === MAX_ROWS) break;
+  const order = [];
+  const seen = new Set();
+  for (const name of [
+    `${USER}/chdavidfm`,
+    `${USER}/skills`,
+    `${USER}/rag-agent-lab`,
+    ...pushes.map((p) => p.repo?.name).filter(Boolean),
+  ]) {
+    if (!name.startsWith(`${USER}/`) || seen.has(name)) continue;
+    seen.add(name);
+    order.push(name);
   }
-  return [...seen.values()];
+
+  const rows = [];
+  for (const full of order) {
+    const latest = await latestPublicCommit(full, headers);
+    if (!latest) continue;
+    const short = full.replace(`${USER}/`, "");
+    rows.push({
+      repo: short,
+      subject:
+        latest.subject.length > 72
+          ? `${latest.subject.slice(0, 71)}…`
+          : latest.subject,
+      when: latest.when,
+    });
+    if (rows.length === MAX_ROWS) break;
+  }
+  return rows;
 }
 
 function render(rows) {
