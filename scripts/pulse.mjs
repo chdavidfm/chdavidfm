@@ -91,16 +91,14 @@ async function summarise(pushes) {
 
 function render(rows) {
   if (rows.length === 0) {
-    return "Nada pusheado en público en este tramo. El repo de producto es privado.";
+    return "_Nada pusheado en público en este tramo. El repo de producto es privado._";
   }
-  return [
-    "| Repo | Último cambio | Fecha |",
-    "|---|---|---|",
-    ...rows.map(
+  return rows
+    .map(
       ({ repo, subject, when }) =>
-        `| [\`${repo}\`](https://github.com/${USER}/${repo}) | ${subject} | ${when} |`,
-    ),
-  ].join("\n");
+        `- [\`${repo}\`](https://github.com/${USER}/${repo}) — ${subject} · ${when}`,
+    )
+    .join("\n");
 }
 
 const pushes = await fetchPushes();

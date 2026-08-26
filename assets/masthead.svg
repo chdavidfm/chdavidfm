@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="240" viewBox="0 0 1280 240" role="img" aria-label="David Flórez">
+  <rect width="1280" height="240" fill="#0d1117"/>
+  <rect x="0" y="0" width="8" height="240" fill="#3fb950"/>
+  <text x="56" y="108" fill="#f0f6fc" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="52" font-weight="600" letter-spacing="-0.5">David Flórez</text>
+  <text x="56" y="156" fill="#8b949e" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="22">París · Alicante · código · skills · un producto en producción</text>
+  <text x="56" y="200" fill="#3fb950" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="16">userenovo.com  ·  chdavidfm/skills</text>
+</svg>
