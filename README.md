@@ -2,7 +2,7 @@
 
 París / Alicante. GitHub es el músculo de **toda** la vida: skills, lab, código. Un producto en producción es **un** nodo, no la cuenta.
 
-Cinco años detrás de una barra antes de escribir esto. El producto que sí existe: [userenovo.com](https://userenovo.com) — IA de **reseñas** para hostelería independiente (ES/FR). En producción, en dos locales propios. Contenido / RRSS: no está.
+Diez años detrás de una barra antes de escribir esto. El producto que sí existe: [userenovo.com](https://userenovo.com) — IA de **reseñas** para hostelería independiente (ES/FR). En producción, en dos locales propios. Contenido / RRSS: no está.
 
 ## Qué hay aquí
 
