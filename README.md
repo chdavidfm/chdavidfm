@@ -54,9 +54,9 @@ Claude escribe el brief. Cursor ejecuta. <code>ship</code> vigila CI. <code>veri
 
 <!-- pulse:start -->
 
-- [`chdavidfm`](https://github.com/chdavidfm/chdavidfm) — perfil visual: masthead + mapa en tres columnas
+- [`chdavidfm`](https://github.com/chdavidfm/chdavidfm) — Update experience duration from five to ten years · 2026-08-26
 - [`skills`](https://github.com/chdavidfm/skills) — docs: human README, real CONTRIBUTING, domain issue templates · 2026-08-26
-- [`rag-agent-lab`](https://github.com/chdavidfm/rag-agent-lab) — Add cross-encoder reranking and index persistence · 2026-08-18
+- [`rag-agent-lab`](https://github.com/chdavidfm/rag-agent-lab) — Add cross-encoder reranking and index persistence; switch to English · 2026-08-18
 
 <!-- pulse:end -->
 
