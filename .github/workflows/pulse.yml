@@ -1,7 +1,7 @@
 name: pulse
 
 # Keeps the "Recent" block of the profile honest without a third-party widget:
-# real commits, rendered from the public events API, committed as plain text.
+# real commits from each public repo (events lag; `pulse:` commits are skipped),
 on:
   schedule:
     - cron: "17 6 * * *"
