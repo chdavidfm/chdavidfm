@@ -54,7 +54,7 @@ async function latestPublicCommit(full, headers) {
       const subject = String(commit.commit?.message || "")
         .split("\n")[0]
         .trim();
-      if (!subject || subject.startsWith("pulse:")) continue;
+      if (!subject || subject.startsWith("pulse:") || /^Update README\.md$/i.test(subject)) continue;
       const when = String(
         commit.commit?.author?.date || commit.commit?.committer?.date || "",
       ).slice(0, 10);
