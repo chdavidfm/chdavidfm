@@ -54,7 +54,7 @@ async function latestPublicCommit(full, headers) {
       const subject = String(commit.commit?.message || "")
         .split("\n")[0]
         .trim();
-      if (!subject || subject.startsWith("pulse:") || /^Update README\.md$/i.test(subject)) continue;
+      if (!subject || subject.startsWith("pulse:") || subject.startsWith("vitrina:") || /^Update README\.md$/i.test(subject)) continue;
       const when = String(
         commit.commit?.author?.date || commit.commit?.committer?.date || "",
       ).slice(0, 10);
@@ -75,12 +75,11 @@ async function summarise(pushes) {
   const order = [];
   const seen = new Set();
   for (const name of [
-    `${USER}/chdavidfm`,
     `${USER}/skills`,
     `${USER}/rag-agent-lab`,
     ...pushes.map((p) => p.repo?.name).filter(Boolean),
   ]) {
-    if (!name.startsWith(`${USER}/`) || seen.has(name)) continue;
+    if (!name.startsWith(`${USER}/`) || name === `${USER}/chdavidfm` || seen.has(name)) continue;
     seen.add(name);
     order.push(name);
   }
@@ -105,7 +104,7 @@ async function summarise(pushes) {
 
 function render(rows) {
   if (rows.length === 0) {
-    return "_Nada pusheado en público en este tramo. El repo de producto es privado._";
+    return "_Nothing public in this window. Product source is private._";
   }
   return rows
     .map(
