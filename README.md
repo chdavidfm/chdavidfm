@@ -13,7 +13,7 @@ Paris / Alicante. ES · FR · EN.
 
 <!-- pulse:start -->
 
-- [`skills`](https://github.com/chdavidfm/skills) — docs: github skill 1.2 absorbs 12-factor; README states CI fails on inc… · 2026-08-27
-- [`rag-agent-lab`](https://github.com/chdavidfm/rag-agent-lab) — Add cross-encoder reranking and index persistence; switch to English · 2026-08-18
+- [`skills`](https://github.com/chdavidfm/skills) — feat: add fleet — opposing-interest agents with real veto · 2026-08-27
+- [`rag-agent-lab`](https://github.com/chdavidfm/rag-agent-lab) — deps: bump the routine group with 2 updates (#8) · 2026-08-27
 
 <!-- pulse:end -->
