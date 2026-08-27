@@ -14,8 +14,8 @@ Oficio detrás de una barra. Código, skills, un producto de IA en producción.
 
 <!-- pulse:start -->
 
-- [`chdavidfm`](https://github.com/chdavidfm/chdavidfm) — vitrina: una frase, tres hechos, latido
-- [`skills`](https://github.com/chdavidfm/skills) — docs: human README, real CONTRIBUTING, domain issue templates · 2026-08-26
-- [`rag-agent-lab`](https://github.com/chdavidfm/rag-agent-lab) — Add cross-encoder reranking and index persistence · 2026-08-18
+- [`chdavidfm`](https://github.com/chdavidfm/chdavidfm) — vitrina: una frase, tres hechos, latido · 2026-08-27
+- [`skills`](https://github.com/chdavidfm/skills) — docs: github skill 1.2 absorbs 12-factor; README states CI fails on inc… · 2026-08-27
+- [`rag-agent-lab`](https://github.com/chdavidfm/rag-agent-lab) — Add cross-encoder reranking and index persistence; switch to English · 2026-08-18
 
 <!-- pulse:end -->
