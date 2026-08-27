@@ -1,14 +1,26 @@
-<div align="center">
-  <img src="assets/masthead.png" alt="David Flórez" width="100%">
-</div>
+Dueño de barra. Un producto de IA en producción.
 
-Oficio detrás de una barra. Código, skills, un producto de IA en producción.
-
-**Producto** — [userenovo.com](https://userenovo.com) — reseñas para hostelería independiente (ES / FR). Corre en dos locales propios.
-
-**Skills** — [chdavidfm/skills](https://github.com/chdavidfm/skills) — `github` · `ship` · `absorb` · `verify` · `skill-author`
-
-**Lab** — [rag-agent-lab](https://github.com/chdavidfm/rag-agent-lab) — retrieval. No es el producto.
+<table>
+  <tr>
+    <td width="33%" valign="top">
+      <strong>Producto</strong><br>
+      <a href="https://userenovo.com">userenovo.com</a><br>
+      Reseñas para hostelería independiente. ES/FR. En producción en dos locales propios.
+    </td>
+    <td width="33%" valign="top">
+      <strong>Skills</strong><br>
+      <a href="https://github.com/chdavidfm/skills">chdavidfm/skills</a><br>
+      <code>github</code> · <code>ship</code> · <code>absorb</code><br>
+      <code>verify</code> · <code>skill-author</code>
+    </td>
+    <td width="33%" valign="top">
+      <strong>Lab</strong><br>
+      <a href="https://github.com/chdavidfm/rag-agent-lab">rag-agent-lab</a><br>
+      Retrieval.<br>
+      No es el producto.
+    </td>
+  </tr>
+</table>
 
 ### Reciente
 
