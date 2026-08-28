@@ -14,6 +14,6 @@ Paris / Alicante. ES · FR · EN.
 <!-- pulse:start -->
 
 - [`skills`](https://github.com/chdavidfm/skills) — feat: add fleet — opposing-interest agents with real veto · 2026-08-27
-- [`rag-agent-lab`](https://github.com/chdavidfm/rag-agent-lab) — deps: bump the routine group with 2 updates (#8) · 2026-08-27
+- [`rag-agent-lab`](https://github.com/chdavidfm/rag-agent-lab) — deps: exclude pytest majors from the routine group · 2026-08-28
 
 <!-- pulse:end -->
