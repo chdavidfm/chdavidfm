@@ -1,0 +1,19 @@
+# This repository is the profile page, so it is the one nobody thinks to
+# maintain — and it runs a scheduled workflow every morning. Left alone, its
+# actions go stale silently and the block stops refreshing on a Tuesday for a
+# reason nobody is looking for.
+#
+# Monthly, grouped, one pull request at a time. There is one workflow here;
+# it does not need more attention than that.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 1
+    commit-message:
+      prefix: ci
+    groups:
+      actions:
+        patterns: ["*"]

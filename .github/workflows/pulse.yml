@@ -1,7 +1,8 @@
 name: pulse
 
-# Keeps the "Recent" block of the profile honest without a third-party widget:
-# real commits from each public repo (events lag; `pulse:` commits are skipped),
+# Keeps the "Recent" block of the profile honest without a third-party widget.
+# One row per public repository: the release it last cut, or the last commit
+# that was not housekeeping. Nothing is written unless the file actually moved.
 on:
   schedule:
     - cron: "17 6 * * *"
@@ -18,11 +19,11 @@ jobs:
   refresh:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: "20"
+          node-version: "22"
 
       - name: Rewrite the Recent block
         env:
