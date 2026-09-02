@@ -8,6 +8,7 @@
   --line:#C7C5B9; --line2:#DBD9CF;
   --accent:#3B6B5E; --accent-soft:#DEE8E3;
   --terra:#A8562C; --ochre:#B5821A; --sky:#3E6480;
+  --ok:#3B6B5E; --warn:#B5821A; --bad:#A8562C;
   --grid:rgba(26,29,26,.055);
   --shadow:0 1px 2px rgba(26,29,26,.06), 0 8px 24px -12px rgba(26,29,26,.18);
   --r-sala:#5E8C7B; --r-dorm:#7C6CA0; --r-serv:#B07C4A; --r-inv:#4E86A8; --r-paso:#8A8F82;
@@ -18,6 +19,7 @@
   --line:#343930; --line2:#262A24;
   --accent:#7FB8A2; --accent-soft:#1E2A25;
   --terra:#D98A5C; --ochre:#DCB25C; --sky:#7FA9C4;
+  --ok:#7FB8A2; --warn:#DCB25C; --bad:#D98A5C;
   --grid:rgba(233,234,227,.05);
   --shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 24px -12px rgba(0,0,0,.7);
   --r-sala:#79AE99; --r-dorm:#9C8CC0; --r-serv:#C99A68; --r-inv:#6FA6C8; --r-paso:#9CA294;
@@ -28,6 +30,7 @@
   --line:#343930; --line2:#262A24;
   --accent:#7FB8A2; --accent-soft:#1E2A25;
   --terra:#D98A5C; --ochre:#DCB25C; --sky:#7FA9C4;
+  --ok:#7FB8A2; --warn:#DCB25C; --bad:#D98A5C;
   --grid:rgba(233,234,227,.05);
   --shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 24px -12px rgba(0,0,0,.7);
   --r-sala:#79AE99; --r-dorm:#9C8CC0; --r-serv:#C99A68; --r-inv:#6FA6C8; --r-paso:#9CA294;
@@ -35,323 +38,323 @@
 *{box-sizing:border-box}
 body{margin:0; background:var(--paper); color:var(--ink);
   font-family:"Source Serif 4",Georgia,serif; font-size:16.5px; line-height:1.62; -webkit-font-smoothing:antialiased}
-h1,h2,h3,h4,.disp{font-family:"Archivo","Helvetica Neue",Arial,sans-serif; text-wrap:balance; margin:0}
-.mono,code{font-family:"IBM Plex Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums}
+h1,h2,h3,h4{font-family:"Archivo","Helvetica Neue",Arial,sans-serif; text-wrap:balance; margin:0}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums}
 a{color:var(--accent)}
 .wrap{max-width:1080px; margin:0 auto; padding:0 22px}
-.wide{max-width:1360px; margin:0 auto; padding:0 22px}
+.wide{max-width:1480px; margin:0 auto; padding:0 22px}
 
+/* ---------- portada ---------- */
 header.cover{border-bottom:1px solid var(--line);
   background:linear-gradient(var(--grid) 1px,transparent 1px) 0 0/100% 28px,
              linear-gradient(90deg,var(--grid) 1px,transparent 1px) 0 0/28px 100%, var(--paper2)}
-.cover-in{padding:50px 0 38px}
+.cover-in{padding:46px 0 34px}
 .eyebrow{font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink3)}
-h1{font-size:clamp(40px,7vw,74px); font-stretch:118%; font-weight:700; line-height:.94; letter-spacing:-.022em; margin:14px 0 0}
+h1{font-size:clamp(38px,6.4vw,68px); font-stretch:118%; font-weight:700; line-height:.94; letter-spacing:-.022em; margin:12px 0 0}
 h1 em{font-style:normal; color:var(--accent)}
-.sub{max-width:60ch; margin:18px 0 0; color:var(--ink2); font-size:18px}
-.keyfacts{display:grid; grid-template-columns:repeat(auto-fit,minmax(146px,1fr)); gap:1px;
-  background:var(--line); border:1px solid var(--line); margin-top:32px}
-.kf{background:var(--paper2); padding:13px 15px}
-.kf dt{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.13em; text-transform:uppercase; color:var(--ink3); margin:0 0 5px}
-.kf dd{margin:0; font-family:"Archivo",sans-serif; font-stretch:112%; font-weight:600; font-size:22px; letter-spacing:-.015em; font-variant-numeric:tabular-nums}
-.kf dd small{font-size:12px; font-weight:400; color:var(--ink3)}
+.sub{max-width:62ch; margin:16px 0 0; color:var(--ink2); font-size:17.5px}
+.keyfacts{display:grid; grid-template-columns:repeat(auto-fit,minmax(138px,1fr)); gap:1px;
+  background:var(--line); border:1px solid var(--line); margin-top:28px}
+.kf{background:var(--paper2); padding:12px 14px}
+.kf dt{font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--ink3); margin:0 0 4px}
+.kf dd{margin:0; font-family:"Archivo",sans-serif; font-stretch:112%; font-weight:600; font-size:21px; letter-spacing:-.015em; font-variant-numeric:tabular-nums}
+.kf dd small{font-size:11.5px; font-weight:400; color:var(--ink3)}
 
-nav.idx{border-bottom:1px solid var(--line); background:var(--paper); position:sticky; top:0; z-index:60; backdrop-filter:blur(8px)}
-nav.idx ol{display:flex; list-style:none; margin:0; padding:0; overflow-x:auto}
-nav.idx a{display:block; padding:11px 15px; text-decoration:none; color:var(--ink3);
-  font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.07em; white-space:nowrap; border-bottom:2px solid transparent}
-nav.idx a:hover,nav.idx a:focus-visible{color:var(--ink); border-bottom-color:var(--accent); outline:none}
+/* ---------- pestañas ---------- */
+nav.tabs{border-bottom:1px solid var(--line); background:var(--paper); position:sticky; top:0; z-index:70; backdrop-filter:blur(10px)}
+nav.tabs .wide{display:flex; align-items:center; gap:4px; overflow-x:auto}
+nav.tabs button{background:none; border:0; border-bottom:2px solid transparent; cursor:pointer;
+  padding:13px 16px; color:var(--ink3); font-family:"Archivo",sans-serif; font-weight:600; font-size:14px;
+  white-space:nowrap; font-stretch:106%}
+nav.tabs button:hover{color:var(--ink)}
+nav.tabs button[aria-selected="true"]{color:var(--ink); border-bottom-color:var(--accent)}
+nav.tabs .sync{margin-left:auto; font-family:"IBM Plex Mono",monospace; font-size:10.5px;
+  letter-spacing:.09em; text-transform:uppercase; color:var(--ink3); display:flex; align-items:center; gap:6px; padding-left:14px}
+.dot{width:7px; height:7px; border-radius:50%; background:var(--ink3); flex:none}
+.dot.on{background:var(--ok)} .dot.off{background:var(--warn)}
+section.panel{padding:26px 0 60px}
+section.panel[hidden]{display:none!important}
 
-section.sheet{padding:52px 0 10px; border-bottom:1px solid var(--line2)}
-.sheet-head{display:flex; align-items:baseline; gap:15px; flex-wrap:wrap; margin-bottom:6px}
-.code{font-family:"IBM Plex Mono",monospace; font-size:11.5px; font-weight:600; letter-spacing:.1em;
-  color:var(--paper); background:var(--accent); padding:4px 9px; border-radius:2px}
-h2{font-size:clamp(25px,3.4vw,34px); font-stretch:112%; font-weight:700; letter-spacing:-.018em}
-.scale{font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--ink3); letter-spacing:.06em}
-.lead{max-width:66ch; color:var(--ink2); margin:12px 0 24px}
-p{max-width:66ch}
-h3{font-size:18px; font-stretch:108%; font-weight:700; margin:30px 0 8px}
-h4{font-size:12.5px; font-family:"IBM Plex Mono",monospace; font-weight:600; letter-spacing:.11em;
-  text-transform:uppercase; color:var(--ink3); margin:24px 0 10px}
+h2{font-size:clamp(23px,3vw,31px); font-stretch:112%; font-weight:700; letter-spacing:-.018em}
+h3{font-size:17px; font-stretch:108%; font-weight:700; margin:28px 0 8px}
+h4{font-size:12px; font-family:"IBM Plex Mono",monospace; font-weight:600; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--ink3); margin:22px 0 9px}
+.lead{max-width:68ch; color:var(--ink2); margin:10px 0 20px}
+p{max-width:68ch}
+.code{font-family:"IBM Plex Mono",monospace; font-size:11px; font-weight:600; letter-spacing:.1em;
+  color:var(--paper); background:var(--accent); padding:3px 8px; border-radius:2px}
 
-figure.plate{margin:0 0 8px; border:1px solid var(--line); background:var(--card); box-shadow:var(--shadow)}
-.plate-body{overflow-x:auto; padding:18px}
-.plate svg{display:block; min-width:620px; width:100%; height:auto}
-figcaption{border-top:1px solid var(--line2); padding:10px 16px; font-size:12.5px; color:var(--ink3);
-  display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; font-family:"IBM Plex Mono",monospace}
+/* ---------- KPI ---------- */
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(118px,1fr)); gap:1px;
+  background:var(--line); border:1px solid var(--line); margin-bottom:14px}
+.kpis div{background:var(--card); padding:10px 12px}
+.kpis dt{font-family:"IBM Plex Mono",monospace; font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink3); margin:0 0 3px}
+.kpis dd{margin:0; font-family:"IBM Plex Mono",monospace; font-weight:600; font-size:18px; font-variant-numeric:tabular-nums}
+.kpis dd.bad{color:var(--bad)}
+
+/* ---------- paneles ---------- */
+.stage{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.15fr); gap:14px}
+@media (max-width:1000px){.stage{grid-template-columns:1fr}}
+.pane{border:1px solid var(--line); background:var(--card); box-shadow:var(--shadow); position:relative}
+.pane-t{font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ink3); padding:9px 12px; border-bottom:1px solid var(--line2); display:flex; justify-content:space-between; gap:10px; align-items:center}
+#plan2d{display:block; width:100%; height:auto; touch-action:none}
+#stage3d{height:clamp(400px,60vh,680px); background:var(--paper2); overflow:hidden; position:relative; cursor:grab}
+#stage3d.drag{cursor:grabbing}
+#stage3d.place{cursor:crosshair}
+#stage3d canvas{display:block; width:100%; height:100%}
+.hud{position:absolute; pointer-events:none; font-family:"IBM Plex Mono",monospace; font-size:11px;
+  background:color-mix(in srgb,var(--card) 88%,transparent); color:var(--ink2);
+  padding:5px 9px; border-radius:3px; border:1px solid var(--line)}
+.hud.tl{left:10px; top:10px} .hud.tr{right:10px; top:10px}
+.hud.bl{left:10px; bottom:10px; pointer-events:auto; display:flex; gap:5px; flex-wrap:wrap; background:none; border:0; padding:0}
+
+.btn{font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.07em; text-transform:uppercase;
+  padding:7px 11px; border:1px solid var(--line); background:var(--card); color:var(--ink2); border-radius:2px; cursor:pointer}
+.btn:hover,.btn:focus-visible{border-color:var(--accent); color:var(--accent); outline:none}
+.btn[aria-pressed="true"],.btn.pri{background:var(--accent); border-color:var(--accent); color:var(--paper)}
+.btn.sm{padding:5px 8px; font-size:10px}
+.btn.danger:hover{border-color:var(--bad); color:var(--bad)}
+
+.ctrls{display:grid; grid-template-columns:repeat(auto-fit,minmax(196px,1fr)); gap:14px;
+  border:1px solid var(--line); background:var(--card); padding:14px 16px; margin:14px 0; box-shadow:var(--shadow)}
+.ctrl label{display:block; font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--ink3); margin-bottom:5px}
+.ctrl .val{font-family:"IBM Plex Mono",monospace; font-weight:600; color:var(--ink); font-variant-numeric:tabular-nums}
+input[type=range]{width:100%; accent-color:var(--accent); margin:0}
+select,input[type=text],input[type=number],input[type=date]{width:100%; padding:7px 8px; border:1px solid var(--line);
+  background:var(--paper); color:var(--ink); border-radius:2px; font-family:"IBM Plex Mono",monospace; font-size:12.5px}
+.hint{margin:6px 0 0; font-size:12.5px; color:var(--ink3)}
+
+/* ---------- lista de estancias ---------- */
+.rooms{border:1px solid var(--line); background:var(--card); box-shadow:var(--shadow); margin:14px 0}
+.rhead,.rrow{display:grid; grid-template-columns:16px minmax(110px,2fr) 92px 70px 74px 88px; gap:8px;
+  align-items:center; padding:8px 13px; border-bottom:1px solid var(--line2)}
+@media (max-width:760px){.rhead{display:none}.rrow{grid-template-columns:16px 1fr 92px}}
+.rhead{font-family:"IBM Plex Mono",monospace; font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink3); background:var(--paper2)}
+.rrow:last-of-type{border-bottom:0}
+.swatch{width:13px; height:13px; border-radius:2px}
+.rname{font-size:14px; background:transparent; border:0; border-bottom:1px dashed var(--line); color:var(--ink);
+  font-family:"Source Serif 4",serif; padding:2px 0; width:100%}
+.rname:focus{outline:none; border-bottom-color:var(--accent)}
+.stepper{display:flex; align-items:center; gap:3px}
+.stepper button{width:21px; height:25px; border:1px solid var(--line); background:var(--card2); color:var(--ink2);
+  border-radius:2px; cursor:pointer; font-family:"IBM Plex Mono",monospace; font-size:13px; line-height:1}
+.stepper input{width:48px; text-align:right; font-size:12.5px; padding:3px 4px}
+.rnum{font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--ink2); text-align:right; font-variant-numeric:tabular-nums}
+.rmove{display:flex; gap:3px; justify-content:flex-end}
+.rmove button{width:24px; height:24px; border:1px solid var(--line); background:var(--card2); color:var(--ink3);
+  border-radius:2px; cursor:pointer; font-size:11px; line-height:1}
+.rmove button:hover{border-color:var(--accent); color:var(--accent)}
+.rfoot{padding:10px 13px; border-top:1px solid var(--line); background:var(--paper2); display:flex; gap:7px; flex-wrap:wrap; align-items:center}
+
+/* ---------- paleta de objetos ---------- */
+.palette{display:grid; grid-template-columns:repeat(auto-fill,minmax(112px,1fr)); gap:7px; margin:12px 0}
+.pit{border:1px solid var(--line); background:var(--card); border-radius:3px; padding:9px 8px; cursor:pointer; text-align:left}
+.pit:hover{border-color:var(--accent)}
+.pit[aria-pressed="true"]{border-color:var(--accent); background:var(--accent-soft)}
+.pit b{display:block; font-family:"Archivo",sans-serif; font-size:13px; font-weight:600}
+.pit span{font-family:"IBM Plex Mono",monospace; font-size:10px; color:var(--ink3)}
+.pit i{display:block; width:100%; height:5px; border-radius:2px; margin-bottom:6px}
+
+/* ---------- tablas ---------- */
+.tablewrap{overflow-x:auto; border:1px solid var(--line); background:var(--card); box-shadow:var(--shadow)}
+table{border-collapse:collapse; width:100%; min-width:560px; font-size:14px}
+th,td{text-align:left; padding:8px 12px; border-bottom:1px solid var(--line2); vertical-align:top}
+thead th{font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ink3); background:var(--paper2); border-bottom:1px solid var(--line)}
+td.num,th.num{text-align:right; font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; font-size:13.5px}
+tbody tr:last-child td{border-bottom:0}
+tfoot td{font-family:"Archivo",sans-serif; font-weight:700; font-size:15.5px; border-top:2px solid var(--ink); background:var(--paper2)}
+tfoot td.num{font-family:"IBM Plex Mono",monospace}
+
+.matgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:14px; margin:14px 0}
+.mat{border:1px solid var(--line); background:var(--card); box-shadow:var(--shadow); padding:15px 17px; display:flex; flex-direction:column; gap:9px}
+.mat-h{display:flex; justify-content:space-between; align-items:baseline; gap:10px}
+.mat-h h5{margin:0; font-family:"Archivo",sans-serif; font-size:15.5px; font-weight:700; font-stretch:106%}
+.mat-q{font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--ink); background:var(--paper2);
+  border:1px solid var(--line2); border-radius:2px; padding:6px 9px; font-variant-numeric:tabular-nums}
+.mat-s{margin:0; font-size:13.5px; color:var(--ink2)}
+.mat-eco{margin:0; font-size:13px; color:var(--ink2); border-left:2px solid var(--accent); padding-left:9px}
+.mat-eco b{color:var(--ink)}
+.mat-buy{display:flex; gap:6px; flex-wrap:wrap; margin-top:auto; padding-top:4px}
+.buy{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.05em; text-decoration:none;
+  border:1px solid var(--accent); color:var(--accent); padding:5px 9px; border-radius:2px; white-space:nowrap}
+.buy:hover{background:var(--accent); color:var(--paper)}
+.conf{font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap}
+.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; margin:20px 0}
+.box{border:1px solid var(--line); background:var(--card); padding:15px 17px; box-shadow:var(--shadow)}
+.box h4{margin-top:0}
+.box p{margin:0; font-size:14.5px}
+.box p+p{margin-top:8px}
+.note{border-left:3px solid var(--accent); background:var(--accent-soft); padding:14px 17px; margin:20px 0}
+.note p{margin:0; font-size:14.5px; color:var(--ink)}
+.note p+p{margin-top:8px}
+.warn{border-left-color:var(--terra); background:color-mix(in srgb,var(--terra) 9%,var(--card))}
+.alert{margin:12px 0; padding:10px 14px; border-left:3px solid var(--bad);
+  background:color-mix(in srgb,var(--bad) 12%,var(--card)); font-size:14px}
+.alert[hidden]{display:none!important}
+.bar{height:7px; background:var(--card2); border:1px solid var(--line); border-radius:2px; overflow:hidden; margin-top:7px}
+.bar>i{display:block; height:100%; background:var(--accent)}
+
+/* ---------- dibujo svg ---------- */
 .ln{fill:none; stroke:var(--ink); stroke-width:2}
 .ln-thin{fill:none; stroke:var(--ink2); stroke-width:1.4}
 .ln-dash{fill:none; stroke:var(--ink3); stroke-width:1.5; stroke-dasharray:12 8}
-.w-cut{fill:var(--ink); stroke:none}
-.w-cut-l{fill:var(--ink2); stroke:none}
-.fill-soft{fill:var(--accent-soft)}
-.fill-glass{fill:var(--sky); opacity:.22}
+.w-cut{fill:var(--ink)} .w-cut-l{fill:var(--ink2)}
+.fill-soft{fill:var(--accent-soft)} .fill-glass{fill:var(--sky); opacity:.22}
 .dim{stroke:var(--terra); stroke-width:1.3; fill:none}
 text{font-family:"IBM Plex Mono",monospace; fill:var(--ink2)}
 .t-dim{fill:var(--terra)}
 .t-lot{font-family:"Archivo",sans-serif; font-weight:700; fill:var(--ink)}
 
-.tablewrap{overflow-x:auto; border:1px solid var(--line); background:var(--card); box-shadow:var(--shadow)}
-table{border-collapse:collapse; width:100%; min-width:540px; font-size:14.5px}
-th,td{text-align:left; padding:9px 13px; border-bottom:1px solid var(--line2); vertical-align:top}
-thead th{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase;
-  color:var(--ink3); background:var(--paper2); border-bottom:1px solid var(--line)}
-td.num,th.num{text-align:right; font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; font-size:14px}
-tbody tr:last-child td{border-bottom:0}
-tfoot td{font-family:"Archivo",sans-serif; font-weight:700; font-size:16px; border-top:2px solid var(--ink); background:var(--paper2)}
-tfoot td.num{font-family:"IBM Plex Mono",monospace}
-
-.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(286px,1fr)); gap:18px; margin:22px 0}
-.box{border:1px solid var(--line); background:var(--card); padding:16px 18px; box-shadow:var(--shadow)}
-.box h4{margin-top:0}
-.box p{margin:0; font-size:15px}
-.box p+p{margin-top:8px}
-.note{border-left:3px solid var(--accent); background:var(--accent-soft); padding:15px 18px; margin:22px 0}
-.note p{margin:0; font-size:15px; color:var(--ink)}
-.note p+p{margin-top:9px}
-.warn{border-left-color:var(--terra); background:color-mix(in srgb,var(--terra) 9%,var(--card))}
-.tag{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
-  color:var(--terra); border:1px solid var(--terra); padding:2px 7px; border-radius:2px; display:inline-block}
-
-/* ============ EDITOR ============ */
-.ed-kpi{display:grid; grid-template-columns:repeat(auto-fit,minmax(128px,1fr)); gap:1px;
-  background:var(--line); border:1px solid var(--line); margin-bottom:14px}
-.ed-kpi div{background:var(--card); padding:11px 13px}
-.ed-kpi dt{font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink3); margin:0 0 4px}
-.ed-kpi dd{margin:0; font-family:"IBM Plex Mono",monospace; font-weight:600; font-size:19px; font-variant-numeric:tabular-nums}
-.ed-kpi dd.bad{color:var(--terra)}
-.ed-kpi dd small{font-size:11px; font-weight:400; color:var(--ink3)}
-
-.ed-stage{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:14px}
-@media (max-width:900px){.ed-stage{grid-template-columns:1fr}}
-.pane{border:1px solid var(--line); background:var(--card); box-shadow:var(--shadow); position:relative; min-height:430px}
-.pane-t{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase;
-  color:var(--ink3); padding:9px 13px; border-bottom:1px solid var(--line2); display:flex; justify-content:space-between; gap:10px}
-#plan2d{display:block; width:100%; height:auto; touch-action:none}
-#pane3d{height:430px; cursor:grab; overflow:hidden}
-#pane3d.drag{cursor:grabbing}
-#pane3d canvas{display:block; width:100%; height:100%}
-.v3btns{position:absolute; left:10px; bottom:10px; display:flex; gap:5px; flex-wrap:wrap}
-.v3btns button{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
-  padding:6px 10px; border:1px solid var(--line); background:var(--card); color:var(--ink2); border-radius:2px; cursor:pointer}
-.v3btns button[aria-pressed="true"]{background:var(--accent); border-color:var(--accent); color:var(--paper)}
-.v3btns button:hover{border-color:var(--accent)}
-
-.ctrls{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:14px;
-  border:1px solid var(--line); background:var(--card); padding:15px 17px; margin:14px 0; box-shadow:var(--shadow)}
-.ctrl label{display:block; font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.11em;
-  text-transform:uppercase; color:var(--ink3); margin-bottom:6px}
-.ctrl .val{font-family:"IBM Plex Mono",monospace; font-weight:600; color:var(--ink); font-variant-numeric:tabular-nums}
-input[type=range]{width:100%; accent-color:var(--accent); margin:0}
-
-.rooms{border:1px solid var(--line); background:var(--card); box-shadow:var(--shadow); margin:14px 0}
-.rhead,.rrow{display:grid; grid-template-columns:16px minmax(120px,2fr) 96px 78px 78px 92px;
-  gap:9px; align-items:center; padding:9px 14px; border-bottom:1px solid var(--line2)}
-@media (max-width:720px){.rhead{display:none}.rrow{grid-template-columns:16px 1fr 96px; row-gap:6px}}
-.rhead{font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase;
-  color:var(--ink3); background:var(--paper2)}
-.rrow:last-of-type{border-bottom:0}
-.swatch{width:14px; height:14px; border-radius:2px}
-.rname{font-size:14.5px; background:transparent; border:0; border-bottom:1px dashed var(--line); color:var(--ink);
-  font-family:"Source Serif 4",serif; padding:2px 0; width:100%}
-.rname:focus{outline:none; border-bottom-color:var(--accent)}
-.stepper{display:flex; align-items:center; gap:3px}
-.stepper button{width:23px; height:26px; border:1px solid var(--line); background:var(--card2); color:var(--ink2);
-  border-radius:2px; cursor:pointer; font-family:"IBM Plex Mono",monospace; font-size:14px; line-height:1}
-.stepper button:hover{border-color:var(--accent); color:var(--accent)}
-.stepper input{width:52px; text-align:right; font-family:"IBM Plex Mono",monospace; font-size:13px;
-  border:1px solid var(--line); background:var(--paper); color:var(--ink); border-radius:2px; padding:4px 5px}
-.rnum{font-family:"IBM Plex Mono",monospace; font-size:13px; color:var(--ink2); text-align:right; font-variant-numeric:tabular-nums}
-.rmove{display:flex; gap:3px; justify-content:flex-end}
-.rmove button{width:26px; height:26px; border:1px solid var(--line); background:var(--card2); color:var(--ink3);
-  border-radius:2px; cursor:pointer; font-size:12px; line-height:1}
-.rmove button:hover{border-color:var(--accent); color:var(--accent)}
-.rfoot{padding:11px 14px; border-top:1px solid var(--line); background:var(--paper2); display:flex; gap:8px; flex-wrap:wrap}
-.btn{font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
-  padding:8px 13px; border:1px solid var(--line); background:var(--card); color:var(--ink2); border-radius:2px; cursor:pointer}
-.btn:hover,.btn:focus-visible{border-color:var(--accent); color:var(--accent); outline:none}
-.btn.pri{background:var(--accent); border-color:var(--accent); color:var(--paper)}
-.btn.pri:hover{color:var(--paper); opacity:.9}
-.alert{margin:14px 0; padding:11px 15px; border-left:3px solid var(--terra);
-  background:color-mix(in srgb,var(--terra) 12%,var(--card)); font-size:14.5px}
-.alert[hidden]{display:none!important}
-
-.matgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1px; background:var(--line);
-  border:1px solid var(--line); box-shadow:var(--shadow)}
-.mat{background:var(--card); padding:14px 16px}
-.mat h5{margin:0 0 3px; font-family:"Archivo",sans-serif; font-size:15px; font-weight:700; font-stretch:106%}
-.mat .spec{font-size:13.5px; color:var(--ink2); margin:0 0 8px}
-.mat .qty{font-family:"IBM Plex Mono",monospace; font-size:13px; color:var(--ink3); display:flex; justify-content:space-between; gap:10px;
-  border-top:1px solid var(--line2); padding-top:7px; font-variant-numeric:tabular-nums}
-.mat .qty b{color:var(--ink); font-weight:600}
-
-footer{padding:40px 0 60px; color:var(--ink3); font-size:13.5px}
-@media print{nav.idx,.v3btns,.rfoot,.ctrls .stepper button{display:none}body{background:#fff}}
+footer{padding:36px 0 60px; color:var(--ink3); font-size:13px; border-top:1px solid var(--line2)}
+@media print{nav.tabs,.hud,.rfoot,.palette{display:none}body{background:#fff}section.panel[hidden]{display:block!important}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 
 <header class="cover">
-  <div class="wrap cover-in">
-    <p class="eyebrow">Anteproyecto v3 · geometría real del topógrafo · objetivo 10.000 € · 2 semanas de obra</p>
+  <div class="wide cover-in">
+    <p class="eyebrow">Maqueta viva de obra · Lote A2, La Alcoraya · geometría real del topógrafo</p>
     <h1>Casa del<br><em>Almendro</em></h1>
-    <p class="sub">Vivienda lineal sobre una franja edificable real de 5,12 × 16,10 m. Planta y volumen 3D vinculados y editables: mueve las estancias con cotas exactas y el presupuesto se recalcula solo. El núcleo que trae por defecto es lo que dos personas levantan en catorce días.</p>
+    <p class="sub">Planta, terreno y volumen en tiempo real sobre la parcela medida. Coloca árboles y caminos, mide cualquier distancia, mira la sombra que hará el 15 de agosto a las cinco de la tarde y apunta cada factura contra su partida. Lo que edite uno, lo ve el otro.</p>
     <dl class="keyfacts">
       <div class="kf"><dt>Parcela A2</dt><dd>25,12 × 36,10 <small>m</small></dd></div>
-      <div class="kf"><dt>Superficie</dt><dd>907 <small>m²</small></dd></div>
-      <div class="kf"><dt>Retranqueo</dt><dd>10,00 <small>m</small></dd></div>
       <div class="kf"><dt>Franja edificable</dt><dd>5,12 × 16,10 <small>m</small></dd></div>
+      <div class="kf"><dt>Construida</dt><dd id="kfSc">— <small>m²</small></dd></div>
+      <div class="kf"><dt>Casco · material</dt><dd id="kfC1">— <small>€</small></dd></div>
+      <div class="kf"><dt>Gastado real</dt><dd id="kfReal">— <small>€</small></dd></div>
       <div class="kf"><dt>Obra</dt><dd>14 <small>días · 2 personas</small></dd></div>
-      <div class="kf"><dt>Envolvente legal</dt><dd>82,4 <small>m²</small></dd></div>
-      <div class="kf"><dt>Fase 1 · casco</dt><dd id="kfF1">— <small>€</small></dd></div>
     </dl>
   </div>
 </header>
 
-<nav class="idx" aria-label="Índice">
-  <div class="wrap"><ol>
-    <li><a href="#e01">E‑01 Parcela real</a></li>
-    <li><a href="#ed">Editor de planta y 3D</a></li>
-    <li><a href="#mat">Materiales</a></li>
-    <li><a href="#pre">Presupuesto</a></li>
-      <li><a href="#compra">Lista de compra</a></li>
-      <li><a href="#plan">Plan de 14 días</a></li>
-    <li><a href="#c01">C‑01 Sección</a></li>
-    <li><a href="#obra">Notas de obra</a></li>
-  </ol></div>
+<nav class="tabs" role="tablist" aria-label="Secciones">
+  <div class="wide">
+    <button role="tab" id="tab-terreno" aria-selected="true"  aria-controls="p-terreno">Terreno y volumen</button>
+    <button role="tab" id="tab-planta"  aria-selected="false" aria-controls="p-planta">Planta</button>
+    <button role="tab" id="tab-mat"     aria-selected="false" aria-controls="p-mat">Materiales y proveedores</button>
+    <button role="tab" id="tab-fact"    aria-selected="false" aria-controls="p-fact">Facturas</button>
+    <button role="tab" id="tab-obra"    aria-selected="false" aria-controls="p-obra">Obra</button>
+    <span class="sync"><span class="dot" id="syncDot"></span><span id="syncTxt">conectando</span></span>
+  </div>
 </nav>
 
-<section class="sheet" id="e01">
- <div class="wrap">
-  <div class="sheet-head"><span class="code">E‑01</span><h2>La parcela real, medida</h2><span class="scale mono">datos del plano de superficies 1/13</span></div>
-  <p class="lead">Del plano del topógrafo: A2 tiene 907 m² con un lado de 36,10 m, lo que da un ancho de franja de <strong>25,12 m</strong>. Los otros lotes lo confirman —A1 da 26,32 m y A3 da 26,16 m—, así que la finca madre es una banda de unos 26 m de ancho por unos 128 m de largo, troceada en cuatro. <strong>No hay 30 m de frente.</strong> Con el retranqueo de 10 m a cada lindero quedan 5,12 m de ancho útil, y ese número manda sobre todo lo demás.</p>
+<!-- ============================ TERRENO Y VOLUMEN ============================ -->
+<section class="panel" id="p-terreno" role="tabpanel" aria-labelledby="tab-terreno">
+ <div class="wide">
+  <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap">
+    <span class="code">T‑01</span><h2>Terreno y volumen</h2>
+    <span class="mono" style="font-size:11px;color:var(--ink3)">arrastra para girar · rueda para acercar · clic sobre el suelo para colocar</span>
+  </div>
+  <p class="lead">Todo lo que ves está a escala real sobre la parcela de 25,12 × 36,10 m. El sol está calculado con la latitud de La Alcoraya (38,4° N), así que la sombra que proyecta el edificio a una fecha y hora dadas es la que va a hacer de verdad.</p>
 
-  <figure class="plate">
-   <div class="plate-body">
-    <svg viewBox="-92 -60 560 470" role="img" aria-label="Plano de la parcela A2 con sus dimensiones reales y la franja edificable resultante del retranqueo de 10 metros">
-      <!-- ==== banda completa (esquema a la izquierda) ==== -->
-      <g transform="translate(0,0)">
-        <text x="0" y="-34" class="t-lot" font-size="11">FINCA MADRE · Pol. 30 Parc. 88</text>
-        <text x="0" y="-20" font-size="8.5">3.562 m² catastrales · troceada en 4</text>
-        <g class="ln" stroke-width="1.4">
-          <path d="M 6 0 L 60 0 L 62 285 L 4 285 Z"/>
-          <path d="M 6.9 63 L 60.4 63"/><path d="M 8.3 143 L 60.8 143"/><path d="M 9.6 219 L 61.3 219"/>
-        </g>
-        <rect x="7" y="63" width="53" height="80" fill="var(--accent)" opacity=".22"/>
-        <text x="33" y="36" text-anchor="middle" font-size="9">A1 · 750</text>
-        <text x="33" y="107" text-anchor="middle" font-size="9" fill="var(--accent)" font-weight="600">A2 · 907</text>
-        <text x="33" y="185" text-anchor="middle" font-size="9">A3 · 900</text>
-        <text x="33" y="256" text-anchor="middle" font-size="9">A4 · 873</text>
-        <path d="M 4 296 L 64 300" class="ln-thin" stroke-width="2.4"/>
-        <text x="34" y="313" text-anchor="middle" font-size="8" fill="var(--ink3)">carretera</text>
-        <g class="dim" stroke-width=".9">
-          <path d="M 74 0 L 74 63 M 70 0 L 78 0 M 70 63 L 78 63"/>
-          <path d="M 74 63 L 74 143 M 70 143 L 78 143"/>
-          <path d="M 74 143 L 74 219 M 70 219 L 78 219"/>
-          <path d="M 74 219 L 74 285 M 70 285 L 78 285"/>
-        </g>
-        <text x="82" y="34" class="t-dim" font-size="8.5">28,5</text>
-        <text x="82" y="106" class="t-dim" font-size="8.5" font-weight="600">36,1</text>
-        <text x="82" y="184" class="t-dim" font-size="8.5">34,4</text>
-        <text x="82" y="255" class="t-dim" font-size="8.5">29,3</text>
-        <g transform="translate(33,-52) rotate(-20)">
-          <path d="M 0 13 L 0 -13 M -5 -5 L 0 -13 L 5 -5" class="ln" stroke-width="1.4"/>
-        </g>
-        <text x="33" y="-70" text-anchor="middle" font-size="8" fill="var(--ink3)">N (eje ≈ N20°E)</text>
-      </g>
+  <div class="pane">
+    <div class="pane-t">
+      <span id="t3info">—</span>
+      <span id="t3sun">—</span>
+    </div>
+    <div id="stage3d">
+      <div class="hud tl" id="hudInfo">Arrastra para girar</div>
+      <div class="hud tr" id="hudSel" hidden></div>
+      <div class="hud bl">
+        <button class="btn sm" data-v="paseo" aria-pressed="true">Vista de paseo</button>
+        <button class="btn sm" data-v="aerea" aria-pressed="false">Aérea</button>
+        <button class="btn sm" data-v="acceso" aria-pressed="false">Desde el camino</button>
+        <button class="btn sm" data-v="patio" aria-pressed="false">Porche ESE</button>
+        <button class="btn sm" data-v="cenital" aria-pressed="false">Cenital</button>
+      </div>
+    </div>
+  </div>
 
-      <!-- ==== A2 ampliada ==== -->
-      <g transform="translate(175,0)">
-        <rect x="0" y="0" width="251" height="361" class="fill-soft" opacity=".45"/>
-        <rect x="0" y="0" width="251" height="361" class="ln" stroke-width="2.4"/>
-        <!-- franja edificable -->
-        <rect x="100" y="100" width="51.2" height="161" fill="var(--accent)" opacity=".3"/>
-        <rect x="100" y="100" width="51.2" height="161" class="ln-dash"/>
-        <!-- casa por defecto -->
-        <rect x="101" y="109" width="49" height="143" class="w-cut"/>
-        <rect x="101" y="252" width="49" height="16" class="fill-glass"/>
-        <rect x="101" y="252" width="49" height="16" class="ln" stroke-width="1.6"/>
-        <text x="125.5" y="185" text-anchor="middle" fill="var(--paper)" font-size="10" font-weight="600">CASA</text>
-        <text x="125.5" y="199" text-anchor="middle" fill="var(--paper)" font-size="8.5">4,90 × 14,30</text>
-        <!-- retranqueos -->
-        <g class="dim" stroke-width="1">
-          <path d="M 0 60 L 100 60 M 0 55 L 0 65 M 100 55 L 100 65"/>
-          <path d="M 151.2 60 L 251 60 M 151.2 55 L 151.2 65 M 251 55 L 251 65"/>
-          <path d="M 196 0 L 196 100 M 191 0 L 201 0 M 191 100 L 201 100"/>
-          <path d="M 196 261 L 196 361 M 191 261 L 201 261 M 191 361 L 201 361"/>
-        </g>
-        <text x="50" y="52" text-anchor="middle" class="t-dim" font-size="9">10,00</text>
-        <text x="201" y="52" text-anchor="middle" class="t-dim" font-size="9">10,00</text>
-        <text x="188" y="52" class="t-dim" font-size="9" text-anchor="end" transform="rotate(-90 188 52)">10,00</text>
-        <text x="188" y="313" class="t-dim" font-size="9" text-anchor="middle" transform="rotate(-90 188 313)">10,00</text>
-        <!-- cotas generales -->
-        <g class="dim" stroke-width="1.1">
-          <path d="M 0 -26 L 251 -26 M 0 -31 L 0 -21 M 251 -31 L 251 -21"/>
-          <path d="M 100 -13 L 151.2 -13 M 100 -18 L 100 -8 M 151.2 -18 L 151.2 -8"/>
-          <path d="M -26 0 L -26 361 M -31 0 L -21 0 M -31 361 L -21 361"/>
-          <path d="M -13 100 L -13 261 M -18 100 L -8 100 M -18 261 L -8 261"/>
-        </g>
-        <text x="125" y="-33" text-anchor="middle" class="t-dim" font-size="10" font-weight="600">25,12 m</text>
-        <text x="125.5" y="-2" text-anchor="middle" class="t-dim" font-size="9" font-weight="600">5,12</text>
-        <text x="-34" y="180" text-anchor="middle" class="t-dim" font-size="10" font-weight="600" transform="rotate(-90 -34 180)">36,10 m</text>
-        <text x="-2" y="180" text-anchor="middle" class="t-dim" font-size="9" font-weight="600" transform="rotate(-90 -2 180)">16,10</text>
-        <text x="125" y="382" text-anchor="middle" class="t-lot" font-size="12">A2 · 907,00 m²</text>
-        <text x="125" y="396" text-anchor="middle" font-size="9">franja edificable 5,12 × 16,10 = 82,4 m²</text>
-        <text x="181" y="120" font-size="8.5" fill="var(--ink3)">ESE</text>
-        <text x="60" y="120" font-size="8.5" fill="var(--ink3)" text-anchor="end">WNW</text>
-      </g>
-    </svg>
-   </div>
-   <figcaption><span>E‑01 · Parcela A2 y envolvente legal</span><span>Ocupación de la propuesta: 77,9 m² / 907 m² = 8,6 %</span></figcaption>
-  </figure>
+  <div class="ctrls">
+    <div class="ctrl">
+      <label for="cDia">Fecha · <span class="val" id="vDia">21 jun</span></label>
+      <input type="range" id="cDia" min="1" max="365" step="1" value="172">
+      <p class="hint" id="sunNote">—</p>
+    </div>
+    <div class="ctrl">
+      <label for="cHora">Hora solar · <span class="val" id="vHora">13:00</span></label>
+      <input type="range" id="cHora" min="5" max="21" step="0.25" value="13">
+    </div>
+    <div class="ctrl">
+      <label for="cCalidad">Calidad de imagen</label>
+      <select id="cCalidad">
+        <option value="alta">Alta · sombras suaves</option>
+        <option value="media" selected>Media · equilibrada</option>
+        <option value="baja">Baja · equipos lentos</option>
+      </select>
+      <p class="hint">Si va a tirones en el móvil de tu padre, baja a media o baja.</p>
+    </div>
+    <div class="ctrl">
+      <label>Mostrar</label>
+      <div style="display:flex;gap:5px;flex-wrap:wrap">
+        <button class="btn sm" id="tgRoof" aria-pressed="true">Cubierta</button>
+        <button class="btn sm" id="tgEnv" aria-pressed="true">Retranqueo</button>
+        <button class="btn sm" id="tgVeg" aria-pressed="true">Vegetación</button>
+        <button class="btn sm" id="tgGrid" aria-pressed="false">Malla 1 m</button>
+      </div>
+    </div>
+  </div>
+
+  <h4>Herramienta</h4>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">
+    <button class="btn" data-tool="orbit" aria-pressed="true">Mirar</button>
+    <button class="btn" data-tool="place" aria-pressed="false">Colocar</button>
+    <button class="btn" data-tool="move"  aria-pressed="false">Mover</button>
+    <button class="btn" data-tool="path"  aria-pressed="false">Camino</button>
+    <button class="btn" data-tool="measure" aria-pressed="false">Medir</button>
+    <button class="btn danger" id="delSel">Borrar seleccionado</button>
+    <button class="btn" id="clearSite">Vaciar terreno</button>
+  </div>
+  <div class="alert" id="siteAlert" hidden></div>
+
+  <h4>Qué colocar</h4>
+  <div class="palette" id="palette"></div>
 
   <div class="grid2">
-   <div class="box">
-    <h4>5,12 m manda sobre todo</h4>
-    <p>Con esa anchura la casa sólo puede ser una <strong>barra</strong>. No es un castigo: la casa alargada de 4,90 m es una tipología excelente —todas las estancias tienen ventilación cruzada real y luz por dos lados, y la estructura de madera se resuelve con luces de 2,25 m, las más baratas que existen.</p>
-   </div>
-   <div class="box">
-    <h4>La orientación es el problema serio</h4>
-    <p>El eje de la finca va a unos N20°E, así que las fachadas largas miran <strong>ESE y WNW</strong>. El poniente de julio en Alicante es lo peor que hay. Por eso el proyecto pone toda la vivienda contra la fachada ESE y convierte la WNW en un <strong>muro ciego ventilado</strong> con el pasillo detrás haciendo de colchón térmico.</p>
-   </div>
-   <div class="box">
-    <h4>Agua: buena noticia del anuncio</h4>
-    <p>«Agua para riego por tubería y contador en la parcela». Eso elimina el aljibe de 20 m³ que había presupuestado. Queda un <strong>depósito tampón de 2 m³ + filtración y UV</strong> para uso doméstico: 900 € en lugar de 3.100 €. El agua de riego no es potable de origen, así que la potabilización no es opcional.</p>
-   </div>
+    <div class="box">
+      <h4>Objetos en el terreno</h4>
+      <div id="objTally" class="mono" style="font-size:13.5px;line-height:1.9">—</div>
+    </div>
+    <div class="box">
+      <h4>Cómo se usa en obra</h4>
+      <p><strong>Colocar:</strong> elige un elemento de la paleta y haz clic en el suelo. <strong>Mover:</strong> arrastra un objeto ya puesto. <strong>Medir:</strong> clic en dos puntos y te da la distancia exacta en metros. <strong>Camino:</strong> clic en cada vértice y doble clic para cerrar; te da la longitud y los m² de gravilla.</p>
+      <p>Todo queda guardado y compartido: lo que coloque tu padre desde su móvil lo ves tú al recargar.</p>
+    </div>
   </div>
  </div>
 </section>
 
-<section class="sheet" id="ed">
+<!-- ============================ PLANTA ============================ -->
+<section class="panel" id="p-planta" role="tabpanel" aria-labelledby="tab-planta" hidden>
  <div class="wide">
-  <div class="sheet-head"><span class="code">A‑01</span><h2>Editor de planta y volumen</h2><span class="scale mono">todo en metros · la planta y el 3D son el mismo modelo</span></div>
-  <p class="lead">Cambia el ancho, arrastra las divisiones en la planta o teclea las medidas: el 3D, las superficies, las mediciones y el presupuesto se recalculan al instante. El editor <strong>no te deja salir de la franja legal</strong>: si te pasas, avisa. Cuando tengas el reparto que quieres, pulsa «Copiar enlace» y mándaselo a los maestros — el enlace lleva dentro tu diseño exacto.</p>
+  <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap">
+    <span class="code">A‑01</span><h2>Planta</h2>
+    <span class="mono" style="font-size:11px;color:var(--ink3)">cotas en metros · arrastra los tiradores ◆</span>
+  </div>
+  <p class="lead">El retranqueo de 10 m a los cuatro linderos deja una franja de <strong>5,12 × 16,10 m</strong>. El editor no te deja salir de ahí. Los muros exteriores cuentan 20 cm y los tabiques 10, así que las superficies son útiles reales.</p>
 
-  <dl class="ed-kpi">
+  <dl class="kpis">
     <div><dt>Construida</dt><dd id="kSc">—</dd></div>
     <div><dt>Útil</dt><dd id="kSu">—</dd></div>
-    <div><dt>Largo total</dt><dd id="kL">—</dd></div>
+    <div><dt>Largo</dt><dd id="kL">—</dd></div>
     <div><dt>Ancho</dt><dd id="kW">—</dd></div>
     <div><dt>Ocupación</dt><dd id="kOc">—</dd></div>
-    <div><dt>Fase 1 · casco</dt><dd id="kC1">—</dd></div>
-    <div><dt>Proyecto completo</dt><dd id="kCt">—</dd></div>
+    <div><dt>Casco</dt><dd id="kC1">—</dd></div>
+    <div><dt>Proyecto</dt><dd id="kCt">—</dd></div>
   </dl>
-
   <div class="alert" id="alert" hidden></div>
 
-  <div class="ed-stage">
+  <div class="stage">
     <div class="pane">
-      <div class="pane-t"><span>Planta · arrastra los tiradores ◆ entre estancias</span><span id="planScale">E 1:75</span></div>
-      <div style="padding:12px"><svg id="plan2d" viewBox="0 0 760 460" role="img" aria-label="Planta editable de la vivienda con cotas"></svg></div>
+      <div class="pane-t"><span>Planta editable</span><span id="planScale">E 1:75</span></div>
+      <div style="padding:12px"><svg id="plan2d" viewBox="0 0 760 460" role="img" aria-label="Planta editable acotada"></svg></div>
     </div>
-    <div class="pane">
-      <div class="pane-t"><span>Volumen · arrastra para girar, rueda para acercar</span><span id="v3info">—</span></div>
-      <div id="pane3d"></div>
-      <div class="v3btns">
-        <button type="button" data-v="ese" aria-pressed="true">Fachada ESE</button>
-        <button type="button" data-v="aerea" aria-pressed="false">Aérea</button>
-        <button type="button" data-v="wnw" aria-pressed="false">Muro ciego</button>
-        <button type="button" data-v="sur" aria-pressed="false">Testero sur</button>
-        <button type="button" data-v="corte" aria-pressed="false">Sin cubierta</button>
+    <div class="pane" id="mini3d">
+      <div class="pane-t"><span>Volumen</span><span class="mono" id="mini3dNote">el visor está en la pestaña Terreno</span></div>
+      <div id="mini3dSlot" style="min-height:380px;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;color:var(--ink3);font-size:14px">
+        Abre <strong style="margin:0 4px">Terreno y volumen</strong> para ver el modelo en 3D a pantalla ancha.
       </div>
     </div>
   </div>
@@ -375,239 +378,176 @@ footer{padding:40px 0 60px; color:var(--ink3); font-size:13.5px}
     </div>
     <div class="ctrl">
       <label for="cRoof">Cubierta</label>
-      <select id="cRoof" style="width:100%;padding:7px 8px;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:2px;font-family:'IBM Plex Mono',monospace;font-size:12px">
-        <option value="chapa">Chapa grecada · 11 €/m²</option>
-        <option value="pir40">Panel PIR 40 mm · 22 €/m²</option>
-        <option value="pir80v">PIR 80 + ventilada · 39 €/m²</option>
-      </select>
-      <p style="margin:7px 0 0;font-size:12.5px;color:var(--ink3)" id="roofNote"></p>
+      <select id="cRoof"></select>
+      <p class="hint" id="roofNote">—</p>
     </div>
     <div class="ctrl">
       <label for="cBud">Presupuesto objetivo · <span class="val" id="vBud">10.000</span> €</label>
-      <input type="range" id="cBud" min="5000" max="30000" step="500" value="10000">
-      <div style="height:7px;background:var(--card2);border:1px solid var(--line);margin-top:8px;border-radius:2px;overflow:hidden">
-        <div id="budBar" style="height:100%;width:0;background:var(--accent)"></div>
-      </div>
-      <p style="margin:6px 0 0;font-size:12.5px;color:var(--ink3)" id="budNote"></p>
+      <input type="range" id="cBud" min="5000" max="40000" step="500" value="10000">
+      <div class="bar"><i id="budBar"></i></div>
+      <p class="hint" id="budNote">—</p>
     </div>
   </div>
 
   <div class="rooms">
-    <div class="rhead">
-      <span></span><span>Estancia</span><span>Largo (m)</span><span class="rnum">Fondo</span><span class="rnum">Superficie</span><span class="rmove">Orden</span>
-    </div>
+    <div class="rhead"><span></span><span>Estancia</span><span>Largo (m)</span><span class="rnum">Fondo</span><span class="rnum">Superficie</span><span class="rmove">Orden</span></div>
     <div id="roomList"></div>
     <div class="rfoot">
-      <button class="btn" type="button" id="addRoom">+ Añadir estancia</button>
-      <button class="btn" type="button" id="reset">Volver al reparto propuesto</button>
-      <button class="btn pri" type="button" id="copyLink">Copiar enlace con este diseño</button>
-      <button class="btn" type="button" id="printBtn">Imprimir para la obra</button>
-      <span id="copyMsg" class="mono" style="font-size:12px;color:var(--accent);align-self:center"></span>
+      <button class="btn" id="addRoom">+ Estancia</button>
+      <button class="btn" id="reset">Reparto propuesto</button>
+      <button class="btn pri" id="copyLink">Copiar enlace</button>
+      <button class="btn" id="printBtn">Imprimir</button>
+      <span id="copyMsg" class="mono" style="font-size:12px;color:var(--accent)"></span>
+    </div>
+  </div>
+ </div>
+</section>
+
+<!-- ============================ MATERIALES ============================ -->
+<section class="panel" id="p-mat" role="tabpanel" aria-labelledby="tab-mat" hidden>
+ <div class="wide">
+  <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap">
+    <span class="code">M‑01</span><h2>Materiales y proveedores</h2>
+    <span class="mono" style="font-size:11px;color:var(--ink3)">mediciones vinculadas a la planta</span>
+  </div>
+  <p class="lead">Cada sistema con lo que hay que pedir, cuánto, dónde comprarlo en Alicante y un precio de referencia. Las cantidades salen de tu planta actual: si la cambias, cambian aquí.</p>
+
+  <div class="note warn">
+    <p><strong>Fiabilidad de los precios, dicha claramente.</strong> No he podido abrir fichas de artículo: el entorno donde trabajo tiene bloqueado el acceso a las webs de Obramat, Leroy Merlin y los fabricantes de panel. Lo que doy son <strong>rangos publicados y contrastados</strong>, tomados en la banda baja‑media. Cada fila lleva su nivel de confianza. La columna «precio real» de la lista de compra está en blanco a propósito: <strong>en obra sólo vale el precio del albarán</strong>, y en cuanto tengáis presupuesto de almacén, esas cifras mandan sobre las mías.</p>
+  </div>
+
+  <h4>Sistemas del proyecto · pulsa para ir a la tienda</h4>
+  <div class="matgrid" id="matCards"></div>
+
+  <h4>Lista de compra · para llevar al mostrador</h4>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th style="width:34px" class="num">#</th><th>Material</th><th class="num">Cantidad</th><th class="num">€/ud ref.</th><th class="num">Importe ref.</th><th style="width:120px">Precio real</th></tr></thead>
+      <tbody id="shopBody"></tbody>
+      <tfoot><tr><td colspan="4">Total casco · material</td><td class="num" id="shopTotal">—</td><td></td></tr></tfoot>
+    </table>
+  </div>
+
+  <h4>Proveedores en Alicante</h4>
+  <div class="grid2">
+    <div class="box">
+      <h4>Obramat Alicante <span class="mono" style="color:var(--ink3);text-transform:none;letter-spacing:0">(antes Bricomart)</span></h4>
+      <p>Avenida de Dénia 141, Alicante · <strong>966 130 071</strong> · abre a las 7:00, que para una obra de dos semanas importa.</p>
+      <p>El almacén de referencia para casi todo: madera de construcción, tableros, cemento, tornillería, herramienta. Tienen recogida en 2 h y entrega en obra en 24 h, y descuento por palet. <a href="https://www.obramat.es/almacenes/obramat-alicante.html">obramat.es</a></p>
+    </div>
+    <div class="box">
+      <h4>Urbanmader · madera</h4>
+      <p>Polígono Babel, C/ Rosa de los Vientos 1, 03007 Alicante · <strong>618 711 637</strong> / 608 478 832.</p>
+      <p>Almacén de madera desde 1995, venta al por mayor y menor: vigas, listones y tableros. Es donde preguntar si te <strong>cortan la madera a medida</strong> según despiece — eso es lo que hace que catorce días sean realistas. <a href="https://www.urbanmader.com/">urbanmader.com</a></p>
+    </div>
+    <div class="box">
+      <h4>Panel Sandwich Group · cubierta</h4>
+      <p>Fabricante con venta directa de fábrica a obra y delegación para Alicante; longitudes a medida y entrega en 48 h si tienen chapa en almacén. Pide el panel <strong>a la longitud exacta del faldón</strong>: sin solapes no hay filtraciones. <a href="https://www.panelsandwich.com/panel-sandwich-alicante/">panelsandwich.com</a></p>
+      <p>Alternativas para comparar: <a href="https://panelfix.es/">Panelfix</a> (venta online, pedido mínimo 50 m²) y <a href="https://lopanel.com/precio-panel-sandwich-cubierta-alicante/">Lopanel</a>.</p>
+    </div>
+    <div class="box">
+      <h4>Tableros y complementos</h4>
+      <p><a href="https://todomaderaalicante.com/productos/tableros/osb/">Todo Madera Alicante (Deco3)</a> para OSB y tableros. <a href="https://dangla.es/almacen-de-materiales-de-construccion-y-reforma/">Dangla</a> como segundo almacén de construcción para comparar precio.</p>
+      <p>Cemento y hormigón preparado en saco de 25 kg: <strong>3,50–4,50 €/saco</strong> en Leroy Merlin o Brico Depôt. Para 15 zapatas hacen falta del orden de 40 sacos de hormigón seco más grava.</p>
     </div>
   </div>
 
   <div class="note">
-    <p><strong>Reglas que el editor respeta por ti.</strong> El ancho nunca pasa de 5,12 m y el largo total nunca pasa de 16,10 m, que son los límites de la franja tras el retranqueo. El fondo de las estancias privadas se descuenta del pasillo automáticamente. Los muros exteriores cuentan 20 cm y los tabiques 10 cm, así que las superficies que ves son útiles reales, no aproximadas.</p>
+    <p><strong>Las tres llamadas que hay que hacer esta semana.</strong> Una a Urbanmader con el despiece de madera y la pregunta de si cortan a medida. Otra a Panel Sandwich Group con los metros de faldón y la longitud exacta. Y una a Obramat para tableros, tornillería y cemento. Con eso tenéis precio real en un día y esta tabla se convierte en una referencia de contraste, que es para lo que sirve.</p>
   </div>
  </div>
 </section>
 
-<section class="sheet" id="mat">
+<!-- ============================ FACTURAS ============================ -->
+<section class="panel" id="p-fact" role="tabpanel" aria-labelledby="tab-fact" hidden>
  <div class="wide">
-  <div class="sheet-head"><span class="code">M‑01</span><h2>Materiales y mediciones</h2><span class="scale mono">cantidades vinculadas al diseño de arriba</span></div>
-  <p class="lead">Cada sistema con su especificación exacta para pedir en el almacén, y la medición que sale de tu diseño actual. Si cambias la planta, estas cifras cambian.</p>
-  <div class="matgrid" id="matGrid"></div>
- </div>
-</section>
+  <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap">
+    <span class="code">F‑01</span><h2>Facturas y gasto real</h2>
+    <span class="mono" style="font-size:11px;color:var(--ink3)">compartido · lo que apunta uno lo ve el otro</span>
+  </div>
+  <p class="lead">Cada compra, contra su partida. Aquí se ve en todo momento cuánto se lleva gastado de verdad frente a lo presupuestado, y qué partidas se han desviado. Puedes adjuntar la foto del albarán: se guarda reducida para que no ocupe.</p>
 
-<section class="sheet" id="pre">
- <div class="wide">
-  <div class="sheet-head"><span class="code">P‑01</span><h2>Presupuesto</h2><span class="scale mono">material · precios sept. 2026 · autoconstrucción</span></div>
-  <p class="lead">La Fase 1 deja el edificio cerrado y estanco: se puede parar ahí un año sin que se estropee nada. Las fases siguientes se ejecutan por dentro, sin tocar lo construido. <strong>La barra crece por el extremo norte</strong>: cuando quieras el segundo dormitorio, se prolonga el forjado y se sigue: ni un tornillo de lo ya hecho se toca.</p>
+  <dl class="kpis">
+    <div><dt>Presupuestado</dt><dd id="fPres">—</dd></div>
+    <div><dt>Gastado real</dt><dd id="fReal">—</dd></div>
+    <div><dt>Desviación</dt><dd id="fDesv">—</dd></div>
+    <div><dt>Facturas</dt><dd id="fNum">—</dd></div>
+    <div><dt>Objetivo</dt><dd id="fObj">—</dd></div>
+  </dl>
+  <div class="bar" style="margin-bottom:16px"><i id="fBar"></i></div>
+
+  <div class="pane" style="padding:15px 17px;margin-bottom:16px">
+    <h4 style="margin-top:0">Apuntar una compra</h4>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;align-items:end">
+      <div><label class="mono" style="font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink3);display:block;margin-bottom:5px">Fecha</label><input type="date" id="fDate"></div>
+      <div><label class="mono" style="font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink3);display:block;margin-bottom:5px">Proveedor</label><input type="text" id="fProv" placeholder="Obramat, Urbanmader…"></div>
+      <div style="grid-column:span 2"><label class="mono" style="font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink3);display:block;margin-bottom:5px">Partida</label><select id="fPart"></select></div>
+      <div><label class="mono" style="font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink3);display:block;margin-bottom:5px">Concepto</label><input type="text" id="fConc" placeholder="12 vigas 45×145×4 m"></div>
+      <div><label class="mono" style="font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink3);display:block;margin-bottom:5px">Importe €</label><input type="number" id="fImp" step="0.01" min="0" placeholder="0,00"></div>
+      <div><label class="mono" style="font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink3);display:block;margin-bottom:5px">Foto del albarán</label><input type="file" id="fFoto" accept="image/*" style="font-size:12px"></div>
+      <div><button class="btn pri" id="fAdd" style="width:100%">Guardar factura</button></div>
+    </div>
+    <p class="hint" id="fMsg"></p>
+  </div>
+
   <div class="tablewrap">
     <table>
-      <thead><tr><th style="width:40px" class="num">#</th><th>Partida</th><th class="num">Medición</th><th class="num">€/ud</th><th class="num">Importe</th></tr></thead>
-      <tbody id="bomBody"></tbody>
-      <tfoot><tr><td colspan="4">Total Fase 1 · casco cerrado y estanco</td><td class="num" id="bomTotal">—</td></tr></tfoot>
+      <thead><tr><th style="width:96px">Fecha</th><th>Proveedor</th><th>Concepto</th><th>Partida</th><th class="num">Importe</th><th style="width:56px"></th><th style="width:44px"></th></tr></thead>
+      <tbody id="factBody"></tbody>
+      <tfoot><tr><td colspan="4">Total gastado</td><td class="num" id="factTotal">—</td><td colspan="2"></td></tr></tfoot>
     </table>
   </div>
 
-  <h4>Fases siguientes</h4>
+  <h4>Desviación por partida</h4>
   <div class="tablewrap">
     <table>
-      <thead><tr><th>Fase</th><th>Alcance</th><th class="num">Importe</th><th class="num">Acumulado</th></tr></thead>
-      <tbody id="phaseBody"></tbody>
+      <thead><tr><th>Partida</th><th class="num">Presupuesto</th><th class="num">Real</th><th class="num">Desviación</th><th style="width:150px">Avance</th></tr></thead>
+      <tbody id="devBody"></tbody>
     </table>
   </div>
-
-  <div class="note warn">
-    <p><strong>Son precios de material, con la obra hecha por vosotros.</strong> Es lo único que permite estas cifras. Con los dos maestros contratados a jornal, cuenta <strong>+55 a 70 €/hora de equipo</strong>; el casco de Fase 1 son del orden de 220–280 horas de dos personas, es decir <strong>7.000–9.500 € de mano de obra</strong> además del material.</p>
-    <p>Añade siempre un <strong>10 % de imprevistos</strong>. En autoconstrucción se va en portes, herramienta, tornillería que falta y piezas mal cortadas. No es opcional.</p>
-  </div>
  </div>
 </section>
 
-
-<section class="sheet" id="compra">
+<!-- ============================ OBRA ============================ -->
+<section class="panel" id="p-obra" role="tabpanel" aria-labelledby="tab-obra" hidden>
  <div class="wide">
-  <div class="sheet-head"><span class="code">L‑01</span><h2>Lista de compra</h2><span class="scale mono">para llevar al mostrador</span></div>
-  <p class="lead">Las mediciones salen de tu diseño actual. La última columna va en blanco a propósito: <strong>que tu padre apunte ahí el precio real del almacén</strong>. Mis importes son de referencia contrastada, no de artículo concreto, y en obra sólo vale el precio del albarán.</p>
-
-  <div class="note warn">
-   <p><strong>De dónde salen mis precios, y qué fiabilidad tienen.</strong> El entorno donde trabajo tiene bloqueado el acceso a las webs de Leroy Merlin, Obramat/Bricomart y los fabricantes de panel, así que <strong>no he podido leer fichas de artículo</strong>. Lo que sí he contrastado son rangos publicados: OSB‑3 de 15 mm en torno a <strong>10,51 €/m²</strong> (junio 2026); panel sándwich de cubierta <strong>17–95 €/m²</strong> sólo material según espesor; chapa grecada de 0,6 mm <strong>28–40 €/m² instalada</strong> sin aislamiento; carpintería de aluminio con RPT <strong>220–300 €/m² sólo material</strong>. He tomado valores en la banda baja‑media de cada rango. La madera C24 a 450 €/m³ es el dato más flojo: los generadores de precios dan 19 €/ml para una viga de 100×200, pero ese precio ya lleva ejecución dentro.</p>
-   <p>Traducción práctica: <strong>encarga presupuesto en dos almacenes de Alicante antes de comprar nada</strong>. Con esta lista de mediciones es una llamada de diez minutos, y sustituye cualquier estimación mía.</p>
+  <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap">
+    <span class="code">O‑01</span><h2>Obra · 14 días</h2>
+    <span class="mono" style="font-size:11px;color:var(--ink3)">marca cada jornada al terminarla</span>
   </div>
-
+  <p class="lead">Doce jornadas de trabajo y dos de margen, para dos personas. El orden no es negociable en dos puntos: el hormigón cura antes de cargarlo, y la cubierta se cierra el mismo día que se abre. Las casillas se guardan compartidas.</p>
+  <div class="bar" style="margin-bottom:14px"><i id="obraBar"></i></div>
   <div class="tablewrap">
-   <table>
-    <thead><tr><th style="width:40px" class="num">#</th><th>Material</th><th class="num">Cantidad a pedir</th><th class="num">€/ud ref.</th><th class="num">Importe ref.</th><th style="width:130px">Precio real</th></tr></thead>
-    <tbody id="shopBody"></tbody>
-   </table>
-  </div>
- </div>
-</section>
-
-<section class="sheet" id="plan">
- <div class="wide">
-  <div class="sheet-head"><span class="code">O‑01</span><h2>Plan de obra · 14 días</h2><span class="scale mono">dos personas · núcleo por defecto</span></div>
-  <p class="lead">Doce jornadas de trabajo y dos de margen. El orden no es negociable en dos puntos: el hormigón necesita curar antes de cargarlo, y la cubierta tiene que cerrarse el mismo día que se abre. Todo lo demás admite reajuste.</p>
-
-  <div class="tablewrap">
-   <table>
-    <thead><tr><th style="width:58px" class="num">Día</th><th>Trabajo</th><th style="width:230px">Por qué ese día</th></tr></thead>
-    <tbody>
-     <tr><td class="num">1</td><td>Replanteo con cinta y escuadra 3‑4‑5 desde los dos linderos largos. Zanja de infiltración aguas arriba. Marcar los puntos de zapata.</td><td>Comprobar diagonales ahora: 2 cm de error aquí son 6 cm en el otro extremo.</td></tr>
-     <tr><td class="num">2</td><td>Excavar los pozos de 40×40×60. Hormigonar con las placas de anclaje puestas y niveladas con láser.</td><td>Todas las placas al mismo nivel. Es lo único que no se corrige después.</td></tr>
-     <tr><td class="num">3</td><td>Cortar y tratar toda la madera según despiece. Etiquetar cada pieza.</td><td>El hormigón cura. Un día de taller ahorra tres de obra.</td></tr>
-     <tr><td class="num">4</td><td>Vigas maestras sobre las placas y viguetas de forjado con estribos.</td><td>48 h de curado ya son suficientes para una estructura ligera.</td></tr>
-     <tr><td class="num">5</td><td>Tablero de forjado atornillado. Suelo terminado.</td><td>A partir de aquí se trabaja sobre plataforma plana y a nivel.</td></tr>
-     <tr><td class="num">6</td><td>Montar los paños de muro tumbados sobre el propio forjado, con su OSB ya clavado.</td><td>Montar en horizontal es el truco que hace esto posible entre dos.</td></tr>
-     <tr><td class="num">7</td><td class="mono" style="color:var(--ink3)">Margen · descanso</td><td>Recuperar retrasos sin comerse el calendario.</td></tr>
-     <tr><td class="num">8</td><td>Levantar y aplomar los cuatro paños. Riostras provisionales. Durmiente superior doble.</td><td>El paño ciego WNW es el que aguanta el poniente: tornillo cada 15 cm en bordes.</td></tr>
-     <tr><td class="num">9</td><td>Correas y cubierta completa. <strong>Cerrar estanco el mismo día.</strong></td><td>Nunca dejar la casa abierta de noche. Mirar el parte antes de empezar.</td></tr>
-     <tr><td class="num">10</td><td>Remates de cubierta, cumbrera, canalón y bajante.</td><td>Con el agua ya conducida, la obra deja de degradarse.</td></tr>
-     <tr><td class="num">11</td><td>Premarcos y carpintería exterior. Puerta.</td><td>Cerrada con llave: a partir de aquí se puede dejar material dentro.</td></tr>
-     <tr><td class="num">12</td><td>Lámina HPV y rastreles de la cámara ventilada.</td><td>La lámina no aguanta sol indefinidamente: la chapa va detrás sin demora.</td></tr>
-     <tr><td class="num">13</td><td>Chapa grecada de fachada y remates de esquina.</td><td>Empezar por el paño ciego, que es el que marca el aplomo.</td></tr>
-     <tr><td class="num">14</td><td class="mono" style="color:var(--ink3)">Margen · limpieza y repaso</td><td>Casco cerrado y estanco. Se puede parar aquí un año.</td></tr>
-    </tbody>
-   </table>
+    <table>
+      <thead><tr><th style="width:44px" class="num">Día</th><th style="width:42px">Hecho</th><th>Trabajo</th><th style="width:230px">Por qué ese día</th></tr></thead>
+      <tbody id="obraBody"></tbody>
+    </table>
   </div>
 
   <div class="grid2">
    <div class="box">
-    <h4>Herramienta que tiene que estar el día 1</h4>
-    <p>Nivel láser autonivelante, sierra circular con guía, ingletadora, dos atornilladores de impacto con batería de repuesto, cinta de 30 m, escuadra grande, plomada, 6 sargentos, escalera de tijera y andamio o borriquetas. Alquilar el láser y el andamio sale más barato que perder dos días.</p>
+    <h4>Herramienta el día 1</h4>
+    <p>Nivel láser autonivelante, sierra circular con guía, ingletadora, dos atornilladores de impacto con batería de repuesto, cinta de 30 m, escuadra grande, plomada, seis sargentos, escalera y andamio o borriquetas. Alquilar láser y andamio sale más barato que perder dos días.</p>
    </div>
    <div class="box">
-    <h4>Lo que hace que 14 días sean realistas</h4>
-    <p>Tres cosas: que la madera llegue <strong>ya cortada a medida</strong> si el almacén lo hace, que los paños se monten tumbados sobre el forjado, y que la cubierta sea de panel —un panel de 1,00 m de ancho útil lo suben dos personas y cierra 1 m² por pieza—. Con teja o con estructura pesada, esto no cabe en dos semanas.</p>
+    <h4>Lo que hace realistas los 14 días</h4>
+    <p>Que la madera llegue <strong>ya cortada a medida</strong>, que los paños se monten tumbados sobre el propio forjado y que la cubierta sea de panel: una pieza de 1 m de ancho útil la suben dos personas y cierra 1 m² de golpe. Con teja o estructura pesada esto no cabe en dos semanas.</p>
    </div>
    <div class="box">
     <h4>Si aparece un imprevisto</h4>
-    <p>El orden de sacrificio es: primero la chapa de fachada (la lámina aguanta una temporada), después la carpintería (se tapian los huecos con tablero), y en último lugar la cubierta. <strong>Nunca se sacrifica la cubierta ni el arriostrado.</strong></p>
+    <p>Orden de sacrificio: primero la chapa de fachada (la lámina aguanta una temporada), después la carpintería (se tapian los huecos con tablero) y en último lugar nada más. <strong>Nunca se sacrifica la cubierta ni el arriostrado de OSB.</strong></p>
    </div>
    <div class="box">
-    <h4>Con 10.000 € qué entra</h4>
-    <p>Con los precios corregidos, 10.000 € de material dan del orden de <strong>40 a 48 m² de casco estanco</strong>, que es justo el núcleo que trae el editor por defecto. Súbelo con los deslizadores y verás en el acto lo que cuesta cada metro de más. La barra está pensada para prolongarse después sin tocar nada de lo hecho.</p>
-   </div>
-  </div>
- </div>
-</section>
-
-<section class="sheet" id="c01">
- <div class="wrap">
-  <div class="sheet-head"><span class="code">C‑01</span><h2>Sección constructiva</h2><span class="scale mono">E 1:40 · corte transversal WNW–ESE</span></div>
-  <p class="lead">El corte por el ancho de la barra. Aquí está todo lo que los maestros necesitan entender: apoyo, forjado ventilado, muro, cubierta y el alero que hace de parasol. Las luces son de 2,25 m, de las más baratas de resolver en madera.</p>
-  <figure class="plate">
-   <div class="plate-body">
-    <svg viewBox="-150 -480 900 620" role="img" aria-label="Sección constructiva transversal con cimentación, forjado sanitario, muros, cubierta a un agua y alero de 1,20 metros">
-      <path d="M -120 0 H 760" class="ln" stroke-width="3"/>
-      <path d="M -120 11 H 760 M -120 22 H 760" stroke="var(--ink3)" stroke-width="1.2" opacity=".45" fill="none"/>
-      <!-- zapatas: WNW, centro, ESE -->
-      <g class="w-cut">
-        <rect x="-8" y="0" width="40" height="60"/><rect x="225" y="0" width="40" height="60"/><rect x="458" y="0" width="40" height="60"/>
-        <rect x="2" y="-35" width="20" height="35"/><rect x="235" y="-35" width="20" height="35"/><rect x="468" y="-35" width="20" height="35"/>
-      </g>
-      <!-- forjado -->
-      <rect x="0" y="-58" width="490" height="20" class="w-cut"/>
-      <path d="M 0 -60 H 490" class="ln" stroke-width="3"/>
-      <path d="M 40 -20 h 50 M 220 -20 h 50 M 400 -20 h 50" class="dim" stroke-width="3"/>
-      <text x="245" y="-6" font-size="13" text-anchor="middle">cámara sanitaria ventilada 0,38</text>
-      <!-- muros: WNW alto ciego, ESE bajo -->
-      <rect x="0" y="-360" width="20" height="302" class="w-cut"/>
-      <rect x="470" y="-260" width="20" height="202" class="w-cut"/>
-      <!-- hueco ESE -->
-      <rect x="470" y="-230" width="20" height="140" class="fill-glass"/>
-      <path d="M 480 -230 V -90" stroke="var(--sky)" stroke-width="6"/>
-      <!-- tabique pasillo -->
-      <rect x="110" y="-260" width="10" height="200" class="w-cut-l"/>
-      <!-- cubierta a un agua WNW->ESE, pendiente 20,4% -->
-      <path d="M -40 -368 L 610 -235 L 610 -212 L -40 -345 Z" class="w-cut"/>
-      <path d="M -40 -380 L 610 -247" class="ln" stroke-width="4"/>
-      <g fill="var(--ink3)" opacity=".9"><path d="M 150 -336 L 470 -270 L 470 -256 L 150 -322 Z"/></g>
-      <text x="310" y="-346" text-anchor="middle" font-size="13" fill="var(--ink3)">fotovoltaica sobre faldón ESE</text>
-      <circle cx="624" cy="-232" r="13" class="ln" stroke-width="3" fill="none"/>
-      <!-- porche / invernadero al ESE, bajo el alero -->
-      <path d="M 490 -60 H 610" class="ln" stroke-width="3"/>
-      <path d="M 610 -60 V -212" class="ln-dash"/>
-      <!-- sol -->
-      <path d="M 700 -430 L 500 -250" class="ln" stroke="var(--ochre)" stroke-width="2.5"/>
-      <path d="M 700 -300 L 560 -218" class="ln" stroke="var(--ochre)" stroke-width="2.5" stroke-dasharray="9 6"/>
-      <text x="700" y="-444" class="t-dim" font-size="13" fill="var(--ochre)" text-anchor="middle">sol ESE mañana</text>
-      <!-- pasillo colchon -->
-      <text x="62" y="-150" font-size="12" text-anchor="middle" transform="rotate(-90 62 -150)">PASILLO</text>
-      <text x="300" y="-150" font-size="13" text-anchor="middle">ESTANCIA</text>
-      <!-- cotas -->
-      <g class="dim" stroke-width="1.6">
-        <path d="M -70 0 L -70 -380 M -78 0 L -62 0 M -78 -380 L -62 -380"/>
-        <path d="M 670 0 L 670 -60 M 670 -60 L 670 -260 M 662 0 L 678 0 M 662 -60 L 678 -60 M 662 -260 L 678 -260"/>
-        <path d="M 0 90 L 490 90 M 0 82 L 0 98 M 490 82 L 490 98"/>
-        <path d="M 490 62 L 610 62 M 490 54 L 490 70 M 610 54 L 610 70"/>
-      </g>
-      <text x="-84" y="-190" class="t-dim" font-size="14" text-anchor="middle" transform="rotate(-90 -84 -190)">3,80 total</text>
-      <text x="690" y="-30" class="t-dim" font-size="13" transform="rotate(-90 690 -30)">0,60</text>
-      <text x="690" y="-160" class="t-dim" font-size="13" transform="rotate(-90 690 -160)">2,60 libre</text>
-      <text x="245" y="110" class="t-dim" font-size="14" text-anchor="middle">4,90 ancho exterior</text>
-      <text x="550" y="50" class="t-dim" font-size="13" text-anchor="middle">1,20 alero</text>
-      <text x="-40" y="-400" font-size="12">WNW · ciego</text>
-      <text x="600" y="-400" font-size="12" text-anchor="end">ESE · huecos</text>
-    </svg>
-   </div>
-   <figcaption><span>C‑01 · Sección transversal tipo</span><span>Pendiente 20,4 % (11,5°) hacia el ESE · luces de forjado 2,25 m</span></figcaption>
-  </figure>
- </div>
-</section>
-
-<section class="sheet" id="obra">
- <div class="wrap">
-  <div class="sheet-head"><span class="code">Z‑01</span><h2>Notas para los maestros</h2></div>
-  <div class="grid2">
-   <div class="box">
-    <h4>Orden de trabajo</h4>
-    <p>1 · Replanteo con cinta y escuadra 3‑4‑5 desde los dos linderos largos. 2 · Zanja de infiltración en el lindero de aguas arriba, antes que nada. 3 · Zapatas y placas de anclaje, con nivel láser. 4 · Forjado y solera de tablero. 5 · Muros montados en el suelo y levantados por paños. 6 · Cubierta el mismo día que se cierra el último paño. 7 · Carpinterías. 8 · Fachada ventilada.</p>
-   </div>
-   <div class="box">
-    <h4>Los dos errores que arruinan una barra estrecha</h4>
-    <p><strong>Escuadría.</strong> En 14,30 m de largo, 2 cm de error de escuadra al principio son 6 cm al final y la cubierta no cierra. Comprobar diagonales antes de clavar nada.</p>
-    <p><strong>Aplomo del muro ciego.</strong> El paño WNW es el que recibe el viento de poniente sin huecos que lo arriostren. Arriostrado con OSB en todo el paño, sin excepciones, y tornillo cada 15 cm en bordes.</p>
-   </div>
-   <div class="box">
-    <h4>Lo que hay que verificar en campo</h4>
-    <p>El ancho de 25,12 m es deducido del plano del topógrafo, no medido por vosotros. <strong>Comprobadlo con cinta antes de replantear</strong>: si sale 24 m, la franja baja a 4,00 m y hay que reajustar el editor. Comprobad también por dónde baja el agua cuando llueve fuerte.</p>
-   </div>
-   <div class="box">
-    <h4>Papeleo <span class="tag">una vez</span></h4>
-    <p>El diseño ya minimiza riesgo: 8,6 % de ocupación, cimentación desmontable y aspecto agrícola. Para tramitar licencia hace falta proyecto firmado por técnico competente y visado; un arquitecto de Alicante que ya haya tramitado en SNU común lo firma sobre estos planos por 1.500–2.500 € en lugar de empezar de cero.</p>
+    <h4>Lo que falta por comprobar <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--terra);border:1px solid var(--terra);padding:2px 6px;border-radius:2px">crítico</span></h4>
+    <p>Los 25,12 m de ancho están <strong>deducidos del plano del topógrafo, no medidos</strong>. Antes de comprar madera, cinta en mano y comprobad frente y fondo. Si salen 24 m, la franja baja a 4,00 m y hay que rehacer el reparto.</p>
    </div>
   </div>
  </div>
 </section>
 
 <footer>
- <div class="wrap">
-  <hr style="border:0;height:1px;background:var(--line);margin-bottom:20px">
-  <p><strong>Casa del Almendro</strong> · Anteproyecto v2 · Lote A2, La Alcoraya, Alicante · Septiembre 2026. Geometría de parcela deducida del plano de superficies del topógrafo (A2: 907 m², lado 36,10 m), pendiente de comprobación con cinta en campo. Precios de material orientativos, sin mano de obra. Documento de trabajo: no es proyecto técnico ni sustituye a documentación visada.</p>
+ <div class="wide">
+  <p><strong>Casa del Almendro</strong> · Lote A2, La Alcoraya, Alicante · Septiembre 2026. Geometría de parcela deducida del plano de superficies del topógrafo (A2: 907 m², lado 36,10 m), pendiente de comprobación con cinta. Precios de material orientativos, sin mano de obra, con la fiabilidad indicada en cada fila. Documento de trabajo: no es proyecto técnico ni sustituye a documentación visada por técnico competente.</p>
  </div>
 </footer>
 
@@ -615,11 +555,24 @@ footer{padding:40px 0 60px; color:var(--ink3); font-size:13.5px}
 <script>
 (function(){
 "use strict";
-// ===================== LÍMITES REALES DE LA PARCELA =====================
-var LIM = {W:5.12, L:16.10, PW:25.12, PL:36.10, AREA:907};
-var WALL=0.20, TAB=0.10, PEND=1.00;   // muro ext, tabique, desnivel de cubierta
+/* ==================================================================
+   CASA DEL ALMENDRO — maqueta viva
+   Un solo modelo alimenta planta, volumen 3D, mediciones y coste.
+   ================================================================== */
+var LIM  = {W:5.12, L:16.10, PW:25.12, PL:36.10, AREA:907};
+var LAT  = 38.4;                 // La Alcoraya
+var BEAR = 20;                   // eje de la finca, grados desde el norte
+var WALL = 0.20, TAB = 0.10, PEND = 1.00;
 
-var DEF = {
+var ROOFS = {
+  chapa:  {n:'Chapa grecada 0,6 mm', p:11, extra:0,
+           d:'Estanca desde el primer día; se aísla por dentro en fase 2. La más rápida de montar.'},
+  pir40:  {n:'Panel sándwich PIR 40 mm', p:22, extra:0,
+           d:'Estanco y aislado en un solo producto. Un panel lo suben dos personas.'},
+  pir80v: {n:'PIR 80 mm + sobrecubierta ventilada', p:28, extra:11,
+           d:'Lo correcto para agosto en Alicante, pero es lo que más encarece el casco.'}
+};
+var DEF_PLAN = {
   bw:4.90, corr:1.10, h:2.60, pos:50, roof:'pir40', budget:10000,
   rooms:[
     {n:'Invernadero · porche',     L:1.60, t:'inv'},
@@ -628,558 +581,1226 @@ var DEF = {
     {n:'Baño',                     L:1.30, t:'serv'}
   ]
 };
-// Cubierta: la mayor palanca de coste del casco. Precios de material, sin montaje.
-var ROOFS = {
-  chapa:  {n:'Chapa grecada 0,6 mm sobre correas', p:11, extra:0,  d:'Estanca desde el primer día. Se aísla por dentro en fase 2. Lo más rápido de montar.'},
-  pir40:  {n:'Panel sándwich PIR 40 mm',           p:22, extra:0,  d:'Estanco y aislado en un solo producto. Un panel lo suben dos personas.'},
-  pir80v: {n:'PIR 80 mm + sobrecubierta ventilada',p:28, extra:11, d:'Lo correcto para agosto en Alicante, pero es la partida que más encarece el casco.'}
-};
 var TCOL = {sala:'--r-sala', dorm:'--r-dorm', serv:'--r-serv', inv:'--r-inv', paso:'--r-paso'};
-var TNAME= {sala:'Estancia principal', dorm:'Dormitorio', serv:'Servicio', inv:'Invernadero'};
-var S = clone(DEF);
+
+/* --- paleta del terreno --- */
+var PAL = [
+  {t:'pino',     n:'Pino carrasco',  c:'#2F4A38', d:'5–7 m'},
+  {t:'almendro', n:'Almendro',       c:'#74895C', d:'3–4 m'},
+  {t:'olivo',    n:'Olivo',          c:'#6E7F63', d:'3–5 m'},
+  {t:'cipres',   n:'Ciprés',         c:'#26402F', d:'6–9 m'},
+  {t:'naranjo',  n:'Naranjo',        c:'#3E6B41', d:'3 m'},
+  {t:'romero',   n:'Romero / mata',  c:'#5C7256', d:'0,8 m'},
+  {t:'roca',     n:'Piedra',         c:'#9A9384', d:'0,6–1,2 m'},
+  {t:'valla',    n:'Poste de valla', c:'#7A6A52', d:'1,8 m'},
+  {t:'deposito', n:'Depósito agua',  c:'#8E9AA0', d:'2 m³'},
+  {t:'fv',       n:'FV en suelo',    c:'#232A31', d:'3 kWp'},
+  {t:'mesa',     n:'Mesa exterior',  c:'#9A7B53', d:'2,0 × 0,9'},
+  {t:'pergola',  n:'Pérgola',        c:'#8A7550', d:'4 × 3 m'},
+  {t:'bancal',   n:'Bancal huerto',  c:'#6B5A3E', d:'3 × 1,2'},
+  {t:'lena',     n:'Leñero',         c:'#7E6644', d:'2 × 0,8'}
+];
+var PALMAP = {}; PAL.forEach(function(p){ PALMAP[p.t]=p; });
+
+var DEF_SITE = (function(){
+  var o=[], i, id=0;
+  function push(t,x,z,r,s){ o.push({id:'d'+(id++), t:t, x:x, z:z, r:r||0, s:s||1}); }
+  for(i=-16;i<=16;i+=4.2){ push('pino', i, -11.4, 0, 0.9+((i*7)%5)/12); push('pino', i, 11.4, 0, 0.85+((i*11)%5)/12); }
+  for(i=-9;i<=9;i+=4.5){ push('pino', -17.2, i, 0, 0.95); push('pino', 17.2, i, 0, 0.9); }
+  var alm=[[-13,-6],[-13,0],[-13,6],[13,-6],[13,0],[13,6],[-8,-8],[8,-8],[-8,8],[8,8]];
+  alm.forEach(function(a){ push('almendro', a[0], a[1], 0, 0.9+((a[0]*3)%4)/14); });
+  return {objs:o, paths:[{id:'p0', w:2.2, pts:[[0,9.5],[0,13],[2,17]]}]};
+})();
+
+var OBRA_DIAS = [
+ ['Replanteo con cinta y escuadra 3‑4‑5 desde los dos linderos largos. Zanja de infiltración aguas arriba. Marcar los puntos de zapata.','Comprobar diagonales ahora: 2 cm de error aquí son 6 cm en el otro extremo.'],
+ ['Excavar los pozos de 40×40×60. Hormigonar con las placas de anclaje puestas y niveladas con láser.','Todas las placas al mismo nivel. Es lo único que no se corrige después.'],
+ ['Cortar y tratar toda la madera según despiece. Etiquetar cada pieza.','El hormigón cura. Un día de taller ahorra tres de obra.'],
+ ['Vigas maestras sobre las placas y viguetas de forjado con estribos.','48 h de curado bastan para una estructura ligera.'],
+ ['Tablero de forjado atornillado. Suelo terminado.','A partir de aquí se trabaja sobre plataforma plana y a nivel.'],
+ ['Montar los paños de muro tumbados sobre el propio forjado, con el OSB ya clavado.','Montar en horizontal es lo que hace esto posible entre dos.'],
+ ['Margen · descanso','Recuperar retrasos sin comerse el calendario.'],
+ ['Levantar y aplomar los cuatro paños. Riostras provisionales. Durmiente superior doble.','El paño ciego WNW aguanta el poniente: tornillo cada 15 cm en bordes.'],
+ ['Correas y cubierta completa. Cerrar estanco el mismo día.','Nunca dejar la casa abierta de noche. Mirar el parte antes de empezar.'],
+ ['Remates de cubierta, cumbrera, canalón y bajante.','Con el agua conducida, la obra deja de degradarse.'],
+ ['Premarcos y carpintería exterior. Puerta.','Cerrada con llave: ya se puede dejar material dentro.'],
+ ['Lámina HPV y rastreles de la cámara ventilada.','La lámina no aguanta sol indefinidamente.'],
+ ['Chapa grecada de fachada y remates de esquina.','Empezar por el paño ciego, que marca el aplomo.'],
+ ['Margen · limpieza y repaso','Casco cerrado y estanco. Se puede parar aquí un año.']
+];
+
+var S    = clone(DEF_PLAN);
+var SITE = clone(DEF_SITE);
+var FACT = [];
+var OBRA = {done:[]};
 
 function clone(o){ return JSON.parse(JSON.stringify(o)); }
 function n2(v){ return (Math.round(v*100)/100).toFixed(2).replace('.',','); }
 function n1(v){ return (Math.round(v*10)/10).toFixed(1).replace('.',','); }
 function eur(v){ return Math.round(v).toLocaleString('es-ES'); }
-function css(v){ return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+function uid(){ return Math.random().toString(36).slice(2,10); }
+function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){
+  return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
 
-// ===================== GEOMETRÍA DERIVADA =====================
+/* ================= GEOMETRÍA DERIVADA ================= */
 function geo(){
-  var g = {};
-  g.inv    = S.rooms.filter(function(r){return r.t==='inv';});
-  g.house  = S.rooms.filter(function(r){return r.t!=='inv';});
-  g.priv   = g.house.filter(function(r){return r.t==='dorm'||r.t==='serv';});
-  g.invLen = g.inv.reduce(function(a,r){return a+r.L;},0);
-  var iLen = g.house.reduce(function(a,r){return a+r.L;},0) + TAB*Math.max(0,g.house.length-1);
+  var g={};
+  g.inv   = S.rooms.filter(function(r){return r.t==='inv';});
+  g.house = S.rooms.filter(function(r){return r.t!=='inv';});
+  g.priv  = g.house.filter(function(r){return r.t==='dorm'||r.t==='serv';});
+  g.invLen= g.inv.reduce(function(a,r){return a+r.L;},0);
+  var iLen= g.house.reduce(function(a,r){return a+r.L;},0) + TAB*Math.max(0,g.house.length-1);
   g.houseLen = g.house.length ? iLen + 2*WALL : 0;
   g.totalLen = g.houseLen + g.invLen;
-  g.iw     = S.bw - 2*WALL;                                    // fondo interior
-  g.hasC   = S.corr > 0.01 && g.priv.length > 0;
-  g.pd     = g.hasC ? g.iw - S.corr - TAB : g.iw;              // fondo de estancias privadas
-  g.corrLen= g.priv.reduce(function(a,r){return a+r.L;},0) + TAB*Math.max(0,g.priv.length-1);
-  g.corrA  = g.hasC ? S.corr*g.corrLen : 0;
-  g.areas  = S.rooms.map(function(r){
+  g.iw    = S.bw - 2*WALL;
+  g.hasC  = S.corr > 0.01 && g.priv.length > 0;
+  g.pd    = g.hasC ? g.iw - S.corr - TAB : g.iw;
+  g.corrLen = g.priv.reduce(function(a,r){return a+r.L;},0) + TAB*Math.max(0,g.priv.length-1);
+  g.corrA = g.hasC ? S.corr*g.corrLen : 0;
+  g.areas = S.rooms.map(function(r){
     if(r.t==='inv')  return (S.bw-WALL)*r.L;
     if(r.t==='sala') return g.iw*r.L;
     return Math.max(0,g.pd)*r.L;
   });
-  g.Su = g.areas.reduce(function(a,v){return a+v;},0) + g.corrA;
-  g.Sc = S.bw * g.totalLen;
-  g.P  = 2*(S.bw + g.houseLen);
-  g.Hm = S.h + PEND/2;
+  g.Su    = g.areas.reduce(function(a,v){return a+v;},0) + g.corrA;
+  g.Sc    = S.bw * g.totalLen;
+  g.P     = 2*(S.bw + g.houseLen);
+  g.Hm    = S.h + PEND/2;
   g.Swall = g.P * g.Hm;
   g.slope = Math.atan(PEND/S.bw);
   g.Sroof = (S.bw+0.80) * (g.totalLen+0.80) / Math.cos(g.slope);
   g.Sfloor= S.bw * g.houseLen;
   g.tabLen= g.corrLen + Math.max(0,g.house.length-1)*g.iw;
-  g.vol   = g.Sfloor*0.02475
-          + g.houseLen*0.0594
+  g.vol   = g.Sfloor*0.02475 + g.houseLen*0.0594
           + (g.P/0.40)*g.Hm*0.006525 + 3*g.P*0.006525
-          + (g.tabLen/0.40)*2.60*0.00405
-          + g.Sroof*0.021938;
+          + (g.tabLen/0.40)*2.60*0.00405 + g.Sroof*0.021938;
   g.nZap  = 3*(Math.ceil(g.houseLen/3.2)+1);
   g.Sglass= 0.30*(g.houseLen*S.h) + 2.0;
-  g.okW   = S.bw <= LIM.W + 1e-6;
-  g.okL   = g.totalLen <= LIM.L + 1e-6;
+  g.okW   = S.bw <= LIM.W+1e-6;
+  g.okL   = g.totalLen <= LIM.L+1e-6;
   g.okD   = g.pd >= 2.00;
   return g;
 }
 
-// ===================== PRESUPUESTO =====================
+/* ---- tiendas · URLs comprobadas en resultados de búsqueda, no inventadas ---- */
+var SHOP={
+  obramat:  {n:'Obramat Alicante', u:'https://www.obramat.es/almacenes/obramat-alicante.html'},
+  obMadera: {n:'Obramat · madera',  u:'https://www.obramat.es/madera/madera-construccion/'},
+  obVigas:  {n:'Obramat · vigas',   u:'https://www.bricomart.es/madera/madera-construccion/vigas-y-tablas/'},
+  obTab:    {n:'Obramat · tableros',u:'https://www.obramat.es/madera/tableros/'},
+  urban:    {n:'Urbanmader Alicante', u:'https://www.urbanmader.com/'},
+  todoMad:  {n:'Todo Madera Alicante', u:'https://todomaderaalicante.com/productos/tableros/osb/'},
+  lmOsb:    {n:'Leroy Merlin · OSB', u:'https://www.leroymerlin.es/productos/madera/tablas-y-tableros/tableros-de-osb/'},
+  lmHorm:   {n:'Leroy Merlin · hormigón H‑25', u:'https://www.leroymerlin.es/productos/hormigon-seco-h-25-pro-25-kg-81928958.html'},
+  lmCem:    {n:'Leroy Merlin · cemento', u:'https://www.leroymerlin.es/productos/construccion/cementos-morteros-y-yesos/cementos/'},
+  bdHorm:   {n:'Brico Depôt · hormigón', u:'https://www.bricodepot.es/v/hormigon-saco-25-kg'},
+  bdOsb:    {n:'Brico Depôt · OSB', u:'https://www.bricodepot.es/construccion-e-instalacion/madera/tableros/osb'},
+  psAli:    {n:'Panel Sandwich · Alicante', u:'https://www.panelsandwich.com/panel-sandwich-alicante/'},
+  psCub:    {n:'Panel Sandwich · cubierta', u:'https://www.panelsandwich.com/categoria/panel-sandwich-cubierta/'},
+  ps3g:     {n:'Panel Sandwich · 3 grecas', u:'https://www.panelsandwich.com/producto/panel-sandwich-3-grecas/'},
+  psChapa:  {n:'Panel Sandwich · chapa grecada', u:'https://www.panelsandwich.com/chapa-metalica/chapa-grecada/'},
+  pfCub:    {n:'Panelfix · panel cubierta', u:'https://panelfix.es/products/panel-cubierta-3-grecas-pur'},
+  pfChapa:  {n:'Panelfix · chapa cubierta', u:'https://panelfix.es/collections/chapas-cubierta'},
+  panelya:  {n:'Panelya · panel cubierta', u:'https://panelya.com/producto/panel-sandwich-cubierta-sin-tapajuntas-3-grecas/'},
+  diaterm:  {n:'Diaterm · chapa galvanizada', u:'https://www.diaterm.com/comprar/chapa-grecada-galvanizada/'},
+  dangla:   {n:'Dangla · construcción', u:'https://dangla.es/almacen-de-materiales-de-construccion-y-reforma/'},
+  todoagua: {n:'Todoagua · depósitos', u:'https://www.todoagua.es/depositos-enterrados/'}
+};
+
+/* ================= COSTE ================= */
 function bom(g){
-  return [
-    {n:'Replanteo, desbroce y zanja de infiltración perimetral', m:'—', u:'—', i:250},
-    {n:'Cimentación: zapatas HA‑25 40×40×60 con placa de anclaje', m:g.nZap+' ud', u:'43', i:g.nZap*43},
-    {n:'Madera estructural pino C24 KD cepillada', m:n2(g.vol)+' m³', u:'450', i:g.vol*450},
-    {n:'Protector de madera, clase de uso 3', m:Math.ceil(g.vol*3.2)+' L', u:'12', i:Math.ceil(g.vol*3.2)*12},
-    {n:'Tablero OSB3 12 mm, arriostrado de muros', m:n1(g.Swall)+' m²', u:'9,50', i:g.Swall*9.5},
-    {n:'Tablero OSB3 15 mm, forjado', m:n1(g.Sfloor*1.03)+' m²', u:'10,51', i:g.Sfloor*1.03*10.51},
-    {n:'Cubierta: '+ROOFS[S.roof].n, m:n1(g.Sroof)+' m²', u:String(ROOFS[S.roof].p)+',00', i:g.Sroof*ROOFS[S.roof].p},
-    {n:'Lámina transpirable HPV de fachada', m:n1(g.Swall*1.1)+' m²', u:'2,50', i:g.Swall*1.1*2.5},
-    {n:'Rastreles de cámara ventilada en fachada', m:n1(g.Swall)+' m²', u:'3,00', i:g.Swall*3},
-    {n:'Chapa grecada prelacada de fachada', m:n1(g.Swall)+' m²', u:'9,00', i:g.Swall*9},
-    {n:'Carpintería exterior aluminio RPT, vidrio 4/16/4 bajo emisivo', m:n1(g.Sglass)+' m²', u:'240', i:g.Sglass*240},
-    {n:'Puerta exterior técnica con cerradura de seguridad', m:'1 ud', u:'400', i:400},
-    {n:'Tornillería estructural, herrajes, anclajes y sellantes', m:n1(g.Sc)+' m²', u:'5,50', i:g.Sc*5.5},
-    {n:'Canalón, bajantes y remates galvanizados', m:n1(g.houseLen+S.bw)+' m', u:'12,00', i:(g.houseLen+S.bw)*12}
-  ].concat(ROOFS[S.roof].extra ? [{n:'Sobrecubierta ventilada: rastrel 60 mm y chapa grecada',
-      m:n1(g.Sroof)+' m²', u:String(ROOFS[S.roof].extra)+',00', i:g.Sroof*ROOFS[S.roof].extra}] : []);
+  var R = ROOFS[S.roof];
+  var a = [
+   {k:'prep', n:'Replanteo, desbroce y zanja de infiltración', m:'—', u:'—', i:250,
+    q:'—', sup:'—', spec:'Miniretro medio día para la zanja de infiltración', conf:'media', l:[], eco:'La zanja de infiltración devuelve el agua de tormenta al propio terreno en lugar de echarla al camino. Medio día de máquina y evita la erosión que se comería el acceso.'},
+   {k:'cim', n:'Cimentación: zapatas HA‑25 40×40×60 con placa de anclaje', m:g.nZap+' ud', u:'43', i:g.nZap*43,
+    q:g.nZap+' zapatas · ~'+Math.ceil(g.nZap*2.7)+' sacos de hormigón seco 25 kg', sup:'Obramat · Leroy Merlin',
+    spec:'Hormigón seco H‑25 en saco de 25 kg (3,50–4,50 €/saco) + redondo de 8 mm + placa de anclaje galvanizada', conf:'alta', l:['lmHorm','bdHorm','lmCem','obramat'], eco:'El hormigón es la partida de más huella del proyecto. Quince zapatas gastan <b>una cuarta parte</b> del hormigón de una losa, y encima dejan pasar el agua por debajo.'},
+   {k:'mad', n:'Madera estructural pino C24 KD cepillada', m:n2(g.vol)+' m³', u:'450', i:g.vol*450,
+    q:n2(g.vol)+' m³ · montantes 45×145, viguetas 45×220, pares 45×195', sup:'Urbanmader · Obramat',
+    spec:'Pino C24 secado en cámara y cepillado. Preguntar si cortan a medida según despiece', conf:'baja', l:['urban','obMadera','obVigas'], eco:'La única partida que <b>almacena</b> carbono en vez de emitirlo: del orden de una tonelada de CO₂ por m³ retenida mientras la casa esté en pie. Pide certificado PEFC o FSC; en España suele salir igual o un 5 % más.'},
+   {k:'trat', n:'Protector de madera, clase de uso 3', m:Math.ceil(g.vol*3.2)+' L', u:'12', i:Math.ceil(g.vol*3.2)*12,
+    q:Math.ceil(g.vol*3.2)+' litros', sup:'Obramat · Leroy Merlin',
+    spec:'Protector de poro abierto para clase de uso 3, dos manos antes de montar', conf:'media', l:['obramat','dangla'], eco:'Protector <b>al agua</b>, no al disolvente: mismo precio, sin vapores durante los días de corte y sin residuo peligroso que gestionar.'},
+   {k:'osbm', n:'Tablero OSB3 12 mm, arriostrado de muros', m:n1(g.Swall)+' m²', u:'9,50', i:g.Swall*9.5,
+    q:Math.ceil(g.Swall/2.98)+' tableros de 2,44 × 1,22 m', sup:'Todo Madera Alicante · Obramat',
+    spec:'OSB‑3 hidrófugo 12 mm. Es lo que arriostra el edificio: no sustituible por panel', conf:'alta', l:['todoMad','lmOsb','bdOsb','obTab'], eco:'OSB con emisión E1 o E0; sale de restos de aserradero, no de troncos. No lo cambies por panel: es lo que impide que el poniente tire el paño ciego.'},
+   {k:'osbf', n:'Tablero OSB3 15 mm, forjado', m:n1(g.Sfloor*1.03)+' m²', u:'10,51', i:g.Sfloor*1.03*10.51,
+    q:Math.ceil(g.Sfloor*1.03/2.98)+' tableros de 2,44 × 1,22 m', sup:'Todo Madera Alicante · Obramat',
+    spec:'OSB‑3 hidrófugo 15 mm, referencia de 10,51 €/m² (junio 2026)', conf:'alta', l:['todoMad','lmOsb','bdOsb'], eco:'El mismo tablero que en muros pero de 15 mm. Comprar los dos espesores el mismo día y en el mismo sitio ahorra un porte entero.'},
+   {k:'cub', n:'Cubierta: '+R.n, m:n1(g.Sroof)+' m²', u:String(R.p)+',00', i:g.Sroof*R.p,
+    q:n1(g.Sroof)+' m² · piezas a la longitud exacta del faldón ('+n2(S.bw+1.60)+' m)', sup:'Panel Sandwich Group · Panelfix',
+    spec:'Pedir a medida para evitar solapes. Rango publicado de panel de cubierta: 17–95 €/m² según espesor', conf:'media', l:['psAli','psCub','ps3g','pfCub','panelya'], eco:'Aquí está la tensión honesta del proyecto: el <b>PIR es petroquímico</b> y de las peores huellas por kilo. La alternativa limpia —chapa simple ahora y fibra de madera o corcho por dentro en fase 2— sale un 35–50 % más cara en aislamiento pero deja la cubierta sin espuma. Si manda el bolsillo, el PIR de 40 mm es lo sensato; si puedes esperar, la chapa sola es más reversible.'},
+   {k:'hpv', n:'Lámina transpirable HPV de fachada', m:n1(g.Swall*1.1)+' m²', u:'2,50', i:g.Swall*1.1*2.5,
+    q:Math.ceil(g.Swall*1.1/75)+' rollo(s) de 1,5 × 50 m', sup:'Obramat',
+    spec:'Lámina HPV de fachada, Sd < 0,1 m. No dejarla al sol más de una temporada', conf:'media', l:['obramat','dangla'], eco:'Compra el rollo justo: los sobrantes de lámina no se reutilizan y acaban en el contenedor.'},
+   {k:'rast', n:'Rastreles de cámara ventilada en fachada', m:n1(g.Swall)+' m²', u:'3,00', i:g.Swall*3,
+    q:'~'+Math.ceil(g.Swall*2.6)+' m lineales de rastrel 40×60', sup:'Urbanmader · Obramat',
+    spec:'Rastrel tratado 40×60 mm cada 40 cm, cámara de 40 mm', conf:'media', l:['urban','obMadera'], eco:'Rastrel del mismo pino tratado que la estructura. Aprovecha los recortes de las vigas: de ahí salen unos cuantos metros gratis.'},
+   {k:'chap', n:'Chapa grecada prelacada de fachada', m:n1(g.Swall)+' m²', u:'9,00', i:g.Swall*9,
+    q:n1(g.Swall)+' m² prelacada, color a elegir', sup:'Panel Sandwich Group · Panelfix',
+    spec:'Chapa grecada 0,6 mm galvanizada y prelacada. Instalada con estructura se publica a 28–40 €/m²; aquí sólo material', conf:'media', l:['psChapa','pfChapa','diaterm'], eco:'El acero galvanizado es <b>100 % reciclable</b> y ya lleva chatarra dentro. Cincuenta años sin mantenimiento en este clima, frente a repintar madera cada dos o tres años.'},
+   {k:'carp', n:'Carpintería exterior aluminio RPT, vidrio 4/16/4 bajo emisivo', m:n1(g.Sglass)+' m²', u:'240', i:g.Sglass*240,
+    q:n1(g.Sglass)+' m² de hueco, concentrados en fachada ESE', sup:'Carpintería local · comparar 3 presupuestos',
+    spec:'Aluminio con RPT y vidrio bajo emisivo. Rango de material publicado: 220–300 €/m²', conf:'alta', l:['obramat'], eco:'Aluminio con contenido reciclado y, sobre todo, <b>no compres más metros de los que necesitas</b>: cada m² de hueco de más son 240 € y una pérdida térmica permanente. Aquí menos vidrio es más barato y más fresco.'},
+   {k:'puer', n:'Puerta exterior técnica con cerradura de seguridad', m:'1 ud', u:'400', i:400,
+    q:'1 unidad', sup:'Obramat', spec:'Puerta técnica exterior con cerradura de seguridad', conf:'media', l:['obramat','dangla'], eco:'Puerta con burlete perimetral: la infiltración de aire por una puerta mal sellada pesa más que el aislamiento de medio muro.'},
+   {k:'torn', n:'Tornillería estructural, herrajes, anclajes y sellantes', m:n1(g.Sc)+' m²', u:'5,50', i:g.Sc*5.5,
+    q:'estribos, tirafondos, tornillo autoperforante y sellante', sup:'Obramat',
+    spec:'Tornillo estructural, estribos de vigueta, ángulos, sellante de poliuretano', conf:'media', l:['obramat'], eco:'Tornillo estructural y estribo galvanizado. Es lo que hace la casa <b>desmontable</b>: lo clavado y encolado no se recupera; lo atornillado, sí.'},
+   {k:'agua', n:'Canalón, bajantes y remates galvanizados', m:n1(g.houseLen+S.bw)+' m', u:'12,00', i:(g.houseLen+S.bw)*12,
+    q:n1(g.houseLen+S.bw)+' m de canalón + 2 bajantes', sup:'Obramat',
+    spec:'Canalón galvanizado con ganchos cada 60 cm', conf:'media', l:['obramat','todoagua'], eco:'Conduce toda el agua de cubierta a un depósito. Con 300 mm de lluvia al año, cada m² de cubierta da unos 255 litros que no hay que traer en cuba.'}
+  ];
+  if(R.extra) a.push({k:'sobr', n:'Sobrecubierta ventilada: rastrel 60 mm y chapa grecada', m:n1(g.Sroof)+' m²',
+    u:String(R.extra)+',00', i:g.Sroof*R.extra, q:n1(g.Sroof)+' m²', sup:'Panel Sandwich Group',
+    spec:'Rastrel 60 mm y chapa grecada sobre el panel: es lo que hace la casa habitable en agosto', conf:'media',
+    l:['psChapa','pfChapa'], eco:'La cámara ventilada bajo la chapa es climatización pasiva: cero consumo, cero mantenimiento, y en agosto baja la temperatura de cubierta más que ningún aislamiento añadido.'});
+  return a;
 }
 function phases(g,f1){
-  var f2 = g.Sc*167;
-  var f3 = 7850;
-  var f4 = (S.bw*g.invLen)*130 + 3300;
   return [
-    {n:'Fase 1', d:'Casco cerrado y estanco: cimentación, estructura, cubierta ventilada, fachada y carpinterías', i:f1},
-    {n:'Fase 2', d:'Interior habitable: aislamiento, trasdosados, pavimento, baño, cocina, fontanería, electricidad', i:f2},
-    {n:'Fase 3', d:'Instalaciones: acometida y depósito tampón, filtración y UV, 3 kWp con batería, ACS, estufa', i:f3},
-    {n:'Fase 4', d:'Invernadero, pérgola de parra, riego por goteo, plantación y exteriores', i:f4}
+    {n:'Fase 1', d:'Casco cerrado y estanco', i:f1},
+    {n:'Fase 2', d:'Interior habitable: aislamiento, trasdosados, pavimento, baño, cocina, instalaciones', i:g.Sc*167},
+    {n:'Fase 3', d:'Acometida y depósito tampón, filtración y UV, 3 kWp con batería, ACS, estufa', i:7850},
+    {n:'Fase 4', d:'Invernadero, pérgola, riego por goteo, plantación y exteriores', i:(S.bw*g.invLen)*130+3300}
   ];
 }
 
-// ===================== MATERIALES =====================
-function mats(g){
-  return [
-    {h:'Estructura de madera', s:'Pino silvestre C24 KD cepillado. Montantes 45×145 a 40 cm, viguetas 45×220 a 40 cm, pares 45×195. Luces de 2,25 m.', q:'Volumen total', v:n2(g.vol)+' m³'},
-    {h:'Arriostrado', s:'Tablero OSB3 de 12 mm en todo el paño exterior, tornillo cada 15 cm en bordes y 30 cm en el interior. Es lo que aguanta el viento de poniente.', q:'Superficie de muro', v:n1(g.Swall)+' m²'},
-    {h:'Forjado sanitario', s:'Tablero OSB3 de 15 mm sobre viguetas, cámara ventilada de 38 cm con rejilla antirroedor en los cuatro lados.', q:'Superficie de suelo', v:n1(g.Sfloor)+' m²'},
-    {h:'Cubierta', s:'Panel sándwich PIR de 80 mm con cara interior lacada blanca, más sobrecubierta ventilada de chapa grecada sobre rastrel de 60 mm.', q:'Superficie de faldón', v:n1(g.Sroof)+' m²'},
-    {h:'Fachada ventilada', s:'Lámina HPV, rastrel de 40 mm y chapa grecada prelacada RAL 7038. El muro WNW va ciego y es el que hay que aplomar con más cuidado.', q:'Superficie de chapa', v:n1(g.Swall)+' m²'},
-    {h:'Cimentación', s:'Zapatas aisladas HA‑25 de 40×40×60 con dado hasta +0,35 y placa de anclaje galvanizada. Tres líneas: WNW, centro y ESE.', q:'Número de zapatas', v:g.nZap+' ud'},
-    {h:'Carpintería', s:'Aluminio con rotura de puente térmico, vidrio 4/16/4 bajo emisivo. Concentrada en la fachada ESE; en la WNW, ninguna.', q:'Superficie acristalada', v:n1(g.Sglass)+' m²'},
-    {h:'Aislamiento (Fase 2)', s:'Lana mineral de 145 mm entre montantes con barrera de vapor. Se instala desde dentro, con el edificio ya estanco.', q:'Superficie a aislar', v:n1(g.Swall)+' m²'}
-  ];
-}
+/* ==================================================================
+   MOTOR 3D
+   ================================================================== */
+var host3d = document.getElementById('stage3d');
+var scene, cam, ren, root, gWorld, gBuild, gVeg, gPath, gHelp, sun, hemi, sky, ready=false;
+var sph={r:34, th:0.55, ph:1.05}, tgt=new THREE.Vector3(0,1.6,0);
+var VIS={roof:true, env:true, veg:true, grid:false};
+var QUAL={alta:{sh:2048,pr:2},media:{sh:1024,pr:1.6},baja:{sh:512,pr:1}};
 
-// ===================== PLANTA 2D =====================
-var svg = document.getElementById('plan2d');
-var SX = 38, OX = 74, OY = 150;
-function draw(g){
-  var el = '';
-  function T(x,y,t,cls,anc,sz,extra){
-    return '<text x="'+x+'" y="'+y+'" class="'+(cls||'')+'" text-anchor="'+(anc||'start')+'" font-size="'+(sz||11)+'"'+(extra||'')+'>'+t+'</text>';
+/* ---------- texturas procedurales ---------- */
+function mkTex(w,h,fn,rx,ry){
+  var c=document.createElement('canvas'); c.width=w; c.height=h;
+  fn(c.getContext('2d'),w,h);
+  var t=new THREE.CanvasTexture(c);
+  t.wrapS=t.wrapT=THREE.RepeatWrapping; t.repeat.set(rx||1,ry||1);
+  t.anisotropy=4; return t;
+}
+function noise(ctx,w,h,n,min,max,a){
+  for(var i=0;i<n;i++){
+    var v=min+Math.random()*(max-min);
+    ctx.fillStyle='rgba('+v+','+(v-6)+','+(v-18)+','+a+')';
+    ctx.fillRect(Math.random()*w, Math.random()*h, 1+Math.random()*2.2, 1+Math.random()*2.2);
   }
-  var envW = LIM.W*SX, envL = LIM.L*SX;
-  // envolvente legal
-  el += '<rect x="'+OX+'" y="'+OY+'" width="'+envL+'" height="'+envW+'" fill="var(--accent)" opacity=".10"/>';
-  el += '<rect x="'+OX+'" y="'+OY+'" width="'+envL+'" height="'+envW+'" class="ln-dash"/>';
-  el += T(OX+envL/2, OY-96, 'FRANJA EDIFICABLE 5,12 × 16,10 m', '', 'middle', 10.5, ' fill="var(--ink3)" letter-spacing="1.4"');
+}
+var TEX={};
+function buildTextures(){
+  TEX.tierra = mkTex(256,256,function(x,w,h){
+    x.fillStyle='#C3B79A'; x.fillRect(0,0,w,h);
+    for(var i=0;i<70;i++){ x.fillStyle='rgba(150,138,112,'+(0.05+Math.random()*0.09)+')';
+      x.beginPath(); x.ellipse(Math.random()*w,Math.random()*h,10+Math.random()*44,7+Math.random()*30,Math.random()*3,0,7); x.fill(); }
+    noise(x,w,h,5200,150,215,0.5);
+  },26,26);
+  TEX.grava = mkTex(128,128,function(x,w,h){
+    x.fillStyle='#A79C86'; x.fillRect(0,0,w,h);
+    for(var i=0;i<900;i++){ var g=125+Math.random()*70;
+      x.fillStyle='rgb('+g+','+(g-5)+','+(g-16)+')';
+      x.beginPath(); x.arc(Math.random()*w,Math.random()*h,0.7+Math.random()*1.9,0,7); x.fill(); }
+  },8,8);
+  TEX.madera = mkTex(128,256,function(x,w,h){
+    x.fillStyle='#A9884F'; x.fillRect(0,0,w,h);
+    for(var i=0;i<44;i++){ x.strokeStyle='rgba(120,90,48,'+(0.06+Math.random()*0.17)+')';
+      x.lineWidth=0.6+Math.random()*2.1; x.beginPath();
+      var xx=Math.random()*w; x.moveTo(xx,0);
+      for(var y=0;y<h;y+=14) x.lineTo(xx+Math.sin(y*0.05+i)*2.6, y);
+      x.stroke(); }
+  },1,1);
+  TEX.chapa = mkTex(128,16,function(x,w,h){
+    for(var i=0;i<w;i++){ var v=Math.sin(i/w*Math.PI*8);
+      var g=Math.round(168+v*26); x.fillStyle='rgb('+g+','+(g+3)+','+(g-4)+')'; x.fillRect(i,0,1,h); }
+  },1,1);
+  TEX.hoja = mkTex(64,64,function(x,w,h){
+    x.fillStyle='#4E6B41'; x.fillRect(0,0,w,h);
+    for(var i=0;i<260;i++){ var g=60+Math.random()*70;
+      x.fillStyle='rgba('+Math.round(g*0.7)+','+Math.round(g+22)+','+Math.round(g*0.6)+',0.75)';
+      x.beginPath(); x.arc(Math.random()*w,Math.random()*h,1+Math.random()*3.4,0,7); x.fill(); }
+  },1,1);
+  TEX.corteza = mkTex(64,128,function(x,w,h){
+    x.fillStyle='#6A5340'; x.fillRect(0,0,w,h);
+    for(var i=0;i<70;i++){ x.strokeStyle='rgba(48,36,26,'+(0.15+Math.random()*0.3)+')';
+      x.lineWidth=0.7+Math.random()*1.6; x.beginPath();
+      var xx=Math.random()*w; x.moveTo(xx,0); x.lineTo(xx+(Math.random()-0.5)*7,h); x.stroke(); }
+  },2,2);
+}
+function M(o){ return new THREE.MeshLambertMaterial(o); }
 
-  var y0 = OY + (envW - S.bw*SX)/2, bwp = S.bw*SX;
-  var x = OX + (S.pos/100)*Math.max(0,(LIM.L-g.totalLen))*SX;
-  var startX = x;
+/* ---------- sol real ---------- */
+function sunPos(day,hour){
+  var dec = 23.45*Math.sin(2*Math.PI*(284+day)/365)*Math.PI/180;
+  var phi = LAT*Math.PI/180, H=(hour-12)*15*Math.PI/180;
+  var alt = Math.asin(Math.sin(phi)*Math.sin(dec)+Math.cos(phi)*Math.cos(dec)*Math.cos(H));
+  var ca = (Math.sin(dec)-Math.sin(alt)*Math.sin(phi))/Math.max(1e-6,Math.cos(alt)*Math.cos(phi));
+  var az = Math.acos(Math.max(-1,Math.min(1,ca)));
+  if(H>0) az = 2*Math.PI-az;
+  return {alt:alt, az:az};
+}
+function applySun(){
+  var day=+document.getElementById('cDia').value, hr=+document.getElementById('cHora').value;
+  var p=sunPos(day,hr), R=60;
+  var b1=(BEAR)*Math.PI/180, b2=(BEAR+90)*Math.PI/180;
+  var up=Math.max(0.02,Math.sin(p.alt));
+  sun.position.set(R*Math.cos(p.alt)*Math.cos(p.az-b1), R*up, R*Math.cos(p.alt)*Math.cos(p.az-b2));
+  var day0=Math.max(0,Math.sin(p.alt));
+  sun.intensity = p.alt>0 ? 0.55+1.25*day0 : 0.02;
+  var warm = 1-Math.min(1,day0*1.8);
+  sun.color.setRGB(1, 0.97-warm*0.20, 0.90-warm*0.38);
+  hemi.intensity = p.alt>0 ? 0.42+0.30*day0 : 0.16;
+  var sc = p.alt>0 ? 0.55+0.45*day0 : 0.22;
+  if(sky) sky.material.color.setRGB(0.42*sc+0.10, 0.55*sc+0.12, 0.72*sc+0.16);
+  var alt=p.alt*180/Math.PI, az=p.az*180/Math.PI;
+  var d=new Date(2026,0,1); d.setDate(day);
+  var MES=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  document.getElementById('vDia').textContent = d.getDate()+' '+MES[d.getMonth()];
+  var hh=Math.floor(hr), mm=Math.round((hr-hh)*60);
+  document.getElementById('vHora').textContent = hh+':'+(mm<10?'0':'')+mm;
+  document.getElementById('t3sun').textContent = alt>0
+    ? 'sol a '+alt.toFixed(1)+'° de altura · acimut '+az.toFixed(0)+'°'
+    : 'de noche';
+  document.getElementById('sunNote').textContent = alt>0
+    ? 'Altura solar '+alt.toFixed(1)+'°. La sombra que ves es la real para esa fecha y hora en La Alcoraya.'
+    : 'El sol está bajo el horizonte a esa hora.';
+}
 
-  // cuerpos
-  var cx = x;
-  S.rooms.forEach(function(r,i){
-    var w = r.L*SX;
-    if(r.t==='inv'){
-      el += '<rect x="'+cx+'" y="'+y0+'" width="'+w+'" height="'+bwp+'" fill="var(--r-inv)" opacity=".22"/>';
-      el += '<rect x="'+cx+'" y="'+y0+'" width="'+w+'" height="'+bwp+'" class="ln" stroke-width="1.6"/>';
-      cx += w;
-    }
-  });
-  var hx = cx;
-  if(g.houseLen>0){
-    // poche del muro exterior
-    el += '<path class="w-cut" fill-rule="evenodd" d="M '+hx+' '+y0+' h '+(g.houseLen*SX)+' v '+bwp+' h '+(-g.houseLen*SX)+' Z '
-        + 'M '+(hx+WALL*SX)+' '+(y0+WALL*SX)+' h '+((g.houseLen-2*WALL)*SX)+' v '+((S.bw-2*WALL)*SX)+' h '+(-(g.houseLen-2*WALL)*SX)+' Z"/>';
-    var ix = hx + WALL*SX, iy = y0 + WALL*SX, ih = g.iw*SX;
-    var cursor = ix, first = true;
-    g.house.forEach(function(r){
-      if(!first){ el += '<rect x="'+cursor+'" y="'+iy+'" width="'+(TAB*SX)+'" height="'+ih+'" class="w-cut-l"/>'; cursor += TAB*SX; }
-      first = false;
-      var w = r.L*SX, isPriv = (r.t==='dorm'||r.t==='serv');
-      var ry = iy, rh = ih;
-      if(g.hasC && isPriv){ ry = iy + (S.corr+TAB)*SX; rh = g.pd*SX;
-        el += '<rect x="'+cursor+'" y="'+(iy+S.corr*SX)+'" width="'+w+'" height="'+(TAB*SX)+'" class="w-cut-l"/>'; }
-      el += '<rect x="'+cursor+'" y="'+ry+'" width="'+w+'" height="'+rh+'" fill="var('+TCOL[r.t]+')" opacity=".26"/>';
-      var a = (r.t==='sala'? g.iw : g.pd)*r.L;
-      el += T(cursor+w/2, ry+rh/2-1, r.n.length>18? r.n.slice(0,17)+'…' : r.n, '', 'middle', 10.5, ' font-weight="600" fill="var(--ink)"');
-      el += T(cursor+w/2, ry+rh/2+13, n2(a)+' m²', '', 'middle', 10, ' fill="var(--ink2)"');
-      cursor += w;
-    });
-    // pasillo
-    if(g.hasC){
-      var px = ix + (g.house.length? (g.house[0].t==='sala'? g.house[0].L*SX + TAB*SX : 0) : 0);
-      el += '<rect x="'+px+'" y="'+iy+'" width="'+(g.corrLen*SX)+'" height="'+(S.corr*SX)+'" fill="var(--r-paso)" opacity=".24"/>';
-      el += T(px+g.corrLen*SX/2, iy+S.corr*SX/2+4, 'paso '+n2(g.corrA)+' m²', '', 'middle', 9.5, ' fill="var(--ink2)"');
-    }
+/* ---------- construcción de la escena ---------- */
+function clearGroup(g){ while(g.children.length){ var c=g.children[0]; g.remove(c);
+  if(c.geometry) c.geometry.dispose(); } }
+
+function corrugated(len,wid,pitch,mat){
+  var segs=Math.max(8,Math.round(wid/pitch)*4);
+  var geo=new THREE.PlaneGeometry(len,wid,2,segs);
+  var pos=geo.attributes.position;
+  for(var i=0;i<pos.count;i++){
+    var y=pos.getY(i);
+    pos.setZ(i, Math.sin((y+wid/2)/pitch*Math.PI*2)*0.022);
   }
-  // cotas por estancia + tiradores
-  var dy = y0 + bwp + 34, cc = startX;
-  el += '<path class="dim" d="M '+startX+' '+dy+' H '+(startX+g.totalLen*SX)+'"/>';
-  S.rooms.forEach(function(r,i){
-    var w = r.L*SX;
-    el += '<path class="dim" d="M '+cc+' '+(dy-6)+' V '+(dy+6)+'"/>';
-    el += T(cc+w/2, dy+19, n2(r.L), 't-dim', 'middle', 11);
-    cc += w;
-    if(i < S.rooms.length-1){
-      el += '<g class="handle" data-i="'+i+'" style="cursor:ew-resize">'
-          + '<circle cx="'+cc+'" cy="'+(y0+bwp+12)+'" r="9" fill="var(--terra)" opacity=".9"/>'
-          + '<path d="M '+(cc-3.5)+' '+(y0+bwp+12)+' l 3.5 -3.5 l 3.5 3.5 l -3.5 3.5 Z" fill="var(--paper)"/>'
-          + '<rect x="'+(cc-14)+'" y="'+y0+'" width="28" height="'+(bwp+26)+'" fill="transparent"/></g>';
-    }
-  });
-  el += '<path class="dim" d="M '+(startX+g.totalLen*SX)+' '+(dy-6)+' V '+(dy+6)+'"/>';
-  // cota total y ancho
-  el += '<path class="dim" d="M '+startX+' '+(dy+40)+' H '+(startX+g.totalLen*SX)
-      + ' M '+startX+' '+(dy+34)+' V '+(dy+46)+' M '+(startX+g.totalLen*SX)+' '+(dy+34)+' V '+(dy+46)+'"/>';
-  el += T(startX+g.totalLen*SX/2, dy+60, 'TOTAL '+n2(g.totalLen)+' m  ·  máx 16,10', 't-dim', 'middle', 12, ' font-weight="600"');
-  var dx2 = OX - 30;
-  el += '<path class="dim" d="M '+dx2+' '+y0+' V '+(y0+bwp)+' M '+(dx2-6)+' '+y0+' H '+(dx2+6)+' M '+(dx2-6)+' '+(y0+bwp)+' H '+(dx2+6)+'"/>';
-  el += T(dx2-9, y0+bwp/2, n2(S.bw), 't-dim', 'middle', 12, ' font-weight="600" transform="rotate(-90 '+(dx2-9)+' '+(y0+bwp/2)+')"');
-  // orientación
-  el += T(OX, OY-16, 'WNW · muro ciego', '', 'start', 10, ' fill="var(--ink3)"');
-  el += T(OX, OY+envW+16, 'ESE · huecos y porche', '', 'start', 10, ' fill="var(--ink3)"');
-  el += T(OX+envL, OY-16, 'NNE ▸', '', 'end', 10, ' fill="var(--ink3)"');
-  svg.setAttribute('viewBox','0 0 '+(OX+envL+70)+' '+(dy+80));
-  svg.innerHTML = el;
-  bindHandles();
+  geo.computeVertexNormals();
+  var m=new THREE.Mesh(geo,mat); m.castShadow=true; m.receiveShadow=true; return m;
 }
 
-// arrastre de divisiones: reparte largo entre las dos estancias contiguas.
-// Los listeners cuelgan de window porque render() reconstruye el SVG y destruiría el tirador.
-var DRAG = null, rafPend = false;
-function svgPxPerUnit(){
-  var vb = svg.viewBox.baseVal && svg.viewBox.baseVal.width;
-  var w  = svg.getBoundingClientRect().width;
-  return (vb && w) ? w/vb : 1;
+function treeMesh(t,s){
+  var g=new THREE.Group(), i;
+  var tr=M({map:TEX.corteza});
+  function trunk(r1,r2,hh,y){ var c=new THREE.Mesh(new THREE.CylinderGeometry(r1,r2,hh,7),tr);
+    c.position.y=y; c.castShadow=true; g.add(c); return c; }
+  function canopy(col,x,y,z,rx,ry){
+    var m=new THREE.Mesh(new THREE.SphereGeometry(1,9,7), M({map:TEX.hoja,color:col}));
+    m.position.set(x,y,z); m.scale.set(rx,ry,rx); m.castShadow=true; g.add(m); return m;
+  }
+  if(t==='pino'){
+    var H=6.0*s; trunk(0.10*s,0.20*s,H*0.55,H*0.275);
+    for(i=0;i<4;i++){ var cy=H*(0.45+i*0.16), rr=H*(0.34-i*0.062);
+      var c=new THREE.Mesh(new THREE.ConeGeometry(rr,H*0.30,9), M({map:TEX.hoja,color:0x35583F}));
+      c.position.y=cy; c.rotation.y=i*0.7; c.castShadow=true; g.add(c); }
+  } else if(t==='cipres'){
+    var Hc=7.5*s; trunk(0.09*s,0.15*s,Hc*0.3,Hc*0.15);
+    var cc=new THREE.Mesh(new THREE.ConeGeometry(0.62*s,Hc*0.92,10), M({map:TEX.hoja,color:0x27412F}));
+    cc.position.y=Hc*0.52; cc.castShadow=true; g.add(cc);
+  } else if(t==='almendro'||t==='olivo'||t==='naranjo'){
+    var col = t==='almendro'?0x82986A : t==='olivo'?0x77876C : 0x3F7044;
+    var Ha = (t==='naranjo'?2.9:3.6)*s;
+    trunk(0.09*s,0.16*s,Ha*0.42,Ha*0.21);
+    for(i=0;i<3;i++){ var br=new THREE.Mesh(new THREE.CylinderGeometry(0.045*s,0.075*s,Ha*0.42,5),tr);
+      br.position.set(Math.cos(i*2.1)*0.28*s, Ha*0.52, Math.sin(i*2.1)*0.28*s);
+      br.rotation.z=Math.cos(i*2.1)*0.42; br.rotation.x=Math.sin(i*2.1)*0.42; br.castShadow=true; g.add(br); }
+    var n = t==='olivo'?5:6;
+    for(i=0;i<n;i++){ var a=i/n*6.283;
+      canopy(col, Math.cos(a)*0.62*s, Ha*(0.70+((i%3)*0.07)), Math.sin(a)*0.62*s, 0.86*s, 0.60*s); }
+    canopy(col,0,Ha*0.82,0,1.02*s,0.68*s);
+  } else if(t==='romero'){
+    for(i=0;i<4;i++) canopy(0x5F7758,(Math.random()-0.5)*0.5*s,0.28*s,(Math.random()-0.5)*0.5*s,0.36*s,0.30*s);
+  } else if(t==='roca'){
+    var r=new THREE.Mesh(new THREE.DodecahedronGeometry(0.55*s,0), M({color:0x9A9384}));
+    r.position.y=0.30*s; r.rotation.set(Math.random(),Math.random(),Math.random());
+    r.castShadow=true; r.receiveShadow=true; g.add(r);
+  } else if(t==='valla'){
+    var p=new THREE.Mesh(new THREE.CylinderGeometry(0.055,0.065,1.8*s,6), tr);
+    p.position.y=0.9*s; p.castShadow=true; g.add(p);
+  } else if(t==='deposito'){
+    var d=new THREE.Mesh(new THREE.CylinderGeometry(0.72,0.72,1.35,16), M({color:0x8E9AA0}));
+    d.position.y=0.68; d.castShadow=true; d.receiveShadow=true; g.add(d);
+  } else if(t==='fv'){
+    var base=new THREE.Mesh(new THREE.BoxGeometry(3.4,0.07,2.0), M({color:0x232A31}));
+    base.position.y=1.0; base.rotation.x=-0.52; base.castShadow=true; g.add(base);
+    [-1.5,1.5].forEach(function(x){ var l=new THREE.Mesh(new THREE.BoxGeometry(0.08,1.0,0.08), M({color:0x6C737A}));
+      l.position.set(x,0.5,0); l.castShadow=true; g.add(l); });
+  } else if(t==='mesa'){
+    var top=new THREE.Mesh(new THREE.BoxGeometry(2.0,0.07,0.9), M({map:TEX.madera}));
+    top.position.y=0.74; top.castShadow=true; g.add(top);
+    [[-0.9,-0.38],[0.9,-0.38],[-0.9,0.38],[0.9,0.38]].forEach(function(p){
+      var l=new THREE.Mesh(new THREE.BoxGeometry(0.07,0.74,0.07), M({map:TEX.madera}));
+      l.position.set(p[0],0.37,p[1]); l.castShadow=true; g.add(l); });
+  } else if(t==='pergola'){
+    var mm=M({map:TEX.madera});
+    [[-2,-1.5],[2,-1.5],[-2,1.5],[2,1.5]].forEach(function(p){
+      var l=new THREE.Mesh(new THREE.BoxGeometry(0.12,2.4,0.12),mm);
+      l.position.set(p[0],1.2,p[1]); l.castShadow=true; g.add(l); });
+    [-1.5,1.5].forEach(function(z){ var b=new THREE.Mesh(new THREE.BoxGeometry(4.3,0.12,0.12),mm);
+      b.position.set(0,2.45,z); b.castShadow=true; g.add(b); });
+    for(i=-2;i<=2;i+=0.5){ var r2=new THREE.Mesh(new THREE.BoxGeometry(0.07,0.07,3.2),mm);
+      r2.position.set(i,2.56,0); r2.castShadow=true; g.add(r2); }
+    var vine=new THREE.Mesh(new THREE.BoxGeometry(4.1,0.16,3.0), M({map:TEX.hoja,color:0x6E8A52,transparent:true,opacity:0.85}));
+    vine.position.set(0,2.66,0); vine.castShadow=true; g.add(vine);
+  } else if(t==='bancal'){
+    var soil=new THREE.Mesh(new THREE.BoxGeometry(3.0,0.34,1.2), M({color:0x6B5A3E}));
+    soil.position.y=0.17; soil.castShadow=true; soil.receiveShadow=true; g.add(soil);
+    for(i=-1.2;i<=1.2;i+=0.4) canopy(0x6E9153,i,0.46,0,0.20,0.18);
+  } else if(t==='lena'){
+    var st=new THREE.Mesh(new THREE.BoxGeometry(2.0,0.9,0.8), M({map:TEX.madera,color:0x8A7048}));
+    st.position.y=0.45; st.castShadow=true; g.add(st);
+  }
+  return g;
 }
-function bindHandles(){
-  Array.prototype.forEach.call(svg.querySelectorAll('.handle'), function(h){
-    h.addEventListener('pointerdown', function(e){
-      e.preventDefault();
-      var i = +h.dataset.i;
-      if(!S.rooms[i] || !S.rooms[i+1]) return;
-      DRAG = {i:i, x0:e.clientX, La:S.rooms[i].L, Lb:S.rooms[i+1].L, k:SX*svgPxPerUnit()};
-      document.body.style.cursor = 'ew-resize';
-    });
-  });
-}
-window.addEventListener('pointermove', function(e){
-  if(!DRAG) return;
-  e.preventDefault();
-  var d = (e.clientX - DRAG.x0)/Math.max(1e-6, DRAG.k);
-  d = Math.max(-(DRAG.La-0.90), Math.min(DRAG.Lb-0.90, d));
-  S.rooms[DRAG.i].L   = Math.round((DRAG.La+d)*20)/20;
-  S.rooms[DRAG.i+1].L = Math.round((DRAG.Lb-d)*20)/20;
-  if(!rafPend){ rafPend = true; requestAnimationFrame(function(){ rafPend=false; render(); }); }
-}, {passive:false});
-window.addEventListener('pointerup', function(){
-  if(!DRAG) return; DRAG = null; document.body.style.cursor = ''; render();
-});
-window.addEventListener('pointercancel', function(){
-  if(!DRAG) return; DRAG = null; document.body.style.cursor = ''; render();
-});
 
-// ===================== VOLUMEN 3D =====================
-var host3d = document.getElementById('pane3d'), scene, cam, ren, grp, sph, tgt, ready=false, hideRoof=false;
 function init3d(){
   if(!window.THREE){
-    host3d.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;'
-      + 'padding:24px;text-align:center;font-size:14px;color:var(--ink3);line-height:1.5">'
-      + 'No se ha podido cargar el visor 3D.<br>La planta, las mediciones y el presupuesto siguen funcionando.</div>';
-    return;
+    host3d.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;padding:26px;'
+      +'text-align:center;color:var(--ink3);font-size:14px;line-height:1.5">No se ha podido cargar el visor 3D.<br>'
+      +'La planta, las mediciones y el presupuesto siguen funcionando.</div>';
+    return false;
   }
-  scene = new THREE.Scene();
-  cam = new THREE.PerspectiveCamera(42,1,0.4,320);
-  ren = new THREE.WebGLRenderer({antialias:true});
-  ren.setPixelRatio(Math.min(window.devicePixelRatio,2));
+  buildTextures();
+  scene=new THREE.Scene();
+  cam=new THREE.PerspectiveCamera(45,1,0.3,400);
+  ren=new THREE.WebGLRenderer({antialias:true});
+  ren.shadowMap.enabled=true; ren.shadowMap.type=THREE.PCFSoftShadowMap;
+  if(THREE.sRGBEncoding!==undefined) ren.outputEncoding=THREE.sRGBEncoding;
+  if(THREE.ACESFilmicToneMapping!==undefined){ ren.toneMapping=THREE.ACESFilmicToneMapping; ren.toneMappingExposure=1.05; }
   host3d.appendChild(ren.domElement);
-  scene.add(new THREE.HemisphereLight(0xdfe8ee,0x9c8f70,0.80));
-  var sun = new THREE.DirectionalLight(0xfff0d8,0.95); sun.position.set(22,20,14); scene.add(sun);
-  var fl = new THREE.DirectionalLight(0xc8d6e0,0.26); fl.position.set(-16,10,-12); scene.add(fl);
-  grp = new THREE.Group(); scene.add(grp);
-  sph = {r:26, th:0, ph:1.16}; tgt = new THREE.Vector3(0,1.6,0);
-  bindOrbit(); bg3d(); ready = true;
+
+  sky=new THREE.Mesh(new THREE.SphereGeometry(220,24,16), new THREE.MeshBasicMaterial({color:0x8FB4D6,side:THREE.BackSide}));
+  scene.add(sky);
+  hemi=new THREE.HemisphereLight(0xBFD6EA,0x9C8F70,0.55); scene.add(hemi);
+  sun=new THREE.DirectionalLight(0xFFF3E0,1.5); sun.castShadow=true;
+  sun.shadow.camera.left=-30; sun.shadow.camera.right=30;
+  sun.shadow.camera.top=30;  sun.shadow.camera.bottom=-30;
+  sun.shadow.camera.near=1;  sun.shadow.camera.far=140; sun.shadow.bias=-0.0008;
+  scene.add(sun); scene.add(sun.target);
+
+  root=new THREE.Group(); scene.add(root);
+  gWorld=new THREE.Group(); gBuild=new THREE.Group(); gVeg=new THREE.Group();
+  gPath=new THREE.Group(); gHelp=new THREE.Group();
+  root.add(gWorld); root.add(gBuild); root.add(gVeg); root.add(gPath); root.add(gHelp);
+  buildWorld(); setQuality('media'); bindOrbit(); ready=true;
+  return true;
 }
-function bg3d(){ if(!scene) return;
-  var c = new THREE.Color(getComputedStyle(document.body).backgroundColor);
-  scene.background = c; scene.fog = new THREE.Fog(c,40,100);
+function setQuality(q){
+  var Q=QUAL[q]||QUAL.media;
+  ren.setPixelRatio(Math.min(window.devicePixelRatio,Q.pr));
+  sun.shadow.mapSize.set(Q.sh,Q.sh);
+  if(sun.shadow.map){ sun.shadow.map.dispose(); sun.shadow.map=null; }
+  size3d();
 }
-function M(c,o){ return new THREE.MeshLambertMaterial(o? {color:c,transparent:true,opacity:o,side:THREE.DoubleSide}:{color:c}); }
-function build3d(g){
-  if(!ready) return;
-  while(grp.children.length) grp.remove(grp.children[0]);
+
+/* ---------- terreno, parcela, envolvente ---------- */
+function buildWorld(){
+  clearGroup(gWorld);
+  var g=new THREE.PlaneGeometry(240,240,60,60), pos=g.attributes.position;
+  for(var i=0;i<pos.count;i++){
+    var x=pos.getX(i), y=pos.getY(i);
+    pos.setZ(i, Math.sin(x*0.045)*0.34 + Math.cos(y*0.037)*0.28 + Math.sin((x+y)*0.02)*0.5);
+  }
+  g.computeVertexNormals();
+  var ground=new THREE.Mesh(g, M({map:TEX.tierra}));
+  ground.rotation.x=-Math.PI/2; ground.position.y=-0.30; ground.receiveShadow=true; gWorld.add(ground);
+
+  var flat=new THREE.Mesh(new THREE.PlaneGeometry(LIM.PL,LIM.PW), M({map:TEX.tierra,color:0xD7CDB4}));
+  flat.rotation.x=-Math.PI/2; flat.position.y=0.005; flat.receiveShadow=true; gWorld.add(flat);
+
+  function outline(w,l,y,col,dash){
+    var pts=[new THREE.Vector3(-l/2,y,-w/2),new THREE.Vector3(l/2,y,-w/2),
+             new THREE.Vector3(l/2,y,w/2),new THREE.Vector3(-l/2,y,w/2),new THREE.Vector3(-l/2,y,-w/2)];
+    var geo=new THREE.BufferGeometry().setFromPoints(pts);
+    return new THREE.Line(geo, dash? new THREE.LineDashedMaterial({color:col,dashSize:0.7,gapSize:0.5})
+                                   : new THREE.LineBasicMaterial({color:col}));
+  }
+  var lp=outline(LIM.PW,LIM.PL,0.03,0x5A5346,false); gWorld.add(lp);
+  var le=outline(LIM.W,LIM.L,0.04,0x3B6B5E,true); le.computeLineDistances(); le.name='env'; gWorld.add(le);
+
+  var grid=new THREE.GridHelper(40,40,0x8A8F82,0x8A8F82);
+  grid.material.opacity=0.24; grid.material.transparent=true; grid.position.y=0.02;
+  grid.name='grid'; gWorld.add(grid);
+  applyVis();
+}
+function applyVis(){
+  var e=gWorld.getObjectByName('env'), gr=gWorld.getObjectByName('grid');
+  if(e) e.visible=VIS.env; if(gr) gr.visible=VIS.grid;
+  gVeg.visible=VIS.veg;
+  var rf=gBuild.getObjectByName('roof'); if(rf) rf.visible=VIS.roof;
+}
+
+/* ---------- edificio ---------- */
+function buildBuilding(g){
+  clearGroup(gBuild);
   var bw=S.bw, h=S.h, iL=g.invLen, hL=g.houseLen, tL=g.totalLen;
-  var tan = PEND/bw, slope = g.slope;
-  var CX = -tL/2, CZ = -bw/2;
-  function add(m,x,y,z,rx){ m.position.set(x+CX,y,z+CZ); if(rx) m.rotation.x=rx; grp.add(m); return m; }
-  function box(w,hh,d,mat,x,y,z,rx){ return add(new THREE.Mesh(new THREE.BoxGeometry(w,hh,d),mat),x+w/2,y+hh/2,z+d/2,rx); }
+  var offX=-tL/2 + (S.pos/100-0.5)*Math.max(0,(LIM.L-tL));
+  var offZ=-bw/2;
+  gBuild.position.set(offX,0,offZ);
+  var F=0.60, tan=PEND/bw;
+  var mChapa=M({map:TEX.chapa,color:0xC6CBC2}), mChapaR=M({map:TEX.chapa,color:0xA8AEA5});
+  var mMad=M({map:TEX.madera}), mGlass=new THREE.MeshLambertMaterial({color:0xBFE0E6,transparent:true,opacity:0.42});
 
-  // terreno y parcela
-  var gr = new THREE.Mesh(new THREE.PlaneGeometry(150,150), M(0xC6BCA2));
-  gr.rotation.x=-Math.PI/2; gr.position.y=-0.02; grp.add(gr);
-  var pc = new THREE.Mesh(new THREE.PlaneGeometry(LIM.PL,LIM.PW), M(0xBDB294));
-  pc.rotation.x=-Math.PI/2; pc.position.y=0.01; grp.add(pc);
-  var env = new THREE.Mesh(new THREE.PlaneGeometry(LIM.L,LIM.W), M(0x5E8C7B,0.20));
-  env.rotation.x=-Math.PI/2; env.position.y=0.02; grp.add(env);
-
-  // plinto y forjado
-  box(tL-0.20, 0.60, bw-0.20, M(0x53584F), 0.10, 0, 0.10);
-  box(tL, 0.04, bw, M(0x9A7B53), 0, 0.60, 0);
-
-  // cuerpo de la casa (perfil transversal extruido)
-  if(hL>0){
-    var sh = new THREE.Shape();
-    sh.moveTo(0,0.60); sh.lineTo(0,0.60+h+PEND); sh.lineTo(bw,0.60+h); sh.lineTo(bw,0.60); sh.lineTo(0,0.60);
-    var body = new THREE.Mesh(new THREE.ExtrudeGeometry(sh,{depth:hL,bevelEnabled:false}), M(0xB5BAB0));
-    body.rotation.y = -Math.PI/2; body.position.set(tL+CX, 0, CZ); grp.add(body);
+  function box(w,hh,d,mat,x,y,z,rx,cast){
+    var m=new THREE.Mesh(new THREE.BoxGeometry(w,hh,d),mat);
+    m.position.set(x+w/2,y+hh/2,z+d/2); if(rx) m.rotation.x=rx;
+    m.castShadow=cast!==false; m.receiveShadow=true; gBuild.add(m); return m;
   }
+  /* zócalo y forjado */
+  box(tL-0.16,F,bw-0.16,M({color:0x59604F}),0.08,0,0.08);
+  box(tL,0.06,bw,mMad,0,F,0);
 
-  // suelos de color por estancia + tabiques (visibles al quitar la cubierta)
-  var cur = 0;
-  S.rooms.forEach(function(r){
-    var col = {sala:0x5E8C7B,dorm:0x7C6CA0,serv:0xB07C4A,inv:0x4E86A8}[r.t];
-    var z0 = (r.t==='dorm'||r.t==='serv') && g.hasC ? WALL+S.corr+TAB : WALL;
-    var dz = (r.t==='inv') ? bw-2*WALL : ((r.t==='sala')? g.iw : g.pd);
-    var x0 = cur + (r.t==='inv'? 0.10 : WALL);
-    box(r.L, 0.03, Math.max(0.1,dz), M(col,0.75), x0, 0.645, r.t==='inv'? WALL : z0);
-    cur += r.L + (r.t==='inv'? 0 : TAB);
+  /* huecos de la fachada ESE, deducidos de las estancias */
+  var wins=[], cur=iL+WALL;
+  g.house.forEach(function(r){
+    var cx=cur-iL+r.L/2;
+    if(r.t==='sala'){ wins.push({x:cx-1.55,w:2.20,y:F+0.30,h:1.80});
+                      wins.push({x:cx+0.75,w:0.90,y:F+0.02,h:2.05,door:true}); }
+    else if(r.t==='dorm'){ wins.push({x:cx-0.60,w:1.20,y:F+1.00,h:1.20}); }
+    else if(r.t==='serv'){ wins.push({x:cx-0.30,w:0.60,y:F+1.60,h:0.60}); }
+    cur += r.L+TAB;
   });
-  if(g.hasC){
-    var px = iL + WALL + (g.house.length && g.house[0].t==='sala' ? g.house[0].L + TAB : 0);
-    box(g.corrLen, 0.03, S.corr, M(0x8A8F82,0.75), px, 0.645, WALL);
-    box(g.corrLen, h*0.55, TAB, M(0xD8D5CB), px, 0.64, WALL+S.corr);
+  if(hL>0){
+    /* muro ESE con huecos reales */
+    var sh=new THREE.Shape();
+    sh.moveTo(0,F); sh.lineTo(hL,F); sh.lineTo(hL,F+h); sh.lineTo(0,F+h); sh.lineTo(0,F);
+    wins.forEach(function(w){
+      if(w.x<0.15||w.x+w.w>hL-0.15) return;
+      var p=new THREE.Path();
+      p.moveTo(w.x,w.y); p.lineTo(w.x+w.w,w.y); p.lineTo(w.x+w.w,w.y+w.h); p.lineTo(w.x,w.y+w.h); p.lineTo(w.x,w.y);
+      sh.holes.push(p);
+    });
+    var mE=new THREE.Mesh(new THREE.ExtrudeGeometry(sh,{depth:WALL,bevelEnabled:false}),mChapa);
+    mE.position.set(iL,0,bw-WALL); mE.castShadow=true; mE.receiveShadow=true; gBuild.add(mE);
+    /* vidrios y marcos */
+    wins.forEach(function(w){
+      if(w.x<0.15||w.x+w.w>hL-0.15) return;
+      var gl=new THREE.Mesh(new THREE.BoxGeometry(w.w-0.10,w.h-0.10,0.04), w.door? mMad : mGlass);
+      gl.position.set(iL+w.x+w.w/2, w.y+w.h/2, bw-WALL/2); gBuild.add(gl);
+      var fr=new THREE.Mesh(new THREE.BoxGeometry(w.w,w.h,0.06), M({color:0x5F6560}));
+      fr.position.set(iL+w.x+w.w/2, w.y+w.h/2, bw-WALL/2); fr.material.transparent=true;
+      fr.material.opacity=0.0; gBuild.add(fr);
+    });
+    /* muro WNW ciego, más alto */
+    box(hL,h+PEND,WALL,mChapa,iL,F,0);
+    /* testeros */
+    var st=new THREE.Shape();
+    st.moveTo(0,F); st.lineTo(bw,F); st.lineTo(bw,F+h); st.lineTo(0,F+h+PEND); st.lineTo(0,F);
+    [iL, iL+hL-WALL].forEach(function(x){
+      var m=new THREE.Mesh(new THREE.ExtrudeGeometry(st,{depth:WALL,bevelEnabled:false}),mChapa);
+      m.rotation.y=-Math.PI/2; m.position.set(x+WALL,0,0); m.castShadow=true; m.receiveShadow=true; gBuild.add(m);
+    });
+    /* suelos de estancia, visibles al quitar la cubierta */
+    var cx2=iL+WALL;
+    g.house.forEach(function(r){
+      var col={sala:0x7C9A88,dorm:0x9186B4,serv:0xC0996B}[r.t]||0x999999;
+      var z0=(r.t==='dorm'||r.t==='serv')&&g.hasC ? WALL+S.corr+TAB : WALL;
+      var dz=(r.t==='sala')? g.iw : g.pd;
+      box(r.L,0.02,Math.max(0.1,dz),M({color:col}),cx2,F+0.06,z0,0,false);
+      if(g.hasC&&(r.t==='dorm'||r.t==='serv'))
+        box(r.L,h*0.6,TAB,M({color:0xD9D6CC}),cx2,F,WALL+S.corr,0,true);
+      cx2+=r.L+TAB;
+    });
+    if(g.hasC){
+      var px=iL+WALL+(g.house.length&&g.house[0].t==='sala'? g.house[0].L+TAB:0);
+      box(g.corrLen,0.02,S.corr,M({color:0x9AA093}),px,F+0.06,WALL,0,false);
+    }
   }
-
-  // cubierta con alero de 1,20 al ESE
-  var rz = bw + 1.60, rl = rz/Math.cos(slope);
-  var yA = 0.60+h+PEND + 0.40*tan, yB = 0.60+h - 1.20*tan;
-  var roof = new THREE.Mesh(new THREE.BoxGeometry(tL+0.80, 0.25, rl), M(0x8E948A));
-  roof.rotation.x = slope;
-  roof.position.set(0, (yA+yB)/2 + 0.125, (bw+0.80)/2 + CZ);
-  roof.visible = !hideRoof; grp.add(roof);
-  var pv = new THREE.Mesh(new THREE.BoxGeometry(Math.max(1,tL*0.55), 0.07, Math.max(0.6,bw*0.45)), M(0x232A31));
-  pv.rotation.x = slope;
-  pv.position.set(0, 0.60+h+PEND - (bw*0.62)*tan + 0.20, (bw*0.62) + CZ);
-  pv.visible = !hideRoof; grp.add(pv);
-
-  // invernadero acristalado
+  /* invernadero */
   if(iL>0){
-    var gh = new THREE.Mesh(new THREE.BoxGeometry(iL, h*0.92, bw-0.20), M(0xA6D0C6,0.34));
-    gh.position.set(iL/2+CX, 0.62+h*0.46, CZ+bw/2); grp.add(gh);
+    box(iL,0.06,bw,mMad,0,F,0,0,false);
+    var gh=new THREE.Mesh(new THREE.BoxGeometry(iL,h*0.94,bw-0.10),
+      new THREE.MeshLambertMaterial({color:0xCDE7E4,transparent:true,opacity:0.30}));
+    gh.position.set(iL/2,F+h*0.47,bw/2); gh.castShadow=true; gBuild.add(gh);
+    [[0,0],[iL,0],[0,bw-0.08],[iL,bw-0.08]].forEach(function(p){
+      box(0.08,h*0.94,0.08,mMad,p[0]-0.04,F,p[1]);
+    });
   }
-  // huecos ESE
-  var wn = Math.max(1, Math.round(hL/3));
-  for(var i=0;i<wn;i++){
-    box(Math.min(2.2,hL/wn*0.6), h*0.62, 0.10, M(0xA6D0C6,0.42), iL + (i+0.2)*(hL/wn), 0.90, bw-0.06);
-  }
-  // pinos del lindero
-  function pino(x,z,ht){
-    var t=new THREE.Mesh(new THREE.CylinderGeometry(0.13,0.19,ht*0.42,7),M(0x6A5340));
-    t.position.set(x+CX,ht*0.21,z+CZ); grp.add(t);
-    var c=new THREE.Mesh(new THREE.ConeGeometry(ht*0.34,ht*0.78,9),M(0x2F4A38));
-    c.position.set(x+CX,ht*0.62,z+CZ); grp.add(c);
-  }
-  for(var k=-14;k<=tL+14;k+=5){ pino(k,-9.5,5.2); pino(k,bw+9.5,5.0); }
-  for(var m2=-8;m2<=bw+8;m2+=5){ pino(-13,m2,5.4); pino(tL+13,m2,5.1); }
-  place();
+  /* cubierta ondulada con alero de 1,20 al ESE */
+  var rz=bw+1.60, rl=tL+0.80, rlen=rz/Math.cos(g.slope);
+  var roof=corrugated(rl,rlen,0.24,mChapaR);
+  roof.rotation.x=-Math.PI/2+g.slope;
+  roof.position.set(tL/2-0.0, F+h+PEND+0.14-((bw+0.80)/2+0.40-0.40)*0+0.0, 0);
+  var yW=F+h+PEND+0.12, yE=F+h-1.20*tan+0.12;
+  roof.position.set(tL/2, (yW+yE)/2, (bw+0.80)/2);
+  roof.name='roof'; gBuild.add(roof);
+  var slab=new THREE.Mesh(new THREE.BoxGeometry(rl,0.10,rlen), M({color:0x6E7469}));
+  slab.rotation.x=g.slope; slab.position.set(tL/2,(yW+yE)/2-0.10,(bw+0.80)/2);
+  slab.castShadow=true; slab.receiveShadow=true; slab.name='roofslab'; roof.add(new THREE.Object3D());
+  gBuild.add(slab); slab.visible=VIS.roof;
+  /* fotovoltaica sobre el faldón ESE */
+  var pv=new THREE.Mesh(new THREE.BoxGeometry(Math.min(6,tL*0.5),0.06,Math.max(1,bw*0.42)), M({color:0x1E252C}));
+  pv.rotation.x=g.slope; pv.position.set(tL/2, F+h+PEND-(bw*0.62)*tan+0.22, bw*0.62);
+  pv.castShadow=true; pv.name='pv'; gBuild.add(pv); pv.visible=VIS.roof;
+  applyVis();
 }
-var VIEWS={ese:{r:24,th:0,ph:1.16},aerea:{r:32,th:0.7,ph:0.62},wnw:{r:24,th:Math.PI,ph:1.16},
-            sur:{r:24,th:-Math.PI/2,ph:1.18},corte:{r:28,th:0.5,ph:0.42}};
+
+/* ---------- caminos ---------- */
+function buildPaths(){
+  clearGroup(gPath);
+  SITE.paths.forEach(function(p){
+    if(!p.pts||p.pts.length<2) return;
+    var w=p.w||2.0, verts=[], idx=[], k=0;
+    for(var i=0;i<p.pts.length-1;i++){
+      var a=p.pts[i], b=p.pts[i+1];
+      var dx=b[0]-a[0], dz=b[1]-a[1], L=Math.hypot(dx,dz)||1;
+      var nx=-dz/L*w/2, nz=dx/L*w/2;
+      verts.push(a[0]+nx,0.03,a[1]+nz, a[0]-nx,0.03,a[1]-nz, b[0]+nx,0.03,b[1]+nz, b[0]-nx,0.03,b[1]-nz);
+      idx.push(k,k+1,k+2, k+1,k+3,k+2); k+=4;
+    }
+    var g=new THREE.BufferGeometry();
+    g.setAttribute('position',new THREE.Float32BufferAttribute(verts,3));
+    g.setAttribute('uv',new THREE.Float32BufferAttribute(verts.map(function(_,i){return i%2;}).slice(0,verts.length/3*2),2));
+    g.setIndex(idx); g.computeVertexNormals();
+    var m=new THREE.Mesh(g, M({map:TEX.grava,color:0xCFC6B2}));
+    m.receiveShadow=true; m.userData={pathId:p.id}; gPath.add(m);
+  });
+}
+/* ---------- vegetación y objetos ---------- */
+function buildVeg(){
+  clearGroup(gVeg);
+  SITE.objs.forEach(function(o){
+    var m=treeMesh(o.t, o.s||1);
+    m.position.set(o.x,0,o.z); m.rotation.y=o.r||0;
+    m.userData={objId:o.id};
+    gVeg.add(m);
+  });
+  applyVis();
+}
+function rebuild3d(g){ if(!ready) return; buildBuilding(g||geo()); buildVeg(); buildPaths(); applySun(); place(); }
+
+/* ==================================================================
+   INTERACCIÓN CON EL TERRENO
+   ================================================================== */
+var TOOL='orbit', SELPAL='pino', SEL=null, MEAS=[], PATHPTS=[], ring=null;
+var ray=new THREE.Raycaster(), planeY0=new THREE.Plane(new THREE.Vector3(0,1,0),0);
+var VIEWS={
+  paseo:  {r:26, th:0.62, ph:1.32}, aerea:{r:44, th:0.75, ph:0.62},
+  acceso: {r:24, th:0.05, ph:1.36}, patio:{r:15, th:1.40, ph:1.30}, cenital:{r:40, th:0.0, ph:0.10}
+};
 function place(){ if(!ready) return;
   cam.position.set(tgt.x+sph.r*Math.sin(sph.ph)*Math.sin(sph.th), tgt.y+sph.r*Math.cos(sph.ph),
                    tgt.z+sph.r*Math.sin(sph.ph)*Math.cos(sph.th));
-  cam.lookAt(tgt); ren.render(scene,cam);
+  cam.lookAt(tgt); if(sun&&sun.target){ sun.target.position.set(0,0,0); sun.target.updateMatrixWorld(); }
+  ren.render(scene,cam);
 }
 function size3d(){ if(!ready) return;
-  var w=host3d.clientWidth,h=host3d.clientHeight||430;
+  var w=host3d.clientWidth, h=host3d.clientHeight||420;
   ren.setSize(w,h,false); cam.aspect=w/h; cam.updateProjectionMatrix(); place();
 }
+function ndc(ev){ var r=host3d.getBoundingClientRect();
+  return new THREE.Vector2(((ev.clientX-r.left)/r.width)*2-1, -((ev.clientY-r.top)/r.height)*2+1); }
+function groundAt(ev){ ray.setFromCamera(ndc(ev),cam);
+  var p=new THREE.Vector3(); return ray.ray.intersectPlane(planeY0,p)? p : null; }
+function pickObj(ev){
+  ray.setFromCamera(ndc(ev),cam);
+  var hit=ray.intersectObjects(gVeg.children,true);
+  if(!hit.length) return null;
+  var o=hit[0].object; while(o && !(o.userData&&o.userData.objId)) o=o.parent;
+  return o && o.userData.objId ? o.userData.objId : null;
+}
+function setRing(id){
+  if(ring){ gHelp.remove(ring); ring=null; }
+  var o=SITE.objs.filter(function(v){return v.id===id;})[0];
+  if(!o) return;
+  ring=new THREE.Mesh(new THREE.RingGeometry(0.75,1.0,26), new THREE.MeshBasicMaterial({color:0xE0A03A,side:THREE.DoubleSide}));
+  ring.rotation.x=-Math.PI/2; ring.position.set(o.x,0.06,o.z); gHelp.add(ring);
+}
+function selInfo(){
+  var el=document.getElementById('hudSel');
+  if(!SEL){ el.hidden=true; return; }
+  var o=SITE.objs.filter(function(v){return v.id===SEL;})[0];
+  if(!o){ el.hidden=true; return; }
+  el.hidden=false;
+  el.textContent = PALMAP[o.t].n+' · x '+n2(o.x)+' m · z '+n2(o.z)+' m';
+}
 function bindOrbit(){
-  var dn=false,lx=0,ly=0;
-  host3d.addEventListener('pointerdown',function(e){ if(e.target.tagName==='BUTTON')return;
-    dn=true;lx=e.clientX;ly=e.clientY;host3d.classList.add('drag');host3d.setPointerCapture(e.pointerId);});
-  host3d.addEventListener('pointermove',function(e){ if(!dn)return;
-    sph.th-=(e.clientX-lx)*0.006; sph.ph=Math.max(0.14,Math.min(1.52,sph.ph-(e.clientY-ly)*0.005));
-    lx=e.clientX;ly=e.clientY;place();});
-  function up(e){dn=false;host3d.classList.remove('drag');
-    if(e.pointerId!=null&&host3d.hasPointerCapture(e.pointerId))host3d.releasePointerCapture(e.pointerId);}
+  var dn=false, lx=0, ly=0, moved=0, dragObj=null;
+  host3d.addEventListener('pointerdown',function(e){
+    if(e.target.tagName==='BUTTON') return;
+    host3d.setPointerCapture(e.pointerId); lx=e.clientX; ly=e.clientY; moved=0;
+    if(TOOL==='move'){ var id=pickObj(e); if(id){ SEL=id; dragObj=id; setRing(id); selInfo(); place(); return; } }
+    dn=true;
+  });
+  host3d.addEventListener('pointermove',function(e){
+    moved+=Math.abs(e.clientX-lx)+Math.abs(e.clientY-ly);
+    if(dragObj){
+      var p=groundAt(e);
+      if(p){ var o=SITE.objs.filter(function(v){return v.id===dragObj;})[0];
+        if(o){ o.x=Math.round(p.x*20)/20; o.z=Math.round(p.z*20)/20;
+          var m=gVeg.children.filter(function(c){return c.userData.objId===dragObj;})[0];
+          if(m) m.position.set(o.x,0,o.z); setRing(dragObj); selInfo(); place(); } }
+      lx=e.clientX; ly=e.clientY; return;
+    }
+    if(!dn) return;
+    sph.th-=(e.clientX-lx)*0.006;
+    sph.ph=Math.max(0.06,Math.min(1.52,sph.ph-(e.clientY-ly)*0.005));
+    lx=e.clientX; ly=e.clientY; place();
+  });
+  function up(e){
+    if(e.pointerId!=null&&host3d.hasPointerCapture(e.pointerId)) host3d.releasePointerCapture(e.pointerId);
+    if(dragObj){ dragObj=null; saveSite(); dn=false; return; }
+    if(dn && moved<6) tap(e);
+    dn=false;
+  }
   host3d.addEventListener('pointerup',up); host3d.addEventListener('pointercancel',up);
-  host3d.addEventListener('wheel',function(e){e.preventDefault();
-    sph.r=Math.max(9,Math.min(70,sph.r*(1+e.deltaY*0.0013)));place();},{passive:false});
-  Array.prototype.forEach.call(document.querySelectorAll('.v3btns button'),function(b){
-    b.addEventListener('click',function(){
-      var v=VIEWS[b.dataset.v]; if(!v)return;
-      hideRoof = (b.dataset.v==='corte');
-      sph.r=v.r;sph.th=v.th;sph.ph=v.ph;
-      Array.prototype.forEach.call(document.querySelectorAll('.v3btns button'),function(o){
-        o.setAttribute('aria-pressed',String(o===b));});
-      build3d(geo());
-    });
+  host3d.addEventListener('wheel',function(e){ e.preventDefault();
+    sph.r=Math.max(6,Math.min(110,sph.r*(1+e.deltaY*0.0013))); place(); },{passive:false});
+  host3d.addEventListener('dblclick',function(e){
+    if(TOOL==='path'&&PATHPTS.length>=2){
+      SITE.paths.push({id:uid(), w:2.0, pts:PATHPTS.slice()});
+      PATHPTS=[]; clearGroup(gHelp); ring=null; buildPaths(); saveSite(); place(); renderSite();
+      hud('Camino guardado. Longitud y gravilla actualizadas abajo.');
+    }
   });
 }
+function tap(e){
+  var p=groundAt(e);
+  if(TOOL==='place'&&p){
+    SITE.objs.push({id:uid(), t:SELPAL, x:Math.round(p.x*20)/20, z:Math.round(p.z*20)/20,
+                    r:Math.random()*6.283, s:0.82+Math.random()*0.34});
+    buildVeg(); saveSite(); place(); renderSite();
+    hud(PALMAP[SELPAL].n+' colocado en x '+n2(p.x)+' · z '+n2(p.z));
+  } else if(TOOL==='measure'&&p){
+    MEAS.push(p.clone());
+    if(MEAS.length===2){
+      var d=MEAS[0].distanceTo(MEAS[1]);
+      var geo2=new THREE.BufferGeometry().setFromPoints([MEAS[0].clone().setY(0.1),MEAS[1].clone().setY(0.1)]);
+      clearGroup(gHelp); ring=null;
+      gHelp.add(new THREE.Line(geo2,new THREE.LineBasicMaterial({color:0xC0632F})));
+      hud('Distancia: '+n2(d)+' m'); MEAS=[];
+    } else { hud('Marca el segundo punto'); }
+    place();
+  } else if(TOOL==='path'&&p){
+    PATHPTS.push([Math.round(p.x*20)/20, Math.round(p.z*20)/20]);
+    clearGroup(gHelp); ring=null;
+    if(PATHPTS.length>1){
+      var pts=PATHPTS.map(function(a){return new THREE.Vector3(a[0],0.1,a[1]);});
+      gHelp.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),
+        new THREE.LineBasicMaterial({color:0xC0632F})));
+    }
+    var tot=0; for(var i=1;i<PATHPTS.length;i++)
+      tot+=Math.hypot(PATHPTS[i][0]-PATHPTS[i-1][0],PATHPTS[i][1]-PATHPTS[i-1][1]);
+    hud('Camino: '+PATHPTS.length+' puntos · '+n2(tot)+' m · doble clic para cerrar');
+    place();
+  } else {
+    var id=pickObj(e); SEL=id; setRing(id); selInfo(); place();
+    if(id) hud('Seleccionado. Usa «Mover» para arrastrarlo o «Borrar seleccionado».');
+  }
+}
+function hud(t){ document.getElementById('hudInfo').textContent=t; }
 
-// ===================== LISTA DE ESTANCIAS =====================
-var listEl = document.getElementById('roomList');
-function drawList(g){
-  var html='';
-  S.rooms.forEach(function(r,i){
-    var fondo = r.t==='inv'? S.bw-WALL : (r.t==='sala'? g.iw : g.pd);
-    html += '<div class="rrow">'
-      + '<span class="swatch" style="background:var('+TCOL[r.t]+')"></span>'
-      + '<input class="rname" data-i="'+i+'" value="'+r.n.replace(/"/g,'&quot;')+'" aria-label="Nombre de la estancia">'
-      + '<span class="stepper"><button type="button" data-i="'+i+'" data-d="-0.1" aria-label="Reducir">−</button>'
-      + '<input type="number" class="rlen" data-i="'+i+'" step="0.05" min="0.9" value="'+r.L.toFixed(2)+'" aria-label="Largo en metros">'
-      + '<button type="button" data-i="'+i+'" data-d="0.1" aria-label="Ampliar">+</button></span>'
-      + '<span class="rnum">'+n2(Math.max(0,fondo))+' m</span>'
-      + '<span class="rnum">'+n2(g.areas[i])+' m²</span>'
-      + '<span class="rmove"><button type="button" data-mv="-1" data-i="'+i+'" aria-label="Mover antes">&lsaquo;</button>'
-      + '<button type="button" data-mv="1" data-i="'+i+'" aria-label="Mover después">&rsaquo;</button>'
-      + '<button type="button" data-del="'+i+'" aria-label="Eliminar">&times;</button></span></div>';
+/* ==================================================================
+   PLANTA 2D
+   ================================================================== */
+var svg=document.getElementById('plan2d'), SX=38, OX=74, OY=150;
+function draw(g){
+  var el='', envW=LIM.W*SX, envL=LIM.L*SX;
+  function T(x,y,t,cls,anc,sz,ex){ return '<text x="'+x+'" y="'+y+'" class="'+(cls||'')+'" text-anchor="'+(anc||'start')+'" font-size="'+(sz||11)+'"'+(ex||'')+'>'+t+'</text>'; }
+  el+='<rect x="'+OX+'" y="'+OY+'" width="'+envL+'" height="'+envW+'" fill="var(--accent)" opacity=".10"/>';
+  el+='<rect x="'+OX+'" y="'+OY+'" width="'+envL+'" height="'+envW+'" class="ln-dash"/>';
+  el+=T(OX+envL/2,OY-96,'FRANJA EDIFICABLE 5,12 × 16,10 m','','middle',10.5,' fill="var(--ink3)" letter-spacing="1.4"');
+  var y0=OY+(envW-S.bw*SX)/2, bwp=S.bw*SX;
+  var startX=OX+(S.pos/100)*Math.max(0,(LIM.L-g.totalLen))*SX, cx=startX;
+  S.rooms.forEach(function(r){ if(r.t!=='inv') return; var w=r.L*SX;
+    el+='<rect x="'+cx+'" y="'+y0+'" width="'+w+'" height="'+bwp+'" fill="var(--r-inv)" opacity=".22"/>';
+    el+='<rect x="'+cx+'" y="'+y0+'" width="'+w+'" height="'+bwp+'" class="ln" stroke-width="1.6"/>'; cx+=w; });
+  var hx=cx;
+  if(g.houseLen>0){
+    el+='<path class="w-cut" fill-rule="evenodd" d="M '+hx+' '+y0+' h '+(g.houseLen*SX)+' v '+bwp+' h '+(-g.houseLen*SX)+' Z '
+       +'M '+(hx+WALL*SX)+' '+(y0+WALL*SX)+' h '+((g.houseLen-2*WALL)*SX)+' v '+((S.bw-2*WALL)*SX)+' h '+(-(g.houseLen-2*WALL)*SX)+' Z"/>';
+    var ix=hx+WALL*SX, iy=y0+WALL*SX, ih=g.iw*SX, cur=ix, first=true;
+    g.house.forEach(function(r){
+      if(!first){ el+='<rect x="'+cur+'" y="'+iy+'" width="'+(TAB*SX)+'" height="'+ih+'" class="w-cut-l"/>'; cur+=TAB*SX; }
+      first=false;
+      var w=r.L*SX, priv=(r.t==='dorm'||r.t==='serv'), ry=iy, rh=ih;
+      if(g.hasC&&priv){ ry=iy+(S.corr+TAB)*SX; rh=g.pd*SX;
+        el+='<rect x="'+cur+'" y="'+(iy+S.corr*SX)+'" width="'+w+'" height="'+(TAB*SX)+'" class="w-cut-l"/>'; }
+      el+='<rect x="'+cur+'" y="'+ry+'" width="'+w+'" height="'+rh+'" fill="var('+TCOL[r.t]+')" opacity=".26"/>';
+      var a=(r.t==='sala'? g.iw:g.pd)*r.L;
+      el+=T(cur+w/2,ry+rh/2-1,r.n.length>18? esc(r.n.slice(0,17))+'…':esc(r.n),'','middle',10.5,' font-weight="600" fill="var(--ink)"');
+      el+=T(cur+w/2,ry+rh/2+13,n2(a)+' m²','','middle',10,' fill="var(--ink2)"');
+      cur+=w;
+    });
+    if(g.hasC){
+      var px=ix+(g.house.length&&g.house[0].t==='sala'? g.house[0].L*SX+TAB*SX:0);
+      el+='<rect x="'+px+'" y="'+iy+'" width="'+(g.corrLen*SX)+'" height="'+(S.corr*SX)+'" fill="var(--r-paso)" opacity=".24"/>';
+      el+=T(px+g.corrLen*SX/2,iy+S.corr*SX/2+4,'paso '+n2(g.corrA)+' m²','','middle',9.5,' fill="var(--ink2)"');
+    }
+  }
+  var dy=y0+bwp+34, cc=startX;
+  el+='<path class="dim" d="M '+startX+' '+dy+' H '+(startX+g.totalLen*SX)+'"/>';
+  S.rooms.forEach(function(r,i){ var w=r.L*SX;
+    el+='<path class="dim" d="M '+cc+' '+(dy-6)+' V '+(dy+6)+'"/>';
+    el+=T(cc+w/2,dy+19,n2(r.L),'t-dim','middle',11); cc+=w;
+    if(i<S.rooms.length-1){
+      el+='<g class="handle" data-i="'+i+'" style="cursor:ew-resize">'
+        +'<circle cx="'+cc+'" cy="'+(y0+bwp+12)+'" r="9" fill="var(--terra)" opacity=".9"/>'
+        +'<path d="M '+(cc-3.5)+' '+(y0+bwp+12)+' l 3.5 -3.5 l 3.5 3.5 l -3.5 3.5 Z" fill="var(--paper)"/>'
+        +'<rect x="'+(cc-14)+'" y="'+y0+'" width="28" height="'+(bwp+26)+'" fill="transparent" pointer-events="all"/></g>';
+    }});
+  el+='<path class="dim" d="M '+(startX+g.totalLen*SX)+' '+(dy-6)+' V '+(dy+6)+'"/>';
+  el+='<path class="dim" d="M '+startX+' '+(dy+40)+' H '+(startX+g.totalLen*SX)
+     +' M '+startX+' '+(dy+34)+' V '+(dy+46)+' M '+(startX+g.totalLen*SX)+' '+(dy+34)+' V '+(dy+46)+'"/>';
+  el+=T(startX+g.totalLen*SX/2,dy+60,'TOTAL '+n2(g.totalLen)+' m · máx 16,10','t-dim','middle',12,' font-weight="600"');
+  var dx2=OX-30;
+  el+='<path class="dim" d="M '+dx2+' '+y0+' V '+(y0+bwp)+' M '+(dx2-6)+' '+y0+' H '+(dx2+6)+' M '+(dx2-6)+' '+(y0+bwp)+' H '+(dx2+6)+'"/>';
+  el+=T(dx2-9,y0+bwp/2,n2(S.bw),'t-dim','middle',12,' font-weight="600" transform="rotate(-90 '+(dx2-9)+' '+(y0+bwp/2)+')"');
+  el+=T(OX,OY-16,'WNW · muro ciego','','start',10,' fill="var(--ink3)"');
+  el+=T(OX,OY+envW+16,'ESE · huecos y porche','','start',10,' fill="var(--ink3)"');
+  el+=T(OX+envL,OY-16,'NNE ▸','','end',10,' fill="var(--ink3)"');
+  svg.setAttribute('viewBox','0 0 '+(OX+envL+70)+' '+(dy+80));
+  svg.innerHTML=el; bindHandles();
+}
+var DRAG=null, rafP=false;
+function svgK(){ var vb=svg.viewBox.baseVal&&svg.viewBox.baseVal.width, w=svg.getBoundingClientRect().width;
+  return (vb&&w)? SX*(w/vb) : SX; }
+function bindHandles(){
+  Array.prototype.forEach.call(svg.querySelectorAll('.handle'),function(h){
+    h.addEventListener('pointerdown',function(e){ e.preventDefault();
+      var i=+h.dataset.i; if(!S.rooms[i]||!S.rooms[i+1]) return;
+      DRAG={i:i,x0:e.clientX,La:S.rooms[i].L,Lb:S.rooms[i+1].L,k:svgK()};
+      document.body.style.cursor='ew-resize'; });
   });
-  listEl.innerHTML = html;
+}
+window.addEventListener('pointermove',function(e){
+  if(!DRAG) return; e.preventDefault();
+  var d=(e.clientX-DRAG.x0)/Math.max(1e-6,DRAG.k);
+  d=Math.max(-(DRAG.La-0.90),Math.min(DRAG.Lb-0.90,d));
+  S.rooms[DRAG.i].L=Math.round((DRAG.La+d)*20)/20;
+  S.rooms[DRAG.i+1].L=Math.round((DRAG.Lb-d)*20)/20;
+  if(!rafP){ rafP=true; requestAnimationFrame(function(){ rafP=false; render(); }); }
+},{passive:false});
+function endDrag(){ if(!DRAG) return; DRAG=null; document.body.style.cursor=''; render(); savePlan(); }
+window.addEventListener('pointerup',endDrag); window.addEventListener('pointercancel',endDrag);
+
+/* ==================================================================
+   INTERFAZ
+   ================================================================== */
+var listEl=document.getElementById('roomList');
+function drawList(g){
+  listEl.innerHTML = S.rooms.map(function(r,i){
+    var fondo = r.t==='inv'? S.bw-WALL : (r.t==='sala'? g.iw : g.pd);
+    return '<div class="rrow"><span class="swatch" style="background:var('+TCOL[r.t]+')"></span>'
+      +'<input class="rname" data-i="'+i+'" value="'+esc(r.n)+'" aria-label="Nombre">'
+      +'<span class="stepper"><button type="button" data-i="'+i+'" data-d="-0.1">−</button>'
+      +'<input type="number" class="rlen" data-i="'+i+'" step="0.05" min="0.9" value="'+r.L.toFixed(2)+'" aria-label="Largo">'
+      +'<button type="button" data-i="'+i+'" data-d="0.1">+</button></span>'
+      +'<span class="rnum">'+n2(Math.max(0,fondo))+' m</span><span class="rnum">'+n2(g.areas[i])+' m²</span>'
+      +'<span class="rmove"><button type="button" data-mv="-1" data-i="'+i+'" aria-label="Antes">&lsaquo;</button>'
+      +'<button type="button" data-mv="1" data-i="'+i+'" aria-label="Después">&rsaquo;</button>'
+      +'<button type="button" data-del="'+i+'" aria-label="Eliminar">&times;</button></span></div>';
+  }).join('');
 }
 listEl.addEventListener('click',function(e){
   var b=e.target.closest('button'); if(!b) return;
-  if(b.dataset.d!=null){ var i=+b.dataset.i; S.rooms[i].L=Math.max(0.90,Math.round((S.rooms[i].L+ +b.dataset.d)*20)/20); render(); }
+  if(b.dataset.d!=null){ var i=+b.dataset.i; S.rooms[i].L=Math.max(0.90,Math.round((S.rooms[i].L+ +b.dataset.d)*20)/20); render(); savePlan(); }
   else if(b.dataset.mv!=null){ var j=+b.dataset.i,k=j+ +b.dataset.mv;
-    if(k>=0&&k<S.rooms.length){ var t=S.rooms[j];S.rooms[j]=S.rooms[k];S.rooms[k]=t; render(); } }
-  else if(b.dataset.del!=null){ if(S.rooms.length>1){ S.rooms.splice(+b.dataset.del,1); render(); } }
+    if(k>=0&&k<S.rooms.length){ var t=S.rooms[j]; S.rooms[j]=S.rooms[k]; S.rooms[k]=t; render(); savePlan(); } }
+  else if(b.dataset.del!=null){ if(S.rooms.length>1){ S.rooms.splice(+b.dataset.del,1); render(); savePlan(); } }
 });
 listEl.addEventListener('input',function(e){
   var t=e.target;
-  if(t.classList.contains('rname')){ S.rooms[+t.dataset.i].n=t.value; save(); }
+  if(t.classList.contains('rname')){ S.rooms[+t.dataset.i].n=t.value; savePlan(); }
   else if(t.classList.contains('rlen')){ var v=parseFloat(t.value);
-    if(!isNaN(v)&&v>=0.9){ S.rooms[+t.dataset.i].L=v; render(true); } }
+    if(!isNaN(v)&&v>=0.9){ S.rooms[+t.dataset.i].L=v; render(true); savePlan(); } }
 });
 
-// ===================== CONTROLES =====================
-function bindRange(id,vid,key,fmt){
+function rng(id,vid,key,fmt){
   var el=document.getElementById(id);
-  el.addEventListener('input',function(){ S[key]=parseFloat(el.value); render(); });
-  return function(){ el.value=S[key]; document.getElementById(vid).textContent=fmt(S[key]); };
+  el.addEventListener('input',function(){ S[key]=parseFloat(el.value); render(); savePlan(); });
+  return function(){ el.value=S[key]; if(vid) document.getElementById(vid).textContent=fmt(S[key]); };
 }
-var syncW  = bindRange('cW','vW','bw',n2);
-var syncP  = bindRange('cP','vP','corr',n2);
-var syncH  = bindRange('cH','vH','h',n2);
-var elPos  = document.getElementById('cPos');
-elPos.addEventListener('input',function(){ S.pos=parseFloat(elPos.value); render(); });
-var elRoof = document.getElementById('cRoof');
-elRoof.addEventListener('change',function(){ S.roof=elRoof.value; render(); });
-var elBud  = document.getElementById('cBud');
-elBud.addEventListener('input',function(){ S.budget=parseFloat(elBud.value); render(); });
+var syncW=rng('cW','vW','bw',n2), syncP=rng('cP','vP','corr',n2), syncH=rng('cH','vH','h',n2);
+var elPos=document.getElementById('cPos');
+elPos.addEventListener('input',function(){ S.pos=parseFloat(elPos.value); render(); savePlan(); });
+var elRoof=document.getElementById('cRoof');
+elRoof.innerHTML=Object.keys(ROOFS).map(function(k){
+  return '<option value="'+k+'">'+ROOFS[k].n+' · '+(ROOFS[k].p+ROOFS[k].extra)+' €/m²</option>'; }).join('');
+elRoof.addEventListener('change',function(){ S.roof=elRoof.value; render(); savePlan(); });
+var elBud=document.getElementById('cBud');
+elBud.addEventListener('input',function(){ S.budget=parseFloat(elBud.value); render(); savePlan(); });
 
 document.getElementById('addRoom').addEventListener('click',function(){
-  S.rooms.push({n:'Estancia nueva', L:2.40, t:'dorm'}); render();
-});
-document.getElementById('reset').addEventListener('click',function(){
-  S=clone(DEF); location.hash=''; render();
-});
+  S.rooms.push({n:'Estancia nueva',L:2.40,t:'dorm'}); render(); savePlan(); });
+document.getElementById('reset').addEventListener('click',function(){ S=clone(DEF_PLAN); render(); savePlan(); });
 document.getElementById('printBtn').addEventListener('click',function(){ window.print(); });
 document.getElementById('copyLink').addEventListener('click',function(){
-  var url = location.origin + location.pathname + '#' + encode();
-  var msg = document.getElementById('copyMsg');
-  function ok(){ msg.textContent='Enlace copiado'; setTimeout(function(){msg.textContent='';},2600); }
-  if(navigator.clipboard && navigator.clipboard.writeText){
-    navigator.clipboard.writeText(url).then(ok, function(){ msg.textContent='No se pudo copiar'; });
-  } else {
-    var ta=document.createElement('textarea'); ta.value=url; document.body.appendChild(ta);
-    ta.select(); try{ document.execCommand('copy'); ok(); }catch(e){ msg.textContent='No se pudo copiar'; }
-    document.body.removeChild(ta);
-  }
+  var url=location.origin+location.pathname+'#'+btoa(unescape(encodeURIComponent(JSON.stringify(S)))).replace(/=+$/,'');
+  var m=document.getElementById('copyMsg');
+  function ok(){ m.textContent='Enlace copiado'; setTimeout(function(){m.textContent='';},2600); }
+  if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(ok,function(){m.textContent='No se pudo copiar';});
+  else { var ta=document.createElement('textarea'); ta.value=url; document.body.appendChild(ta); ta.select();
+    try{ document.execCommand('copy'); ok(); }catch(err){ m.textContent='No se pudo copiar'; } document.body.removeChild(ta); }
 });
 
-// ===================== ESTADO EN URL / LOCAL =====================
-function encode(){
-  try{ return btoa(unescape(encodeURIComponent(JSON.stringify(S)))).replace(/=+$/,''); }catch(e){ return ''; }
+/* paleta y herramientas */
+document.getElementById('palette').innerHTML=PAL.map(function(p){
+  return '<button class="pit" data-t="'+p.t+'" aria-pressed="'+(p.t===SELPAL)+'">'
+    +'<i style="background:'+p.c+'"></i><b>'+p.n+'</b><span>'+p.d+'</span></button>'; }).join('');
+document.getElementById('palette').addEventListener('click',function(e){
+  var b=e.target.closest('.pit'); if(!b) return;
+  SELPAL=b.dataset.t;
+  Array.prototype.forEach.call(this.querySelectorAll('.pit'),function(o){ o.setAttribute('aria-pressed',String(o===b)); });
+  setTool('place');
+});
+function setTool(t){
+  TOOL=t; MEAS=[]; if(t!=='path') PATHPTS=[];
+  Array.prototype.forEach.call(document.querySelectorAll('[data-tool]'),function(b){
+    b.setAttribute('aria-pressed',String(b.dataset.tool===t)); });
+  host3d.classList.toggle('place', t==='place'||t==='path'||t==='measure');
+  hud({orbit:'Arrastra para girar · clic para seleccionar', place:'Clic en el suelo para colocar '+PALMAP[SELPAL].n,
+       move:'Arrastra un objeto para moverlo', path:'Clic en cada vértice · doble clic para cerrar',
+       measure:'Clic en dos puntos para medir'}[t]);
 }
-function decode(str){
-  try{
-    var o = JSON.parse(decodeURIComponent(escape(atob(str))));
-    if(o && typeof o.bw==='number' && Array.isArray(o.rooms) && o.rooms.length) return o;
-  }catch(e){}
-  return null;
+Array.prototype.forEach.call(document.querySelectorAll('[data-tool]'),function(b){
+  b.addEventListener('click',function(){ setTool(b.dataset.tool); }); });
+document.getElementById('delSel').addEventListener('click',function(){
+  if(!SEL){ hud('No hay nada seleccionado'); return; }
+  SITE.objs=SITE.objs.filter(function(o){return o.id!==SEL;});
+  SEL=null; clearGroup(gHelp); ring=null; selInfo(); buildVeg(); saveSite(); place(); renderSite();
+});
+document.getElementById('clearSite').addEventListener('click',function(){
+  if(!confirm('¿Vaciar todos los árboles, objetos y caminos del terreno?')) return;
+  SITE={objs:[],paths:[]}; SEL=null; clearGroup(gHelp); ring=null;
+  buildVeg(); buildPaths(); saveSite(); place(); renderSite();
+});
+Array.prototype.forEach.call(document.querySelectorAll('.hud.bl [data-v]'),function(b){
+  b.addEventListener('click',function(){
+    var v=VIEWS[b.dataset.v]; if(!v) return;
+    sph.r=v.r; sph.th=v.th; sph.ph=v.ph;
+    Array.prototype.forEach.call(document.querySelectorAll('.hud.bl [data-v]'),function(o){
+      o.setAttribute('aria-pressed',String(o===b)); });
+    place();
+  });
+});
+[['tgRoof','roof'],['tgEnv','env'],['tgVeg','veg'],['tgGrid','grid']].forEach(function(p){
+  var b=document.getElementById(p[0]);
+  b.addEventListener('click',function(){
+    VIS[p[1]]=!VIS[p[1]]; b.setAttribute('aria-pressed',String(VIS[p[1]]));
+    var slab=gBuild.getObjectByName('roofslab'), pv=gBuild.getObjectByName('pv');
+    if(slab) slab.visible=VIS.roof; if(pv) pv.visible=VIS.roof;
+    applyVis(); place();
+  });
+});
+document.getElementById('cDia').addEventListener('input',function(){ applySun(); place(); });
+document.getElementById('cHora').addEventListener('input',function(){ applySun(); place(); });
+document.getElementById('cCalidad').addEventListener('change',function(){ setQuality(this.value); place(); });
+
+function renderSite(){
+  var tally={};
+  SITE.objs.forEach(function(o){ tally[o.t]=(tally[o.t]||0)+1; });
+  var rows=Object.keys(tally).map(function(k){ return (PALMAP[k]?PALMAP[k].n:k)+' · <b>'+tally[k]+'</b>'; });
+  var pl=0; SITE.paths.forEach(function(p){ for(var i=1;i<p.pts.length;i++)
+    pl+=Math.hypot(p.pts[i][0]-p.pts[i-1][0],p.pts[i][1]-p.pts[i-1][1]); });
+  if(pl>0) rows.push('Camino · <b>'+n2(pl)+' m</b> ('+n1(pl*2.0)+' m² de gravilla)');
+  document.getElementById('objTally').innerHTML = rows.length? rows.join('<br>') : 'Terreno vacío.';
 }
-function save(){
-  var h = encode();
-  try{ history.replaceState(null,'','#'+h); }catch(e){}
-  try{ localStorage.setItem('casa-almendro', h); }catch(e){}
+
+/* ==================================================================
+   FACTURAS
+   ================================================================== */
+function partidas(){ return bom(geo()); }
+function refillPartidas(){
+  var sel=document.getElementById('fPart'), cur=sel.value;
+  sel.innerHTML = partidas().map(function(p){ return '<option value="'+p.k+'">'+esc(p.n)+'</option>'; }).join('')
+    + '<option value="otros">Otros / herramienta / alquiler</option>';
+  if(cur) sel.value=cur;
 }
-function load(){
-  var h = location.hash.replace(/^#/,'');
-  var o = h ? decode(h) : null;
-  if(!o){ try{ var l=localStorage.getItem('casa-almendro'); if(l) o=decode(l); }catch(e){} }
-  if(o){ S = o;
-    if(typeof S.corr!=='number') S.corr=DEF.corr;
-    if(typeof S.h!=='number') S.h=DEF.h;
-    if(typeof S.pos!=='number') S.pos=DEF.pos;
-    if(!ROOFS[S.roof]) S.roof=DEF.roof;
-    if(typeof S.budget!=='number') S.budget=DEF.budget;
+function shrinkImg(file,cb){
+  var fr=new FileReader();
+  fr.onload=function(){ var img=new Image();
+    img.onload=function(){
+      var mx=640, sc=Math.min(1,mx/Math.max(img.width,img.height));
+      var c=document.createElement('canvas'); c.width=Math.round(img.width*sc); c.height=Math.round(img.height*sc);
+      c.getContext('2d').drawImage(img,0,0,c.width,c.height);
+      var q=0.6, out=c.toDataURL('image/jpeg',q);
+      while(out.length>150000&&q>0.25){ q-=0.12; out=c.toDataURL('image/jpeg',q); }
+      if(out.length>190000) out=null;   // no cabe en un documento de 256 KiB
+      cb(out);
+    };
+    img.onerror=function(){ cb(null); };
+    img.src=fr.result;
+  };
+  fr.onerror=function(){ cb(null); };
+  fr.readAsDataURL(file);
+}
+document.getElementById('fAdd').addEventListener('click',function(){
+  var imp=parseFloat(document.getElementById('fImp').value);
+  var msg=document.getElementById('fMsg');
+  if(isNaN(imp)||imp<=0){ msg.textContent='Pon un importe válido.'; return; }
+  var rec={ id:uid(),
+    d: document.getElementById('fDate').value || new Date().toISOString().slice(0,10),
+    prov: document.getElementById('fProv').value.trim() || '—',
+    part: document.getElementById('fPart').value,
+    conc: document.getElementById('fConc').value.trim() || '—',
+    imp: imp, img:null };
+  var f=document.getElementById('fFoto').files[0];
+  function done(){
+    FACT.push(rec); saveFact(rec); renderFact();
+    document.getElementById('fImp').value=''; document.getElementById('fConc').value='';
+    document.getElementById('fFoto').value='';
+    msg.textContent='Guardada: '+eur(imp)+' €' + (rec.img?' con foto':'');
+    setTimeout(function(){ msg.textContent=''; },3500);
   }
+  if(f){ msg.textContent='Procesando la foto…'; shrinkImg(f,function(d){ rec.img=d; done(); }); }
+  else done();
+});
+document.getElementById('factBody').addEventListener('click',function(e){
+  var b=e.target.closest('button'); if(!b) return;
+  if(b.dataset.del){ var id=b.dataset.del;
+    FACT=FACT.filter(function(f){return f.id!==id;}); delFact(id); renderFact(); }
+  else if(b.dataset.img){ var r=FACT.filter(function(f){return f.id===b.dataset.img;})[0];
+    if(r&&r.img){ var w=window.open(); if(w) w.document.write('<img src="'+r.img+'" style="max-width:100%">'); } }
+});
+function renderFact(){
+  var g=geo(), items=bom(g), f1=items.reduce(function(a,r){return a+r.i;},0);
+  var real=FACT.reduce(function(a,f){return a+f.imp;},0);
+  document.getElementById('fPres').textContent=eur(f1)+' €';
+  document.getElementById('fReal').textContent=eur(real)+' €';
+  var dv=real-f1;
+  var dvEl=document.getElementById('fDesv');
+  dvEl.textContent=(dv>=0?'+':'−')+eur(Math.abs(dv))+' €';
+  dvEl.className = dv>0? 'bad':'';
+  document.getElementById('fNum').textContent=FACT.length;
+  document.getElementById('fObj').textContent=eur(S.budget)+' €';
+  var pc=S.budget>0? real/S.budget*100 : 0;
+  var bar=document.getElementById('fBar');
+  bar.style.width=Math.min(100,pc)+'%';
+  bar.style.background = pc<=100? 'var(--accent)':'var(--terra)';
+  document.getElementById('kfReal').innerHTML=eur(real)+' <small>€</small>';
+
+  var byName={}; items.forEach(function(i){ byName[i.k]=i; });
+  var srt=FACT.slice().sort(function(a,b){ return (b.d||'').localeCompare(a.d||''); });
+  document.getElementById('factBody').innerHTML = srt.length? srt.map(function(f){
+    var pn = byName[f.part]? byName[f.part].n : 'Otros';
+    return '<tr><td class="mono" style="font-size:12.5px">'+esc(f.d)+'</td><td>'+esc(f.prov)+'</td>'
+      +'<td>'+esc(f.conc)+'</td><td style="font-size:13px;color:var(--ink3)">'+esc(pn)+'</td>'
+      +'<td class="num">'+eur(f.imp)+' €</td>'
+      +'<td>'+(f.img? '<button class="btn sm" data-img="'+f.id+'">Ver</button>':'')+'</td>'
+      +'<td><button class="btn sm danger" data-del="'+f.id+'">&times;</button></td></tr>';
+  }).join('') : '<tr><td colspan="7" style="color:var(--ink3)">Todavía no hay ninguna factura apuntada.</td></tr>';
+  document.getElementById('factTotal').textContent=eur(real)+' €';
+
+  var acc={}; FACT.forEach(function(f){ acc[f.part]=(acc[f.part]||0)+f.imp; });
+  var rows=items.map(function(i){
+    var r=acc[i.k]||0, d=r-i.i, p=i.i>0? Math.min(100,r/i.i*100):0;
+    return {n:i.n,pres:i.i,real:r,dev:d,p:p};
+  });
+  if(acc['otros']) rows.push({n:'Otros / herramienta / alquiler',pres:0,real:acc['otros'],dev:acc['otros'],p:100});
+  document.getElementById('devBody').innerHTML = rows.map(function(r){
+    var col = r.real===0? 'var(--ink3)' : (r.dev>0? 'var(--bad)':'var(--ok)');
+    return '<tr><td>'+esc(r.n)+'</td><td class="num">'+eur(r.pres)+'</td>'
+      +'<td class="num">'+(r.real? eur(r.real):'—')+'</td>'
+      +'<td class="num" style="color:'+col+'">'+(r.real? (r.dev>=0?'+':'−')+eur(Math.abs(r.dev)) : '—')+'</td>'
+      +'<td><div class="bar"><i style="width:'+r.p+'%;background:'+(r.dev>0?'var(--terra)':'var(--accent)')+'"></i></div></td></tr>';
+  }).join('');
 }
 
-// ===================== RENDER =====================
-function render(skipList){
-  S.bw = Math.min(LIM.W, Math.max(2.60, S.bw));
-  var g = geo();
-  draw(g);
-  build3d(g);
-  if(!skipList) drawList(g);
-
-  // KPIs
-  document.getElementById('kSc').textContent = n2(g.Sc)+' m²';
-  document.getElementById('kSu').textContent = n2(g.Su)+' m²';
-  var kL=document.getElementById('kL'); kL.textContent = n2(g.totalLen)+' m';
-  kL.className = g.okL? '' : 'bad';
-  var kW=document.getElementById('kW'); kW.textContent = n2(S.bw)+' m';
-  kW.className = g.okW? '' : 'bad';
-  document.getElementById('kOc').textContent = n2(g.Sc/LIM.AREA*100)+' %';
-
-  var items = bom(g), f1 = items.reduce(function(a,r){return a+r.i;},0);
-  var ph = phases(g,f1), tot = ph.reduce(function(a,r){return a+r.i;},0);
-  document.getElementById('kC1').textContent = eur(f1)+' €';
-  document.getElementById('kCt').textContent = eur(tot)+' €';
-  document.getElementById('kfF1').innerHTML = eur(f1)+' <small>€</small>';
-  document.getElementById('v3info').textContent = n2(S.bw)+' × '+n2(g.totalLen)+' m';
-
-  // presupuesto
-  var b='';
-  items.forEach(function(r,i){
-    b += '<tr><td class="num">'+(i+1)+'</td><td>'+r.n+'</td><td class="num">'+r.m+'</td><td class="num">'+r.u+'</td><td class="num">'+eur(r.i)+'</td></tr>';
-  });
-  document.getElementById('bomBody').innerHTML = b;
-  document.getElementById('bomTotal').textContent = eur(f1)+' €';
-  var acc=0, p='';
-  ph.forEach(function(r){ acc+=r.i;
-    p += '<tr><td><strong>'+r.n+'</strong></td><td>'+r.d+'</td><td class="num">'+eur(r.i)+'</td><td class="num">'+eur(acc)+'</td></tr>';
-  });
-  p += '<tr><td colspan="2"><strong>Total materiales · autoconstrucción</strong></td><td class="num"><strong>'+eur(acc)+'</strong></td><td class="num">'+eur(acc/Math.max(1,g.Sc))+' €/m²</td></tr>';
-  document.getElementById('phaseBody').innerHTML = p;
-
-  // materiales
-  document.getElementById('matGrid').innerHTML = mats(g).map(function(m){
-    return '<div class="mat"><h5>'+m.h+'</h5><p class="spec">'+m.s+'</p>'
-         + '<p class="qty"><span>'+m.q+'</span><b>'+m.v+'</b></p></div>';
+/* ==================================================================
+   OBRA
+   ================================================================== */
+function renderObra(){
+  document.getElementById('obraBody').innerHTML = OBRA_DIAS.map(function(d,i){
+    var on=!!OBRA.done[i];
+    return '<tr><td class="num">'+(i+1)+'</td>'
+      +'<td><input type="checkbox" data-day="'+i+'"'+(on?' checked':'')+' style="width:18px;height:18px;accent-color:var(--accent)"></td>'
+      +'<td'+(on?' style="opacity:.55;text-decoration:line-through"':'')+'>'+d[0]+'</td>'
+      +'<td style="font-size:13px;color:var(--ink3)">'+d[1]+'</td></tr>';
   }).join('');
+  var n=OBRA.done.filter(Boolean).length;
+  document.getElementById('obraBar').style.width=(n/OBRA_DIAS.length*100)+'%';
+}
+document.getElementById('obraBody').addEventListener('change',function(e){
+  var c=e.target; if(c.dataset.day==null) return;
+  OBRA.done[+c.dataset.day]=c.checked; saveObra(); renderObra();
+});
 
-  // avisos
-  var al=document.getElementById('alert'), msgs=[];
-  if(!g.okL) msgs.push('El largo total es de '+n2(g.totalLen)+' m y la franja sólo admite 16,10 m. Te pasas '+n2(g.totalLen-LIM.L)+' m: reduce alguna estancia.');
-  if(!g.okW) msgs.push('El ancho de '+n2(S.bw)+' m supera los 5,12 m de franja edificable.');
-  if(!g.okD) msgs.push('Con este pasillo, el fondo de los dormitorios queda en '+n2(g.pd)+' m. Por debajo de 2,00 m no cabe una cama con paso: estrecha el pasillo o ensancha la casa.');
-  if(g.Sc/LIM.AREA*100 > 20) msgs.push('La ocupación supera el 20 % agropecuario del PGOU.');
-  al.hidden = msgs.length===0;
-  al.innerHTML = msgs.map(function(m){return '<div>⚠ '+m+'</div>';}).join('');
+/* ==================================================================
+   RENDER GENERAL
+   ================================================================== */
+var CONF={alta:'contrastada',media:'orientativa',baja:'a confirmar'};
+function render(skipList){
+  S.bw=Math.min(LIM.W,Math.max(2.60,S.bw));
+  var g=geo();
+  draw(g);
+  if(!skipList) drawList(g);
+  rebuild3d(g);
+
+  var items=bom(g), f1=items.reduce(function(a,r){return a+r.i;},0);
+  var ph=phases(g,f1), tot=ph.reduce(function(a,r){return a+r.i;},0);
+  function set(id,v){ var e=document.getElementById(id); if(e) e.textContent=v; }
+  set('kSc',n2(g.Sc)+' m²'); set('kSu',n2(g.Su)+' m²');
+  var kL=document.getElementById('kL'); kL.textContent=n2(g.totalLen)+' m'; kL.className=g.okL?'':'bad';
+  var kW=document.getElementById('kW'); kW.textContent=n2(S.bw)+' m'; kW.className=g.okW?'':'bad';
+  set('kOc',n2(g.Sc/LIM.AREA*100)+' %'); set('kC1',eur(f1)+' €'); set('kCt',eur(tot)+' €');
+  document.getElementById('kfSc').innerHTML=n2(g.Sc)+' <small>m²</small>';
+  document.getElementById('kfC1').innerHTML=eur(f1)+' <small>€</small>';
+  document.getElementById('t3info').textContent=n2(S.bw)+' × '+n2(g.totalLen)+' m · '+n2(g.Sc)+' m² construidos';
+
+  document.getElementById('matCards').innerHTML=items.map(function(i){
+    var c={alta:'var(--ok)',media:'var(--warn)',baja:'var(--bad)'}[i.conf];
+    var buy=(i.l||[]).map(function(k){ var sh=SHOP[k]; return sh?
+      '<a class="buy" href="'+sh.u+'" target="_blank" rel="noopener">'+esc(sh.n)+' ↗</a>':''; }).join('');
+    return '<article class="mat"><div class="mat-h"><h5>'+esc(i.n)+'</h5>'
+      +'<span class="conf" style="color:'+c+'">'+CONF[i.conf]+'</span></div>'
+      +'<div class="mat-q">'+i.q+'  ·  <strong>'+eur(i.i)+' €</strong></div>'
+      +'<p class="mat-s">'+esc(i.spec)+'</p>'
+      +'<p class="mat-eco">'+(i.eco||'')+'</p>'
+      +(buy? '<div class="mat-buy">'+buy+'</div>':'')+'</article>';
+  }).join('');
+  document.getElementById('shopBody').innerHTML=items.map(function(r,i){
+    return '<tr><td class="num">'+(i+1)+'</td><td>'+esc(r.n)+'</td><td class="num"><strong>'+r.m+'</strong></td>'
+      +'<td class="num">'+r.u+'</td><td class="num" style="color:var(--ink3)">'+eur(r.i)+'</td>'
+      +'<td style="border-left:1px dashed var(--line)">&nbsp;</td></tr>';
+  }).join('');
+  document.getElementById('shopTotal').textContent=eur(f1)+' €';
+
+  var al=document.getElementById('alert'), m=[];
+  if(!g.okL) m.push('El largo total es '+n2(g.totalLen)+' m y la franja admite 16,10. Te pasas '+n2(g.totalLen-LIM.L)+' m.');
+  if(!g.okW) m.push('El ancho de '+n2(S.bw)+' m supera los 5,12 m edificables.');
+  if(!g.okD) m.push('Con este pasillo el fondo de los dormitorios queda en '+n2(g.pd)+' m. Por debajo de 2,00 m no cabe una cama con paso.');
+  if(g.Sc/LIM.AREA*100>20) m.push('La ocupación supera el 20 % agropecuario del PGOU.');
+  al.hidden=!m.length; al.innerHTML=m.map(function(x){return '<div>⚠ '+x+'</div>';}).join('');
 
   syncW(); syncP(); syncH();
-  elPos.value = S.pos; document.getElementById('vPos').textContent =
-    S.pos<20? 'al sur' : S.pos>80? 'al norte' : 'centrada';
-  elRoof.value = S.roof;
-  document.getElementById('roofNote').textContent = ROOFS[S.roof].d;
-  elBud.value = S.budget;
-  document.getElementById('vBud').textContent = eur(S.budget);
-  var pct = f1/S.budget*100;
-  var bar = document.getElementById('budBar');
-  bar.style.width = Math.min(100,pct)+'%';
-  bar.style.background = pct<=100? 'var(--accent)' : 'var(--terra)';
-  document.getElementById('budNote').textContent = pct<=100
+  elPos.value=S.pos;
+  document.getElementById('vPos').textContent=S.pos<20?'al sur':S.pos>80?'al norte':'centrada';
+  elRoof.value=S.roof; document.getElementById('roofNote').textContent=ROOFS[S.roof].d;
+  elBud.value=S.budget; document.getElementById('vBud').textContent=eur(S.budget);
+  var pct=f1/S.budget*100, bar=document.getElementById('budBar');
+  bar.style.width=Math.min(100,pct)+'%';
+  bar.style.background=pct<=100?'var(--accent)':'var(--terra)';
+  document.getElementById('budNote').textContent=pct<=100
     ? 'Te sobran '+eur(S.budget-f1)+' € del objetivo.'
     : 'Te pasas '+eur(f1-S.budget)+' € ('+Math.round(pct-100)+' %).';
-  // lista de compra
-  document.getElementById('shopBody').innerHTML = items.map(function(r,i){
-    return '<tr><td class="num">'+(i+1)+'</td><td>'+r.n+'</td><td class="num"><strong>'+r.m+'</strong></td>'
-         + '<td class="num">'+r.u+'</td><td class="num" style="color:var(--ink3)">'+eur(r.i)+'</td>'
-         + '<td style="border-left:1px dashed var(--line)">&nbsp;</td></tr>';
-  }).join('');
-  save();
+  refillPartidas(); renderSite(); renderFact();
 }
 
-// ===================== ARRANQUE =====================
-load();
-init3d();
-render();
-size3d();
+/* ==================================================================
+   ESTADO COMPARTIDO
+   ================================================================== */
+var DB=null, LAST={};
+function setSync(state,txt){
+  document.getElementById('syncDot').className='dot '+state;
+  document.getElementById('syncTxt').textContent=txt;
+}
+function lsGet(k){ try{ return JSON.parse(localStorage.getItem('ca_'+k)); }catch(e){ return null; } }
+function lsSet(k,v){ try{ localStorage.setItem('ca_'+k, JSON.stringify(v)); }catch(e){} }
+function deb(fn,ms){ var t=null; return function(){ clearTimeout(t); t=setTimeout(fn,ms||500); }; }
+
+var savePlan = deb(function(){
+  lsSet('plan',S);
+  if(!DB) return;
+  var j=JSON.stringify(S); if(j===LAST.plan) return; LAST.plan=j;
+  DB.collection('proyecto').doc('planta').set(S).catch(function(){});
+},450);
+var saveSite = deb(function(){
+  lsSet('site',SITE);
+  if(!DB) return;
+  var j=JSON.stringify(SITE); if(j===LAST.site) return; LAST.site=j;
+  DB.collection('proyecto').doc('terreno').set(SITE).catch(function(){});
+},450);
+var saveObra = deb(function(){
+  lsSet('obra',OBRA);
+  if(!DB) return;
+  DB.collection('proyecto').doc('obra').set(OBRA).catch(function(){});
+},400);
+function saveFact(rec){
+  lsSet('fact',FACT);
+  if(!DB) return;
+  DB.collection('facturas').doc(rec.id).set(rec).catch(function(){});
+}
+function delFact(id){
+  lsSet('fact',FACT);
+  if(!DB) return;
+  DB.collection('facturas').doc(id).delete().catch(function(){});
+}
+function normPlan(o){
+  if(!o||typeof o.bw!=='number'||!Array.isArray(o.rooms)||!o.rooms.length) return null;
+  if(!ROOFS[o.roof]) o.roof=DEF_PLAN.roof;
+  ['corr','h','pos','budget'].forEach(function(k){ if(typeof o[k]!=='number') o[k]=DEF_PLAN[k]; });
+  return o;
+}
+function loadLocal(){
+  var h=location.hash.replace(/^#/,'');
+  if(h){ try{ var o=normPlan(JSON.parse(decodeURIComponent(escape(atob(h))))); if(o) S=o; }catch(e){} }
+  else { var p=normPlan(lsGet('plan')); if(p) S=p; }
+  var st=lsGet('site'); if(st&&Array.isArray(st.objs)) SITE=st;
+  var f=lsGet('fact'); if(Array.isArray(f)) FACT=f;
+  var ob=lsGet('obra'); if(ob&&Array.isArray(ob.done)) OBRA=ob;
+}
+function initDB(){
+  if(typeof claude==='undefined'||!claude||!claude.use){ setSync('off','sólo en este equipo'); return; }
+  Promise.resolve(claude.use('db')).then(function(db){
+    if(!db){ setSync('off','sólo en este equipo'); return; }
+    DB=db; setSync('on','compartido');
+    DB.collection('proyecto').doc('planta').onSnapshot(function(d){
+      if(d&&d.exists===false) return;
+      var v=d&&typeof d.data==='function'? d.data() : d;
+      var o=normPlan(v); if(!o) return;
+      var j=JSON.stringify(o); if(j===JSON.stringify(S)) return;
+      LAST.plan=j; S=o; render();
+    });
+    DB.collection('proyecto').doc('terreno').onSnapshot(function(d){
+      if(d&&d.exists===false) return;
+      var v=d&&typeof d.data==='function'? d.data() : d;
+      if(!v||!Array.isArray(v.objs)) return;
+      var j=JSON.stringify(v); if(j===JSON.stringify(SITE)) return;
+      LAST.site=j; SITE=v; buildVeg(); buildPaths(); place(); renderSite();
+    });
+    DB.collection('proyecto').doc('obra').onSnapshot(function(d){
+      if(d&&d.exists===false) return;
+      var v=d&&typeof d.data==='function'? d.data() : d;
+      if(!v||!Array.isArray(v.done)) return;
+      if(JSON.stringify(v)===JSON.stringify(OBRA)) return;
+      OBRA=v; renderObra();
+    });
+    DB.collection('facturas').onSnapshot(function(snap){
+      var arr=[];
+      if(snap&&snap.docs) snap.docs.forEach(function(d){
+        var v=typeof d.data==='function'? d.data():d; if(v) arr.push(v); });
+      else if(Array.isArray(snap)) arr=snap;
+      else return;
+      if(JSON.stringify(arr)===JSON.stringify(FACT)) return;
+      FACT=arr; lsSet('fact',FACT); renderFact();
+    });
+  }).catch(function(){ DB=null; setSync('off','sólo en este equipo'); });
+}
+
+/* ==================================================================
+   PESTAÑAS Y ARRANQUE
+   ================================================================== */
+var TABS=[['tab-terreno','p-terreno'],['tab-planta','p-planta'],['tab-mat','p-mat'],['tab-fact','p-fact'],['tab-obra','p-obra']];
+TABS.forEach(function(t){
+  document.getElementById(t[0]).addEventListener('click',function(){
+    TABS.forEach(function(o){
+      var on=o[0]===t[0];
+      document.getElementById(o[0]).setAttribute('aria-selected',String(on));
+      document.getElementById(o[1]).hidden=!on;
+    });
+    if(t[1]==='p-terreno') setTimeout(size3d,30);
+    if(t[1]==='p-planta') setTimeout(function(){ draw(geo()); },30);
+  });
+});
+
+loadLocal();
+var has3d=init3d();
+document.getElementById('fDate').value=new Date().toISOString().slice(0,10);
+render(); renderObra(); renderFact();
+if(has3d){ setTool('orbit'); size3d(); applySun(); place(); }
+initDB();
 window.addEventListener('resize',function(){ size3d(); });
-window.addEventListener('hashchange',function(){ load(); render(); });
+window.addEventListener('hashchange',function(){ loadLocal(); render(); });
 if(window.matchMedia){
   var mq=window.matchMedia('(prefers-color-scheme: dark)');
-  if(mq.addEventListener) mq.addEventListener('change',function(){ bg3d(); build3d(geo()); });
+  if(mq.addEventListener) mq.addEventListener('change',function(){ place(); });
 }
-new MutationObserver(function(){ bg3d(); build3d(geo()); })
-  .observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
 })();
 </script>
