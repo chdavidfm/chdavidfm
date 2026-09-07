@@ -234,6 +234,7 @@ footer{padding:36px 0 60px; color:var(--ink3); font-size:13px; border-top:1px so
     <button role="tab" id="tab-terreno" aria-selected="true"  aria-controls="p-terreno">Terreno y volumen</button>
     <button role="tab" id="tab-planta"  aria-selected="false" aria-controls="p-planta">Planta</button>
     <button role="tab" id="tab-mat"     aria-selected="false" aria-controls="p-mat">Materiales y proveedores</button>
+    <button role="tab" id="tab-compra"  aria-selected="false" aria-controls="p-compra">Comprar ahora</button>
     <button role="tab" id="tab-fact"    aria-selected="false" aria-controls="p-fact">Facturas</button>
     <button role="tab" id="tab-obra"    aria-selected="false" aria-controls="p-obra">Obra</button>
     <span class="sync"><span class="dot" id="syncDot"></span><span id="syncTxt">conectando</span></span>
@@ -382,6 +383,11 @@ footer{padding:36px 0 60px; color:var(--ink3); font-size:13px; border-top:1px so
       <p class="hint" id="roofNote">—</p>
     </div>
     <div class="ctrl">
+      <label for="cSuelo">Suelo</label>
+      <select id="cSuelo"></select>
+      <p class="hint" id="sueloNote">—</p>
+    </div>
+    <div class="ctrl">
       <label for="cBud">Presupuesto objetivo · <span class="val" id="vBud">10.000</span> €</label>
       <input type="range" id="cBud" min="5000" max="40000" step="500" value="10000">
       <div class="bar"><i id="budBar"></i></div>
@@ -454,6 +460,152 @@ footer{padding:36px 0 60px; color:var(--ink3); font-size:13px; border-top:1px so
 
   <div class="note">
     <p><strong>Las tres llamadas que hay que hacer esta semana.</strong> Una a Urbanmader con el despiece de madera y la pregunta de si cortan a medida. Otra a Panel Sandwich Group con los metros de faldón y la longitud exacta. Y una a Obramat para tableros, tornillería y cemento. Con eso tenéis precio real en un día y esta tabla se convierte en una referencia de contraste, que es para lo que sirve.</p>
+  </div>
+ </div>
+</section>
+
+
+<!-- ============================ COMPRAR AHORA ============================ -->
+<section class="panel" id="p-compra" role="tabpanel" aria-labelledby="tab-compra" hidden>
+ <div class="wide">
+  <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap">
+    <span class="code">C‑01</span><h2>Comprar ahora</h2>
+    <span class="mono" style="font-size:11px;color:var(--ink3)">mercado comparado · septiembre 2026</span>
+  </div>
+  <p class="lead">Qué comprar, en qué orden y dónde sale mejor. Donde el precio es un rango publicado y no una ficha de artículo, lo digo en la propia ficha.</p>
+
+  <div class="note">
+    <p><strong>El orden importa más que el precio.</strong> Tres cosas tardan y bloquean el resto: el <strong>panel sándwich se fabrica a medida</strong> (48 h si tienen chapa en almacén, más si no), el <strong>acero hay que cortarlo</strong>, y la <strong>carpintería tarda de 2 a 4 semanas</strong>. Esos tres se piden hoy. La tornillería, la herramienta y el generador se compran sobre la marcha.</p>
+  </div>
+
+  <h4>Orden de compra</h4>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th style="width:56px" class="num">Cuándo</th><th>Qué</th><th>Por qué en ese momento</th><th class="num">Importe</th></tr></thead>
+      <tbody>
+        <tr><td class="num"><strong>Hoy</strong></td><td>Panel sándwich de cubierta y fachada, a medida</td><td>Es lo que marca el calendario. Sin panel no hay día 9.</td><td class="num" id="ordPanel">—</td></tr>
+        <tr><td class="num"><strong>Hoy</strong></td><td>Carpintería exterior — tres presupuestos</td><td>De 2 a 4 semanas de plazo. Si lo dejas, para la obra al final.</td><td class="num" id="ordCarp">—</td></tr>
+        <tr><td class="num"><strong>Hoy</strong></td><td>Tubo estructural y perfiles, cortados a medida</td><td>Cortar en obra son dos días de radial que no tienes.</td><td class="num" id="ordAcero">—</td></tr>
+        <tr><td class="num">Día 1</td><td>Cemento, redondo y placas de anclaje</td><td>Se gasta el día 2. Obramat abre a las 7.</td><td class="num" id="ordCim">—</td></tr>
+        <tr><td class="num">Día 1</td><td>Generador, herramienta y EPI</td><td>Sin corriente no se empieza.</td><td class="num">≈ 1.600 €</td></tr>
+        <tr><td class="num">Día 7</td><td>Remates, cumbrera y tornillería EPDM</td><td>Se necesitan el día que se cierra la cubierta.</td><td class="num" id="ordRem">—</td></tr>
+        <tr><td class="num">Fase 3</td><td>Fotovoltaica, batería y agua</td><td>Con la nave cerrada y con puerta ya se puede guardar dentro.</td><td class="num">≈ 4.400 €</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4>Coste del proyecto completo</h4>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Fase</th><th>Alcance</th><th class="num">Importe</th><th class="num">Acumulado</th></tr></thead>
+      <tbody id="phaseBody"></tbody>
+    </table>
+  </div>
+  <p class="hint" style="max-width:68ch">Material, con la obra hecha por vosotros. Con los dos maestros a jornal, suma <strong>7.000–9.500 €</strong> de mano de obra en la Fase 1. Y cuenta siempre un <strong>10 % de imprevistos</strong>: en autoconstrucción se va en portes, herramienta y piezas mal cortadas.</p>
+
+  <h3>Energía solar</h3>
+  <p class="lead">Con 3 kWp y 5 kWh de batería cubres una casa eficiente en aislada (4–6 kWh/día). Comprado por piezas sale claramente mejor: los kits cerrados comparables de 5 kW con litio se publican <strong>desde 5.561 €</strong>, y esta configuración hace lo mismo por unos 2.000 € menos.</p>
+  <div class="matgrid">
+    <article class="mat">
+      <div class="mat-h"><h5>Paneles · 6 × 500 W</h5><span class="conf" style="color:var(--ok)">contrastada</span></div>
+      <div class="mat-q">3,0 kWp&nbsp; ·&nbsp; <strong>≈ 470 €</strong></div>
+      <p class="mat-s">Un panel de 500–550 W se publica entre <strong>72 y 85 €</strong>. Con seis sobra generación: en Alicante son del orden de 4.900 kWh/año en orientación óptima, frente a los 1.500–2.200 kWh que gasta una casa eficiente en aislada.</p>
+      <p class="mat-eco"><b>Cuál comprar: tipo N.</b> Aquí el calor te come el rendimiento y el tipo N pierde menos por temperatura. <b>Jinko Tiger Neo</b> (el más vendido del mundo, 22,8 % de eficiencia) o <b>JA Solar DeepBlue 4.0</b>, señalado como la mejor relación calidad‑precio del mercado con tasa de fallo por debajo del 0,1 %. LONGi Hi‑MO X10 si quieres el tope.</p>
+      <div class="mat-buy">
+        <a class="buy" href="https://autosolar.es/paneles-solares" target="_blank" rel="noopener">AutoSolar ↗</a>
+        <a class="buy" href="https://sfe-solar.com/instalaciones-fotovoltaicas/productos/paneles-solares/500w" target="_blank" rel="noopener">SunFields 500 W ↗</a>
+        <a class="buy" href="https://solarpec.es/paneles-solares/500W" target="_blank" rel="noopener">Solarpec ↗</a>
+      </div>
+    </article>
+    <article class="mat">
+      <div class="mat-h"><h5>Inversor híbrido 5 kW</h5><span class="conf" style="color:var(--warn)">orientativa</span></div>
+      <div class="mat-q">Deye · Victron · Voltronic&nbsp; ·&nbsp; <strong>≈ 1.000 €</strong></div>
+      <p class="mat-s">En aislada hace falta híbrido u off‑grid, no un inversor de red. El Deye de 5 kW es el caballo de batalla del sector y tiene repuesto y servicio en toda España.</p>
+      <p class="mat-eco"><b>No te pases de potencia.</b> 5 kW ya mueve una bomba y una sierra a la vez. Subir a 8 kW encarece y no lo vas a usar nunca.</p>
+      <div class="mat-buy">
+        <a class="buy" href="https://supermercadosolar.es/145-inversores-hibridos-deye" target="_blank" rel="noopener">Supermercado Solar ↗</a>
+        <a class="buy" href="https://solarbex.com/comprar/kit-solar-inversor-5kw-deye-baterias-litio-9600w/" target="_blank" rel="noopener">Solarbex ↗</a>
+      </div>
+    </article>
+    <article class="mat">
+      <div class="mat-h"><h5>Batería LiFePO4 5,12 kWh</h5><span class="conf" style="color:var(--warn)">orientativa</span></div>
+      <div class="mat-q">48 V · más de 6.000 ciclos&nbsp; ·&nbsp; <strong>≈ 1.400 €</strong></div>
+      <p class="mat-s">Es el cuello de botella real, no los paneles. En enero, con dos días nublados seguidos, lo que te salva es la batería. 5 kWh cubren dos días de invierno con cocina de gas.</p>
+      <p class="mat-eco"><b>LiFePO4, nunca plomo.</b> Más de 6.000 ciclos al 100 % de profundidad garantizados frente a 500–800 del plomo: más cara el primer día y tres veces más barata a diez años.</p>
+      <div class="mat-buy">
+        <a class="buy" href="https://supermercadosolar.es/pack-inversor-bateria/1827-pack-inversor-deye-5kw-bateria-de-litio-kirosolar-plus-48v-512kw.html" target="_blank" rel="noopener">Pack Deye + 5,12 kWh ↗</a>
+        <a class="buy" href="https://autosolar.es/kits-solares/kits-solares-con-bateria-de-litio" target="_blank" rel="noopener">AutoSolar litio ↗</a>
+        <a class="buy" href="https://cuencasolar.es/categoria/kits-solares/kits-solares-vivienda-aislada/" target="_blank" rel="noopener">Cuenca Solar ↗</a>
+      </div>
+    </article>
+    <article class="mat">
+      <div class="mat-h"><h5>Estructura, cableado y protecciones</h5><span class="conf" style="color:var(--warn)">orientativa</span></div>
+      <div class="mat-q">soporte + DC/AC + tierra&nbsp; ·&nbsp; <strong>≈ 650 €</strong></div>
+      <p class="mat-s">Estructura fija a 30° al sur en el suelo, cable solar de 6 mm², fusibles y descargadores en continua, magnetotérmico y diferencial en alterna, y pica de tierra.</p>
+      <p class="mat-eco"><b>En suelo, no en cubierta.</b> Se limpian de pie, se orientan al sur de verdad y no obligan a subir al panel sándwich, que se raya solo con mirarlo.</p>
+      <div class="mat-buy"><a class="buy" href="https://autosolar.es/paneles-solares" target="_blank" rel="noopener">AutoSolar ↗</a></div>
+    </article>
+  </div>
+  <div class="note"><p><strong>Fotovoltaica ≈ 3.520 €</strong> por piezas, frente a los 5.561 € del kit cerrado equivalente más barato que he localizado. La diferencia es montarlo vosotros, que en aislada es un día de trabajo.</p></div>
+
+  <h3>Generador</h3>
+  <div class="matgrid">
+    <article class="mat">
+      <div class="mat-h"><h5>Inverter 3.000 W</h5><span class="conf" style="color:var(--ok)">contrastada</span></div>
+      <div class="mat-q">≈ 520–600 €</div>
+      <p class="mat-s">3.000 W es el mínimo para mover una radial y una sierra circular con holgura. Un inverter ajusta revoluciones según demanda: <strong>48–60 dB frente a 75–80</strong>, hasta un 40 % menos de gasolina y onda senoidal pura.</p>
+      <p class="mat-eco"><b>Compra, no alquiles.</b> Dos semanas de alquiler valen casi lo que el aparato, y después te queda como apoyo de la fotovoltaica en enero. Referencias con precio publicado: AIVOLT 3200 W a 60 dB por debajo de 520 €, y maXpeedingrods 3500 W con 3.200 W continuos a 58 dB certificados.</p>
+      <div class="mat-buy">
+        <a class="buy" href="https://www.elrinconelectrico.com/blog/mejores-generadores-inverter-3000w-2026" target="_blank" rel="noopener">Comparativa 3 kW ↗</a>
+        <a class="buy" href="https://www.idealo.es/lista/114788666/generador-inverter.html" target="_blank" rel="noopener">idealo ↗</a>
+        <a class="buy" href="https://autosolar.es/generadores/generadores-inverter" target="_blank" rel="noopener">AutoSolar ↗</a>
+      </div>
+    </article>
+  </div>
+
+  <h3>Herramienta</h3>
+  <p class="lead">Este sistema se monta con radial, taladro y atornillador. Lo que cambia respecto a la madera es que hace falta <strong>atornillador con embrague regulable</strong> para los autoperforantes: apretar de más revienta la arandela EPDM, y ahí es exactamente por donde entra el agua.</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Herramienta</th><th>Para qué</th><th class="num">Ref.</th><th>Decisión</th></tr></thead>
+      <tbody>
+        <tr><td>Amoladora 125 mm + discos de metal</td><td>Cortar tubo y perfil</td><td class="num">70 €</td><td>Comprar</td></tr>
+        <tr><td>Atornillador de impacto ×2 con baterías</td><td>Estructura y panel a la vez</td><td class="num">280 €</td><td>Comprar — dos, no uno</td></tr>
+        <tr><td>Atornillador con embrague regulable</td><td><strong>Autoperforantes con EPDM</strong></td><td class="num">90 €</td><td>Comprar · imprescindible</td></tr>
+        <tr><td>Soldadora inverter MMA 200 A</td><td>Sólo si soldáis los pórticos</td><td class="num">150 €</td><td>Si sabéis soldar</td></tr>
+        <tr><td>Nivel láser autonivelante</td><td>Placas de anclaje al mismo nivel</td><td class="num">120 €</td><td>Comprar</td></tr>
+        <tr><td>Cinta de 30 m, escuadra, plomada, 6 sargentos</td><td>Replanteo y aplomado</td><td class="num">110 €</td><td>Comprar</td></tr>
+        <tr><td>Remachadora y tijera de chapa</td><td>Remates</td><td class="num">60 €</td><td>Comprar</td></tr>
+        <tr><td>Taladro percutor + brocas de widia</td><td>Pernos en zapata</td><td class="num">90 €</td><td>Comprar</td></tr>
+        <tr><td>Andamio o plataforma elevadora</td><td>Cubierta y fachada alta</td><td class="num">~40 €/día</td><td><strong>Alquilar</strong></td></tr>
+        <tr><td>EPI: guantes anticorte, gafas, arnés, casco</td><td>Chapa cortante y trabajo en altura</td><td class="num">180 €</td><td>Comprar · no es opcional</td></tr>
+      </tbody>
+      <tfoot><tr><td colspan="2">Compra de herramienta</td><td class="num">≈ 1.150 €</td><td>más el andamio en alquiler</td></tr></tfoot>
+    </table>
+  </div>
+
+  <div class="grid2">
+    <div class="box">
+      <h4>Alquiler en Alicante</h4>
+      <p>Para el andamio o la plataforma: <a href="https://www.mateco.es/alquiler-plataformas-elevadoras-y-maquinas-de-carga-alicante/">Mateco</a>, <a href="https://www.kiloutou.com/es/alquiler-maquinaria/elevacion/alicante/">Kiloutou</a>, <a href="https://globen.es/alquiler-de-plataformas-elevadoras-en-alicante/">Globen</a>, <a href="https://maximdomenech.es/alicante/alquiler-andamios-alicante/">Maxim Domenech</a> y <a href="https://www.sualrent.com/">Sual Rent</a>. Pedid a dos: entre el primero y el segundo suele haber un 30 %.</p>
+    </div>
+    <div class="box">
+      <h4>Agua</h4>
+      <p>Tienes contador de riego en la parcela, así que no hace falta aljibe enterrado: <strong>depósito de 1.000 L de polietileno alimentario</strong>, grupo de presión, filtro de sedimentos, carbón activo y lámpara UV. El agua de riego no es potable de origen, así que la potabilización no es opcional.</p>
+      <p style="margin-top:8px"><a href="https://www.leroymerlin.es/productos/fontaneria/depositos/depositos-de-agua/depositos-de-agua-1000-l-p.html">Leroy Merlin</a> · <a href="https://www.manomano.es/cat/deposito+agua+potable+1000+litros">ManoMano</a> · <a href="https://www.todoagua.es/depositos-enterrados/">Todoagua</a>. Del orden de <strong>900 €</strong> el conjunto.</p>
+    </div>
+    <div class="box">
+      <h4>Panel sándwich: a quién pedirlo</h4>
+      <p><a href="https://www.panelsandwich.com/panel-sandwich-alicante/">Panel Sandwich Group</a> tiene página y entrega para Alicante, venta directa de fábrica y 48 h si tienen chapa. <a href="https://www.camarasfrigorificas.es/comprar/panel-sandwich-fachada/">Isotermia</a> publica fachada de 40 mm a <strong>20 €/m² sin IVA</strong>. Compara también <a href="https://panelfix.es/collections/panel-sandwich-3-grecas">Panelfix</a>, <a href="https://panelya.com/producto/panel-sandwich-cubierta-sin-tapajuntas-3-grecas/">Panelya</a> e <a href="https://www.ironlux.com/panel-fachada-40mm-machihembrado/">Ironlux</a>.</p>
+    </div>
+    <div class="box">
+      <h4>Acero: a quién pedirlo</h4>
+      <p>Tubo 80×80×3 con precio publicado de <strong>55 € la barra de 6 m con IVA</strong>. <a href="https://hierrosonline.es/tubos-cuadrados/111-tubo-cuadrado-de-80-x-80-x-3-mm.html">Hierros Online</a>, <a href="https://www.incafe2000.com/Esp/p/tubo_cuadrado_80x80x3">Incafé 2000</a>, <a href="https://aceropanel.es/tubo-cuadrado/564-tubo-cuadrado-tucua-80-3mm">Aceropanel</a> y <a href="https://www.manxaferros.com/es/85-TUBO_ESTRUCTURAL_CUADRADO">Manxa Ferros</a>. <strong>Pedid el corte a medida</strong>: os ahorra dos jornadas.</p>
+    </div>
+  </div>
+
+  <div class="note warn">
+    <p><strong>Lo que no he podido verificar, dicho claro.</strong> El proxy de red de este entorno bloquea las webs de Leroy Merlin, Obramat, Panel Sandwich Group y el resto de tiendas, así que <strong>no he leído ni una sola ficha de artículo</strong>. Todos los precios son rangos publicados y contrastados en varias fuentes, tomados en la banda baja‑media, y cada ficha lleva su nivel de confianza. Los enlaces están puestos para que entréis vosotros: en cuanto tengáis presupuesto de almacén, esas cifras mandan sobre las mías.</p>
   </div>
  </div>
 </section>
@@ -565,15 +717,21 @@ var BEAR = 20;                   // eje de la finca, grados desde el norte
 var WALL = 0.20, TAB = 0.10, PEND = 1.00;
 
 var ROOFS = {
-  chapa:  {n:'Chapa grecada 0,6 mm', p:11, extra:0,
-           d:'Estanca desde el primer día; se aísla por dentro en fase 2. La más rápida de montar.'},
-  pir40:  {n:'Panel sándwich PIR 40 mm', p:22, extra:0,
-           d:'Estanco y aislado en un solo producto. Un panel lo suben dos personas.'},
-  pir80v: {n:'PIR 80 mm + sobrecubierta ventilada', p:28, extra:11,
-           d:'Lo correcto para agosto en Alicante, pero es lo que más encarece el casco.'}
+  p40: {n:'Panel sándwich cubierta 3 grecas 40 mm', p:22, extra:0,
+        d:'El estándar de nave agrícola. Un panel de 1 m útil lo suben dos personas y cierra 1 m² de golpe.'},
+  p50: {n:'Panel sándwich cubierta 3 grecas 50 mm', p:26, extra:0,
+        d:'Cuatro euros más por m² y un escalón más de aislamiento. En Alicante, la opción que yo compraría.'},
+  p60: {n:'Panel sándwich cubierta 3 grecas 60 mm', p:30, extra:0,
+        d:'Sobrado para este clima salvo que vayas a vivir allí en agosto sin aire.'},
+  p50v:{n:'Panel 50 mm + sobrecubierta ventilada', p:26, extra:11,
+        d:'Lo mejor térmicamente que puedes hacer en Alicante: la cámara ventilada se lleva el calor antes de que entre.'}
+};
+var SUELOS = {
+  solera: {n:'Solera de hormigón 12 cm sobre encachado', d:'Lo normal en este sistema y lo más barato. Elevar la plataforma 40 cm sobre el terreno resuelve la escorrentía.'},
+  elevado:{n:'Forjado elevado sobre perfiles, +0,60 m',  d:'Deja pasar el agua de una tormenta por debajo y mantiene la obra desmontable. Cuesta unos 900 € más.'}
 };
 var DEF_PLAN = {
-  bw:4.90, corr:1.10, h:2.60, pos:50, roof:'pir40', budget:10000,
+  bw:4.90, corr:1.10, h:2.60, pos:50, roof:'p50', suelo:'solera', budget:10000,
   rooms:[
     {n:'Invernadero · porche',     L:1.60, t:'inv'},
     {n:'Estar · Comedor · Cocina', L:4.80, t:'sala'},
@@ -674,7 +832,10 @@ function geo(){
   g.vol   = g.Sfloor*0.02475 + g.houseLen*0.0594
           + (g.P/0.40)*g.Hm*0.006525 + 3*g.P*0.006525
           + (g.tabLen/0.40)*2.60*0.00405 + g.Sroof*0.021938;
-  g.nZap  = 3*(Math.ceil(g.houseLen/3.2)+1);
+  g.nPort = Math.max(2, Math.ceil(g.houseLen/2.50)+1);        // pórticos cada 2,50 m como máximo
+  g.mlTubo= g.nPort * ((S.h+0.60) + (S.h+PEND+0.60) + S.bw/Math.cos(g.slope));
+  g.mlCorr= 4*g.houseLen + 3*2*g.houseLen + 3*2*S.bw;         // cubierta + fachadas largas + testeros
+  g.nZap  = 2*g.nPort + (g.invLen>0 ? 2 : 0);
   g.Sglass= 0.30*(g.houseLen*S.h) + 2.0;
   g.okW   = S.bw <= LIM.W+1e-6;
   g.okL   = g.totalLen <= LIM.L+1e-6;
@@ -704,65 +865,141 @@ var SHOP={
   panelya:  {n:'Panelya · panel cubierta', u:'https://panelya.com/producto/panel-sandwich-cubierta-sin-tapajuntas-3-grecas/'},
   diaterm:  {n:'Diaterm · chapa galvanizada', u:'https://www.diaterm.com/comprar/chapa-grecada-galvanizada/'},
   dangla:   {n:'Dangla · construcción', u:'https://dangla.es/almacen-de-materiales-de-construccion-y-reforma/'},
-  todoagua: {n:'Todoagua · depósitos', u:'https://www.todoagua.es/depositos-enterrados/'}
+  todoagua: {n:'Todoagua · depósitos', u:'https://www.todoagua.es/depositos-enterrados/'},
+  // --- panel sándwich ---
+  isotermia:{n:'Isotermia · fachada 20 €/m²', u:'https://www.camarasfrigorificas.es/comprar/panel-sandwich-fachada/'},
+  ptermicos:{n:'Paneles Térmicos · fachada', u:'https://www.panelestermicos.com/productos/fachada/'},
+  diatermF: {n:'Diaterm · fachada 40 mm', u:'https://www.diaterm.com/comprar/panel-sandwich-fachada-40mm/'},
+  ironlux:  {n:'Ironlux · machihembrado 40', u:'https://www.ironlux.com/panel-fachada-40mm-machihembrado/'},
+  comprahi: {n:'CompraHierro · a medida', u:'https://comprahierro.com/panel-sandwich/panel-sandwich-fachada/'},
+  pfMuro:   {n:'Panelfix · panel muro PUR', u:'https://panelfix.es/products/panel-de-fachada-muro-pur'},
+  pfRemates:{n:'Panelfix · remates', u:'https://panelfix.es/collections/remates-panel-sandwich'},
+  psTorn:   {n:'Panel Sandwich · tornillería', u:'https://www.panelsandwich.com/accesorios/tornillo-estructura-metalica-teja/'},
+  diatermT: {n:'Diaterm · autoperforantes', u:'https://www.diaterm.com/comprar/tornillo-autoroscante-panel-sandwich/'},
+  tornExp:  {n:'Tornillos Express', u:'https://www.tornillos-express.es/458-fijacion-para-panel-sandwich'},
+  // --- acero ---
+  hierrosOn:{n:'Hierros Online · tubo 80×80×3', u:'https://hierrosonline.es/tubos-cuadrados/111-tubo-cuadrado-de-80-x-80-x-3-mm.html'},
+  lmTubo:   {n:'Leroy Merlin · tubo 80×80×3', u:'https://www.leroymerlin.es/productos/tubo-cuadrado-acero-80-x-80-mm-ep-3-mm-4-metros-88311809.html'},
+  incafe:   {n:'Incafé 2000 · tubo', u:'https://www.incafe2000.com/Esp/p/tubo_cuadrado_80x80x3'},
+  aceropan: {n:'Aceropanel · tubo', u:'https://aceropanel.es/tubo-cuadrado/564-tubo-cuadrado-tucua-80-3mm'},
+  manxa:    {n:'Manxa Ferros · estructural', u:'https://www.manxaferros.com/es/85-TUBO_ESTRUCTURAL_CUADRADO'},
+  // --- solar ---
+  autosolarP:{n:'AutoSolar · paneles', u:'https://autosolar.es/paneles-solares'},
+  sfe500:   {n:'SunFields · 500 W', u:'https://sfe-solar.com/instalaciones-fotovoltaicas/productos/paneles-solares/500w'},
+  solarpec: {n:'Solarpec · 500 W', u:'https://solarpec.es/paneles-solares/500W'},
+  smsInv:   {n:'Supermercado Solar · Deye', u:'https://supermercadosolar.es/145-inversores-hibridos-deye'},
+  smsPack:  {n:'Pack Deye 5 kW + 5,12 kWh', u:'https://supermercadosolar.es/pack-inversor-bateria/1827-pack-inversor-deye-5kw-bateria-de-litio-kirosolar-plus-48v-512kw.html'},
+  autosolarK:{n:'AutoSolar · kits litio', u:'https://autosolar.es/kits-solares/kits-solares-con-bateria-de-litio'},
+  solarbex: {n:'Solarbex · kit Deye', u:'https://solarbex.com/comprar/kit-solar-inversor-5kw-deye-baterias-litio-9600w/'},
+  cuencaS:  {n:'Cuenca Solar · aislada', u:'https://cuencasolar.es/categoria/kits-solares/kits-solares-vivienda-aislada/'},
+  // --- generador y herramienta ---
+  genComp:  {n:'Comparativa inverter 3 kW', u:'https://www.elrinconelectrico.com/blog/mejores-generadores-inverter-3000w-2026'},
+  genIdealo:{n:'idealo · generadores', u:'https://www.idealo.es/lista/114788666/generador-inverter.html'},
+  autosolarG:{n:'AutoSolar · generadores', u:'https://autosolar.es/generadores/generadores-inverter'},
+  mateco:   {n:'Mateco Alicante · alquiler', u:'https://www.mateco.es/alquiler-plataformas-elevadoras-y-maquinas-de-carga-alicante/'},
+  kiloutou: {n:'Kiloutou Alicante', u:'https://www.kiloutou.com/es/alquiler-maquinaria/elevacion/alicante/'},
+  globen:   {n:'Globen Alicante', u:'https://globen.es/alquiler-de-plataformas-elevadoras-en-alicante/'},
+  maximdom: {n:'Maxim Domenech · andamios', u:'https://maximdomenech.es/alicante/alquiler-andamios-alicante/'},
+  sualrent: {n:'Sual Rent · maquinaria', u:'https://www.sualrent.com/'},
+  // --- agua ---
+  lmDep:    {n:'Leroy Merlin · depósito 1000 L', u:'https://www.leroymerlin.es/productos/fontaneria/depositos/depositos-de-agua/depositos-de-agua-1000-l-p.html'},
+  manoDep:  {n:'ManoMano · depósito potable', u:'https://www.manomano.es/cat/deposito+agua+potable+1000+litros'}
 };
 
 /* ================= COSTE ================= */
 function bom(g){
-  var R = ROOFS[S.roof];
-  var a = [
+  var R=ROOFS[S.roof], solera=(S.suelo==='solera');
+  var Ssuelo=S.bw*g.houseLen;
+  var a=[
    {k:'prep', n:'Replanteo, desbroce y zanja de infiltración', m:'—', u:'—', i:250,
-    q:'—', sup:'—', spec:'Miniretro medio día para la zanja de infiltración', conf:'media', l:[], eco:'La zanja de infiltración devuelve el agua de tormenta al propio terreno en lugar de echarla al camino. Medio día de máquina y evita la erosión que se comería el acceso.'},
+    q:'medio día de miniretro', sup:'—', conf:'media',
+    spec:'Zanja de 40 cm rellena de grava en el lindero de aguas arriba, antes de nada',
+    l:[], eco:'Devuelve el agua de tormenta al terreno en lugar de echarla al camino, y evita la erosión que se comería el acceso.'},
+
    {k:'cim', n:'Cimentación: zapatas HA‑25 40×40×60 con placa de anclaje', m:g.nZap+' ud', u:'43', i:g.nZap*43,
-    q:g.nZap+' zapatas · ~'+Math.ceil(g.nZap*2.7)+' sacos de hormigón seco 25 kg', sup:'Obramat · Leroy Merlin',
-    spec:'Hormigón seco H‑25 en saco de 25 kg (3,50–4,50 €/saco) + redondo de 8 mm + placa de anclaje galvanizada', conf:'alta', l:['lmHorm','bdHorm','lmCem','obramat'], eco:'El hormigón es la partida de más huella del proyecto. Quince zapatas gastan <b>una cuarta parte</b> del hormigón de una losa, y encima dejan pasar el agua por debajo.'},
-   {k:'mad', n:'Madera estructural pino C24 KD cepillada', m:n2(g.vol)+' m³', u:'450', i:g.vol*450,
-    q:n2(g.vol)+' m³ · montantes 45×145, viguetas 45×220, pares 45×195', sup:'Urbanmader · Obramat',
-    spec:'Pino C24 secado en cámara y cepillado. Preguntar si cortan a medida según despiece', conf:'baja', l:['urban','obMadera','obVigas'], eco:'La única partida que <b>almacena</b> carbono en vez de emitirlo: del orden de una tonelada de CO₂ por m³ retenida mientras la casa esté en pie. Pide certificado PEFC o FSC; en España suele salir igual o un 5 % más.'},
-   {k:'trat', n:'Protector de madera, clase de uso 3', m:Math.ceil(g.vol*3.2)+' L', u:'12', i:Math.ceil(g.vol*3.2)*12,
-    q:Math.ceil(g.vol*3.2)+' litros', sup:'Obramat · Leroy Merlin',
-    spec:'Protector de poro abierto para clase de uso 3, dos manos antes de montar', conf:'media', l:['obramat','dangla'], eco:'Protector <b>al agua</b>, no al disolvente: mismo precio, sin vapores durante los días de corte y sin residuo peligroso que gestionar.'},
-   {k:'osbm', n:'Tablero OSB3 12 mm, arriostrado de muros', m:n1(g.Swall)+' m²', u:'9,50', i:g.Swall*9.5,
-    q:Math.ceil(g.Swall/2.98)+' tableros de 2,44 × 1,22 m', sup:'Todo Madera Alicante · Obramat',
-    spec:'OSB‑3 hidrófugo 12 mm. Es lo que arriostra el edificio: no sustituible por panel', conf:'alta', l:['todoMad','lmOsb','bdOsb','obTab'], eco:'OSB con emisión E1 o E0; sale de restos de aserradero, no de troncos. No lo cambies por panel: es lo que impide que el poniente tire el paño ciego.'},
-   {k:'osbf', n:'Tablero OSB3 15 mm, forjado', m:n1(g.Sfloor*1.03)+' m²', u:'10,51', i:g.Sfloor*1.03*10.51,
-    q:Math.ceil(g.Sfloor*1.03/2.98)+' tableros de 2,44 × 1,22 m', sup:'Todo Madera Alicante · Obramat',
-    spec:'OSB‑3 hidrófugo 15 mm, referencia de 10,51 €/m² (junio 2026)', conf:'alta', l:['todoMad','lmOsb','bdOsb'], eco:'El mismo tablero que en muros pero de 15 mm. Comprar los dos espesores el mismo día y en el mismo sitio ahorra un porte entero.'},
-   {k:'cub', n:'Cubierta: '+R.n, m:n1(g.Sroof)+' m²', u:String(R.p)+',00', i:g.Sroof*R.p,
-    q:n1(g.Sroof)+' m² · piezas a la longitud exacta del faldón ('+n2(S.bw+1.60)+' m)', sup:'Panel Sandwich Group · Panelfix',
-    spec:'Pedir a medida para evitar solapes. Rango publicado de panel de cubierta: 17–95 €/m² según espesor', conf:'media', l:['psAli','psCub','ps3g','pfCub','panelya'], eco:'Aquí está la tensión honesta del proyecto: el <b>PIR es petroquímico</b> y de las peores huellas por kilo. La alternativa limpia —chapa simple ahora y fibra de madera o corcho por dentro en fase 2— sale un 35–50 % más cara en aislamiento pero deja la cubierta sin espuma. Si manda el bolsillo, el PIR de 40 mm es lo sensato; si puedes esperar, la chapa sola es más reversible.'},
-   {k:'hpv', n:'Lámina transpirable HPV de fachada', m:n1(g.Swall*1.1)+' m²', u:'2,50', i:g.Swall*1.1*2.5,
-    q:Math.ceil(g.Swall*1.1/75)+' rollo(s) de 1,5 × 50 m', sup:'Obramat',
-    spec:'Lámina HPV de fachada, Sd < 0,1 m. No dejarla al sol más de una temporada', conf:'media', l:['obramat','dangla'], eco:'Compra el rollo justo: los sobrantes de lámina no se reutilizan y acaban en el contenedor.'},
-   {k:'rast', n:'Rastreles de cámara ventilada en fachada', m:n1(g.Swall)+' m²', u:'3,00', i:g.Swall*3,
-    q:'~'+Math.ceil(g.Swall*2.6)+' m lineales de rastrel 40×60', sup:'Urbanmader · Obramat',
-    spec:'Rastrel tratado 40×60 mm cada 40 cm, cámara de 40 mm', conf:'media', l:['urban','obMadera'], eco:'Rastrel del mismo pino tratado que la estructura. Aprovecha los recortes de las vigas: de ahí salen unos cuantos metros gratis.'},
-   {k:'chap', n:'Chapa grecada prelacada de fachada', m:n1(g.Swall)+' m²', u:'9,00', i:g.Swall*9,
-    q:n1(g.Swall)+' m² prelacada, color a elegir', sup:'Panel Sandwich Group · Panelfix',
-    spec:'Chapa grecada 0,6 mm galvanizada y prelacada. Instalada con estructura se publica a 28–40 €/m²; aquí sólo material', conf:'media', l:['psChapa','pfChapa','diaterm'], eco:'El acero galvanizado es <b>100 % reciclable</b> y ya lleva chatarra dentro. Cincuenta años sin mantenimiento en este clima, frente a repintar madera cada dos o tres años.'},
+    q:g.nZap+' zapatas · ~'+Math.ceil(g.nZap*2.7)+' sacos de hormigón seco 25 kg', sup:'Obramat · Leroy Merlin · Brico Depôt', conf:'alta',
+    spec:'Hormigón seco H‑25 en saco de 25 kg (3,50–4,50 €/saco), redondo de 8 mm y placa de anclaje galvanizada con pernos',
+    l:['lmHorm','bdHorm','lmCem','obramat'],
+    eco:'Es la partida de más huella del proyecto. Zapatas aisladas gastan <b>una cuarta parte</b> del hormigón de una losa corrida.'},
+
+   {k:'acero', n:'Estructura: pórticos de tubo estructural 80×80×3', m:n1(g.mlTubo)+' m', u:'9,20', i:g.mlTubo*9.2,
+    q:g.nPort+' pórticos · '+Math.ceil(g.mlTubo/6)+' barras de 6 m', sup:'Hierros Online · Incafé · Aceropanel · Leroy Merlin', conf:'alta',
+    spec:'Tubo cuadrado 80×80×3 mm. Referencia contrastada: 55 € la barra de 6 m con IVA, es decir 9,17 €/m',
+    l:['hierrosOn','incafe','aceropan','lmTubo','manxa'],
+    eco:'El acero estructural se recicla al 100 % y ya lleva chatarra dentro. Atornillado en lugar de soldado, la nave se desmonta y se lleva.'},
+
+   {k:'correas', n:'Correas y rastreles de perfil 60×40×2', m:n1(g.mlCorr)+' m', u:'4,50', i:g.mlCorr*4.5,
+    q:Math.ceil(g.mlCorr/6)+' barras de 6 m', sup:'Hierros Online · Aceropanel', conf:'media',
+    spec:'Perfil 60×40×2 cada 2,00 m en cubierta y cada 1,50 m en fachada, que es lo que necesita el panel para no flectar',
+    l:['hierrosOn','aceropan','manxa'],
+    eco:'Aprovechad los recortes: de una barra de 6 m salen dos tramos de testero sin desperdicio.'},
+
+   {k:'anclajes', n:'Placas de anclaje, pernos químicos y tornillería estructural', m:g.nZap+' ud', u:'—', i:g.nZap*25+250,
+    q:g.nZap+' placas + pernos M12 + tornillo estructural', sup:'Obramat · Tornillos Express', conf:'media',
+    spec:'Placa 200×200×8 galvanizada con 4 pernos M12. Es la pieza que decide si la nave queda a plomo',
+    l:['obramat','tornExp'],
+    eco:'Todo atornillado y galvanizado: se revisa, se aprieta y, si algún día hay que mover la nave, se desmonta.'},
+
+   {k:'cub', n:R.n, m:n1(g.Sroof)+' m²', u:String(R.p)+',00', i:g.Sroof*R.p,
+    q:Math.ceil(g.Sroof/(S.bw+1.60))+' paneles de '+n2(S.bw+1.60)+' m · ancho útil 1,00 m', sup:'Panel Sandwich Group · Panelfix · Panelya', conf:'media',
+    spec:'Pedir a la longitud exacta del faldón: sin solapes no hay filtraciones. Rango publicado de panel de cubierta: 17–95 €/m² según espesor',
+    l:['psAli','psCub','ps3g','pfCub','panelya'],
+    eco:'El núcleo de poliuretano es petroquímico, y es el punto flojo ambiental del sistema. A cambio llega aislado de fábrica: te ahorras la lana mineral y el trasdosado de la Fase 2.'},
+
+   {k:'fach', n:'Panel sándwich fachada 40 mm machihembrado', m:n1(g.Swall)+' m²', u:'22,00', i:g.Swall*22,
+    q:Math.ceil(g.Swall)+' m² · paneles de 1 m de ancho, montaje vertical', sup:'Isotermia · Paneles Térmicos · Diaterm · Ironlux', conf:'alta',
+    spec:'Machihembrado de 40 mm, lacado por las dos caras. Isotermia lo publica a 20 €/m² sin IVA con precios actualizados a enero de 2026',
+    l:['isotermia','ptermicos','diatermF','ironlux','pfMuro','comprahi'],
+    eco:'Sustituye de una vez montantes, tablero, aislamiento, lámina y chapa. Menos material, menos transporte y menos residuo que el entramado de madera.'},
+
+   {k:'remates', n:'Remates, cumbrera, tapajuntas y tornillo autoperforante con EPDM', m:n1(g.Sroof+g.Swall)+' m²', u:'6,00', i:(g.Sroof+g.Swall)*6,
+    q:'cumbrera, remates laterales y de alero + tornillo 6,3 con arandela EPDM 18 mm', sup:'Panelfix · Panel Sandwich Group · Diaterm', conf:'media',
+    spec:'Rango publicado de remates y tornillería: 5–12 €/m² según perímetro. Tornillo 6,3 mm con arandela EPDM de 18 mm, que es lo que da la estanqueidad',
+    l:['pfRemates','psTorn','diatermT','tornExp'],
+    eco:'Es la partida que más se subestima y la que provoca las filtraciones. No la recortes: sin remate bien puesto, el panel no sirve de nada.'},
+
+   solera
+   ? {k:'suelo', n:'Solera de hormigón 12 cm sobre encachado y lámina', m:n1(Ssuelo)+' m²', u:'20,50', i:Ssuelo*13.2+141+200,
+      q:n2(Ssuelo*0.12)+' m³ de hormigón + mallazo + encachado', sup:'Hormigonera local · Obramat', conf:'media',
+      spec:'Encachado de 15 cm, lámina de polietileno, mallazo 15×15×6 y hormigón HA‑25. Levantar la plataforma 40 cm sobre el terreno',
+      l:['obramat','lmHorm'],
+      eco:'La partida menos ecológica y la menos reversible. Si te importa poder desmontar la nave algún día, elige el forjado elevado.'}
+   : {k:'suelo', n:'Forjado elevado sobre perfiles, suelo a +0,60 m', m:n1(Ssuelo)+' m²', u:'40,00', i:Ssuelo*40,
+      q:n1(Ssuelo)+' m² de forjado + tablero', sup:'Hierros Online · Todo Madera Alicante', conf:'baja',
+      spec:'Perfiles 100×50×3 cada 60 cm sobre las placas, tablero OSB3 de 18 mm y cámara ventilada de 38 cm con rejilla',
+      l:['hierrosOn','todoMad','obTab'],
+      eco:'Deja pasar el agua de una gota fría por debajo, refresca el suelo en verano y mantiene la nave desmontable.'},
+
    {k:'carp', n:'Carpintería exterior aluminio RPT, vidrio 4/16/4 bajo emisivo', m:n1(g.Sglass)+' m²', u:'240', i:g.Sglass*240,
-    q:n1(g.Sglass)+' m² de hueco, concentrados en fachada ESE', sup:'Carpintería local · comparar 3 presupuestos',
-    spec:'Aluminio con RPT y vidrio bajo emisivo. Rango de material publicado: 220–300 €/m²', conf:'alta', l:['obramat'], eco:'Aluminio con contenido reciclado y, sobre todo, <b>no compres más metros de los que necesitas</b>: cada m² de hueco de más son 240 € y una pérdida térmica permanente. Aquí menos vidrio es más barato y más fresco.'},
+    q:n1(g.Sglass)+' m² de hueco, concentrados en la fachada ESE', sup:'Carpintería local · pedir tres presupuestos', conf:'alta',
+    spec:'Aluminio con rotura de puente térmico y vidrio bajo emisivo. Rango de material publicado: 220–300 €/m²',
+    l:['obramat'],
+    eco:'<b>No compres más metros de los que necesitas</b>: cada m² de hueco de más son 240 € y una pérdida térmica para siempre. Aquí menos vidrio es más barato y más fresco.'},
+
    {k:'puer', n:'Puerta exterior técnica con cerradura de seguridad', m:'1 ud', u:'400', i:400,
-    q:'1 unidad', sup:'Obramat', spec:'Puerta técnica exterior con cerradura de seguridad', conf:'media', l:['obramat','dangla'], eco:'Puerta con burlete perimetral: la infiltración de aire por una puerta mal sellada pesa más que el aislamiento de medio muro.'},
-   {k:'torn', n:'Tornillería estructural, herrajes, anclajes y sellantes', m:n1(g.Sc)+' m²', u:'5,50', i:g.Sc*5.5,
-    q:'estribos, tirafondos, tornillo autoperforante y sellante', sup:'Obramat',
-    spec:'Tornillo estructural, estribos de vigueta, ángulos, sellante de poliuretano', conf:'media', l:['obramat'], eco:'Tornillo estructural y estribo galvanizado. Es lo que hace la casa <b>desmontable</b>: lo clavado y encolado no se recupera; lo atornillado, sí.'},
-   {k:'agua', n:'Canalón, bajantes y remates galvanizados', m:n1(g.houseLen+S.bw)+' m', u:'12,00', i:(g.houseLen+S.bw)*12,
-    q:n1(g.houseLen+S.bw)+' m de canalón + 2 bajantes', sup:'Obramat',
-    spec:'Canalón galvanizado con ganchos cada 60 cm', conf:'media', l:['obramat','todoagua'], eco:'Conduce toda el agua de cubierta a un depósito. Con 300 mm de lluvia al año, cada m² de cubierta da unos 255 litros que no hay que traer en cuba.'}
+    q:'1 unidad con burlete perimetral', sup:'Obramat · Dangla', conf:'media',
+    spec:'Puerta técnica exterior, cerradura de seguridad y burlete en todo el perímetro',
+    l:['obramat','dangla'],
+    eco:'La infiltración de aire por una puerta mal sellada pesa más que el aislamiento de medio muro.'},
+
+   {k:'agua', n:'Canalón, bajantes y remates de evacuación', m:n1(g.houseLen+S.bw)+' m', u:'12,00', i:(g.houseLen+S.bw)*12,
+    q:n1(g.houseLen+S.bw)+' m de canalón + 2 bajantes', sup:'Obramat · Panelfix', conf:'media',
+    spec:'Canalón galvanizado con ganchos cada 60 cm, conducido al depósito',
+    l:['obramat','pfRemates'],
+    eco:'Con 300 mm de lluvia al año, cada m² de cubierta te da unos 255 litros que no hay que traer en cuba.'}
   ];
-  if(R.extra) a.push({k:'sobr', n:'Sobrecubierta ventilada: rastrel 60 mm y chapa grecada', m:n1(g.Sroof)+' m²',
-    u:String(R.extra)+',00', i:g.Sroof*R.extra, q:n1(g.Sroof)+' m²', sup:'Panel Sandwich Group',
-    spec:'Rastrel 60 mm y chapa grecada sobre el panel: es lo que hace la casa habitable en agosto', conf:'media',
-    l:['psChapa','pfChapa'], eco:'La cámara ventilada bajo la chapa es climatización pasiva: cero consumo, cero mantenimiento, y en agosto baja la temperatura de cubierta más que ningún aislamiento añadido.'});
+  if(R.extra) a.push({k:'sobre', n:'Sobrecubierta ventilada: rastrel y chapa grecada', m:n1(g.Sroof)+' m²',
+    u:String(R.extra)+',00', i:g.Sroof*R.extra, q:n1(g.Sroof)+' m²', sup:'Panel Sandwich Group · Panelfix', conf:'media',
+    spec:'Rastrel de 60 mm y chapa grecada sobre el panel, con la cámara ventilada por alero y cumbrera',
+    l:['psChapa','pfChapa'],
+    eco:'Climatización pasiva pura: cero consumo y cero mantenimiento. En agosto baja la temperatura de cubierta más que ningún aislamiento añadido.'});
   return a;
 }
 function phases(g,f1){
   return [
     {n:'Fase 1', d:'Casco cerrado y estanco', i:f1},
-    {n:'Fase 2', d:'Interior habitable: aislamiento, trasdosados, pavimento, baño, cocina, instalaciones', i:g.Sc*167},
-    {n:'Fase 3', d:'Acometida y depósito tampón, filtración y UV, 3 kWp con batería, ACS, estufa', i:7850},
+    {n:'Fase 2', d:'Interior: tabiquería ligera, pavimento, baño, cocina, fontanería y electricidad — sin aislar, el panel ya viene aislado', i:g.Sc*110},
+    {n:'Fase 3', d:'Autonomía: 3 kWp con inversor híbrido y batería, depósito y potabilización, ACS y estufa', i:6100},
     {n:'Fase 4', d:'Invernadero, pérgola, riego por goteo, plantación y exteriores', i:(S.bw*g.invLen)*130+3300}
   ];
 }
@@ -1054,7 +1291,7 @@ function buildBuilding(g){
   }
   /* zócalo y forjado */
   box(tL-0.16,F,bw-0.16,M({color:0x59604F}),0.08,0,0.08);
-  box(tL,0.06,bw,mMad,0,F,0);
+  box(tL,0.06,bw,(S.suelo==='solera'? M({color:0x9E9A90}) : mMad),0,F,0);
 
   /* huecos de la fachada ESE, deducidos de las estancias */
   var wins=[], cur=iL+WALL;
@@ -1110,6 +1347,20 @@ function buildBuilding(g){
     if(g.hasC){
       var px=iL+WALL+(g.house.length&&g.house[0].t==='sala'? g.house[0].L+TAB:0);
       box(g.corrLen,0.02,S.corr,M({color:0x9AA093}),px,F+0.06,WALL,0,false);
+    }
+  }
+  /* pórticos de acero: 2 pilares + dintel inclinado, cada <=2,50 m */
+  var mAcero=M({color:0x6E7A80});
+  if(hL>0){
+    var nP=Math.max(2,Math.ceil(hL/2.50)+1), sep=hL/(nP-1);
+    for(var ip=0; ip<nP; ip++){
+      var px=iL+ip*sep-0.04;
+      box(0.08,h+PEND,0.08,mAcero,px,F,0.02);            // pilar WNW
+      box(0.08,h,0.08,mAcero,px,F,bw-0.10);              // pilar ESE
+      var din=new THREE.Mesh(new THREE.BoxGeometry(0.08,0.08,bw/Math.cos(g.slope)),mAcero);
+      din.rotation.x=g.slope;
+      din.position.set(px+0.04, F+h+PEND/2+0.04, bw/2);
+      din.castShadow=true; gBuild.add(din);
     }
   }
   /* invernadero */
@@ -1420,6 +1671,9 @@ function rng(id,vid,key,fmt){
 var syncW=rng('cW','vW','bw',n2), syncP=rng('cP','vP','corr',n2), syncH=rng('cH','vH','h',n2);
 var elPos=document.getElementById('cPos');
 elPos.addEventListener('input',function(){ S.pos=parseFloat(elPos.value); render(); savePlan(); });
+var elSuelo=document.getElementById('cSuelo');
+elSuelo.innerHTML=Object.keys(SUELOS).map(function(k){ return '<option value="'+k+'">'+SUELOS[k].n+'</option>'; }).join('');
+elSuelo.addEventListener('change',function(){ S.suelo=elSuelo.value; render(); savePlan(); });
 var elRoof=document.getElementById('cRoof');
 elRoof.innerHTML=Object.keys(ROOFS).map(function(k){
   return '<option value="'+k+'">'+ROOFS[k].n+' · '+(ROOFS[k].p+ROOFS[k].extra)+' €/m²</option>'; }).join('');
@@ -1673,6 +1927,7 @@ function render(skipList){
   elPos.value=S.pos;
   document.getElementById('vPos').textContent=S.pos<20?'al sur':S.pos>80?'al norte':'centrada';
   elRoof.value=S.roof; document.getElementById('roofNote').textContent=ROOFS[S.roof].d;
+  elSuelo.value=S.suelo; document.getElementById('sueloNote').textContent=SUELOS[S.suelo].d;
   elBud.value=S.budget; document.getElementById('vBud').textContent=eur(S.budget);
   var pct=f1/S.budget*100, bar=document.getElementById('budBar');
   bar.style.width=Math.min(100,pct)+'%';
@@ -1680,6 +1935,18 @@ function render(skipList){
   document.getElementById('budNote').textContent=pct<=100
     ? 'Te sobran '+eur(S.budget-f1)+' € del objetivo.'
     : 'Te pasas '+eur(f1-S.budget)+' € ('+Math.round(pct-100)+' %).';
+  var byK={}; items.forEach(function(x){ byK[x.k]=x.i; });
+  function put(id,v){ var e=document.getElementById(id); if(e) e.textContent=eur(v)+' €'; }
+  put('ordPanel',(byK.cub||0)+(byK.fach||0)+(byK.sobre||0));
+  put('ordCarp',byK.carp||0); put('ordAcero',(byK.acero||0)+(byK.correas||0));
+  put('ordCim',(byK.cim||0)+(byK.anclajes||0)); put('ordRem',byK.remates||0);
+  var acc=0;
+  var pb=document.getElementById('phaseBody');
+  if(pb) pb.innerHTML = ph.map(function(r){ acc+=r.i;
+    return '<tr><td><strong>'+r.n+'</strong></td><td>'+esc(r.d)+'</td>'
+      +'<td class="num">'+eur(r.i)+' €</td><td class="num">'+eur(acc)+' €</td></tr>'; }).join('')
+    + '<tr><td colspan="2"><strong>Total materiales</strong></td><td class="num"><strong>'+eur(acc)
+    + ' €</strong></td><td class="num">'+eur(acc/Math.max(1,g.Sc))+' €/m²</td></tr>';
   refillPartidas(); renderSite(); renderFact();
 }
 
@@ -1725,6 +1992,7 @@ function delFact(id){
 function normPlan(o){
   if(!o||typeof o.bw!=='number'||!Array.isArray(o.rooms)||!o.rooms.length) return null;
   if(!ROOFS[o.roof]) o.roof=DEF_PLAN.roof;
+  if(!SUELOS[o.suelo]) o.suelo=DEF_PLAN.suelo;
   ['corr','h','pos','budget'].forEach(function(k){ if(typeof o[k]!=='number') o[k]=DEF_PLAN[k]; });
   return o;
 }
@@ -1777,7 +2045,7 @@ function initDB(){
 /* ==================================================================
    PESTAÑAS Y ARRANQUE
    ================================================================== */
-var TABS=[['tab-terreno','p-terreno'],['tab-planta','p-planta'],['tab-mat','p-mat'],['tab-fact','p-fact'],['tab-obra','p-obra']];
+var TABS=[['tab-terreno','p-terreno'],['tab-planta','p-planta'],['tab-mat','p-mat'],['tab-compra','p-compra'],['tab-fact','p-fact'],['tab-obra','p-obra']];
 TABS.forEach(function(t){
   document.getElementById(t[0]).addEventListener('click',function(){
     TABS.forEach(function(o){
