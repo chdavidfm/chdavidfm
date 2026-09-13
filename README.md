@@ -13,6 +13,7 @@ Paris / Alicante. ES · FR · EN.
 
 <!-- pulse:start -->
 
+- [`renovo-core`](https://github.com/chdavidfm/renovo-core) — feat: implement local express server for netlify functions · 4 Sep 2026
 - [`rag-agent-lab`](https://github.com/chdavidfm/rag-agent-lab) — quality: record the weekly measurement · 7 Sep 2026
 - [`skills`](https://github.com/chdavidfm/skills) — feat: add fleet — opposing-interest agents with real veto · 27 Aug 2026
 
