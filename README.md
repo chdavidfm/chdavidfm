@@ -13,7 +13,7 @@ Paris / Alicante. ES · FR · EN.
 
 <!-- pulse:start -->
 
-- [`rag-agent-lab`](https://github.com/chdavidfm/rag-agent-lab) — quality: record the weekly measurement · 21 Sep 2026
+- [`rag-agent-lab`](https://github.com/chdavidfm/rag-agent-lab) — quality: record the weekly measurement · 28 Sep 2026
 - [`skills`](https://github.com/chdavidfm/skills) — feat: add fleet — opposing-interest agents with real veto · 27 Aug 2026
 
 <!-- pulse:end -->
